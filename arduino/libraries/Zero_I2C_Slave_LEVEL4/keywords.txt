@@ -1,0 +1,48 @@
+#######################################
+# Syntax Coloring Map For SoftPWM
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SoftPWM	ZeroLEVE4
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setRun1		KEYWORD2
+setStop1	KEYWORD2
+setSpeed1	KEYWORD2
+setDir1		KEYWORD2
+setSpeedDir1	KEYWORD2
+setRun2		KEYWORD2
+setStop2	KEYWORD2
+setSpeed2	KEYWORD2
+setDir2		KEYWORD2
+setSpeedDir2	KEYWORD2
+setRun3		KEYWORD2
+setStop3	KEYWORD2
+setSpeed3	KEYWORD2
+setDir3		KEYWORD2
+setSpeedDir3	KEYWORD2
+setRun4		KEYWORD2
+setStop4	KEYWORD2
+setSpeed4	KEYWORD2
+setDir4		KEYWORD2
+setSpeedDir4	KEYWORD2
+setPwm		KEYWORD2
+setSpeedDir	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ALL		LITERAL1
+STOP		LITERAL1
+RUN		LITERAL1
+DIRF		LITERAL1
+DIRR		LITERAL1
+ALLMOSON		LITERAL1
+ALLMOSOFF		LITERAL1

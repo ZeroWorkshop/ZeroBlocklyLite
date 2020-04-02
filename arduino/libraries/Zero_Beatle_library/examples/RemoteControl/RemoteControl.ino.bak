@@ -1,0 +1,44 @@
+#include <Beatle.h>
+
+Beatle beatle;
+
+
+#define SPEED  255
+
+
+void setup() {
+  // put your setup code here, to run once:  
+  Serial.begin(115200);
+  beatle.motors.flipLeftMotor(true);
+  beatle.StartProgram();
+  
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+    
+
+if ( _ButtonUp)
+  {
+   motors.setSpeeds(SPEED, SPEED);
+  }
+  else if( _ButtonDown)
+  {
+   motors.setSpeeds(-SPEED, -SPEED);
+  }
+  else if(_ButtonLeft)
+  {
+     motors.setSpeeds(-SPEED, SPEED);    
+  }
+  else if(_ButtonRight)
+  {
+      motors.setSpeeds(SPEED, -SPEED);
+  }
+  else
+ {
+     motors.setSpeeds(0, 0);
+ }
+}
+
+

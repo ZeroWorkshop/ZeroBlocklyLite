@@ -1,0 +1,10 @@
+name=ZeroBeatle
+version=1.0.0
+author=ZeroWorkshop
+maintainer=ZeroWorkshop <inbox@pololu.com>
+sentence=Arduino library for the ZeroWorkshop Beatle robot kit for Arduino
+paragraph=This is a library for an Arduino-compatible controller that interfaces with the ZeroWorkshop Beatle Robot Kit to make a programmable tank chassis robot.
+category=Device Control
+url=https://github.com/
+includes=Beatle.h
+architectures=avr

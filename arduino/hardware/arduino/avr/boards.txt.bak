@@ -1,0 +1,73 @@
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+menu.cpu=Processor
+
+##############################################################
+uno.name=Arduino/Genuino Uno
+
+uno.vid.0=0x2341
+uno.pid.0=0x0043
+uno.vid.1=0x2341
+uno.pid.1=0x0001
+uno.vid.2=0x2A03
+uno.pid.2=0x0043
+uno.vid.3=0x2341
+uno.pid.3=0x0243
+
+uno.upload.tool=avrdude
+uno.upload.protocol=arduino
+uno.upload.maximum_size=32256
+uno.upload.maximum_data_size=2048
+uno.upload.speed=115200
+
+uno.bootloader.tool=avrdude
+uno.bootloader.low_fuses=0xFF
+uno.bootloader.high_fuses=0xDE
+uno.bootloader.extended_fuses=0x05
+uno.bootloader.unlock_bits=0x3F
+uno.bootloader.lock_bits=0x0F
+uno.bootloader.file=optiboot/optiboot_atmega328.hex
+
+uno.build.mcu=atmega328p
+uno.build.f_cpu=16000000L
+uno.build.board=AVR_UNO
+uno.build.core=arduino
+uno.build.variant=standard
+
+##############################################################
+
+pro.name=Arduino Pro or Pro Mini
+
+pro.upload.tool=avrdude
+pro.upload.protocol=arduino
+
+pro.bootloader.tool=avrdude
+pro.bootloader.unlock_bits=0x3F
+pro.bootloader.lock_bits=0x0F
+
+pro.build.board=AVR_PRO
+pro.build.core=arduino
+pro.build.variant=eightanaloginputs
+
+## Arduino Pro or Pro Mini (5V, 16 MHz) w/ ATmega328
+## -------------------------------------------------
+pro.menu.cpu.16MHzatmega328=ATmega328 (5V, 16 MHz)
+
+pro.menu.cpu.16MHzatmega328.upload.maximum_size=30720
+pro.menu.cpu.16MHzatmega328.upload.maximum_data_size=2048
+pro.menu.cpu.16MHzatmega328.upload.speed=57600
+
+pro.menu.cpu.16MHzatmega328.bootloader.low_fuses=0xFF
+pro.menu.cpu.16MHzatmega328.bootloader.high_fuses=0xDA
+pro.menu.cpu.16MHzatmega328.bootloader.extended_fuses=0x05
+pro.menu.cpu.16MHzatmega328.bootloader.file=atmega/ATmegaBOOT_168_atmega328.hex
+
+pro.menu.cpu.16MHzatmega328.build.mcu=atmega328p
+pro.menu.cpu.16MHzatmega328.build.f_cpu=16000000L
+
+
+
+
+
+
+

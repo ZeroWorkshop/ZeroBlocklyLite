@@ -1,0 +1,123 @@
+#include <Wire.h>
+#include <ZumoShield.h>
+
+#define LED 13
+
+// SENSOR_THRESHOLD is a value to compare reflectance sensor
+// readings to to decide if the sensor is over a black line
+#define SENSOR_THRESHOLD 300
+
+// ABOVE_LINE is a helper macro that takes returns
+// 1 if the sensor is over the line and 0 if otherwise
+#define ABOVE_LINE(sensor)((sensor) > SENSOR_THRESHOLD)
+
+
+// these might need to be tuned for different motor types
+#define REVERSE_SPEED     200 // 0 is stopped, 400 is full speed
+#define TURN_SPEED        200
+#define FORWARD_SPEED     200
+#define REVERSE_DURATION  200 // ms
+#define TURN_DURATION     300 // ms
+
+ZumoBuzzer buzzer;
+ZumoMotors motors;
+Pushbutton button(ZUMO_BUTTON); // pushbutton on pin 12
+
+
+#define NUM_SENSORS 7
+unsigned int sensor_values[NUM_SENSORS];
+
+ZumoReflectanceSensorArray reflectanceSensors;
+
+void waitForButtonAndCountDown()
+{
+  digitalWrite(LED, HIGH);
+  button.waitForButton();
+  digitalWrite(LED, LOW);
+
+  // play audible countdown
+  for (int i = 0; i < 3; i++)
+  {
+    delay(1000);
+    buzzer.playNote(NOTE_G(3), 200, 15);
+  }
+  delay(1000);
+  buzzer.playNote(NOTE_G(4), 500, 15);
+  delay(1000);
+}
+
+void setup()
+{
+  // uncomment if necessary to correct motor directions
+  //motors.flipLeftMotor(true);
+  //motors.flipRightMotor(true);
+  Serial.begin(115200);
+  pinMode(LED, HIGH);
+  
+  reflectanceSensors.init();
+  reflectanceSensors.calibratedMaximumOn = (unsigned int*)malloc(sizeof(unsigned int)*7);
+  reflectanceSensors.calibratedMinimumOn = (unsigned int*)malloc(sizeof(unsigned int)*7);
+   
+  reflectanceSensors.calibratedMaximumOn[0] = 2000;
+  reflectanceSensors.calibratedMinimumOn[0] =  800;
+  reflectanceSensors.calibratedMaximumOn[1] = 2000;
+  reflectanceSensors.calibratedMinimumOn[1] =  450;
+  reflectanceSensors.calibratedMaximumOn[2] = 2000;
+  reflectanceSensors.calibratedMinimumOn[2] =  500;
+  reflectanceSensors.calibratedMaximumOn[3] = 1000;
+  reflectanceSensors.calibratedMinimumOn[3] =  400;
+  reflectanceSensors.calibratedMaximumOn[4] = 2000;
+  reflectanceSensors.calibratedMinimumOn[4] =  450;
+  reflectanceSensors.calibratedMaximumOn[5] = 2000;
+  reflectanceSensors.calibratedMinimumOn[5] =  450;
+  reflectanceSensors.calibratedMaximumOn[6] = 2000;
+  reflectanceSensors.calibratedMinimumOn[6] =  800;
+
+  waitForButtonAndCountDown();
+}
+
+void loop()
+{
+  if (button.isPressed())
+  {
+    // if button is pressed, stop and wait for another press to go again
+    motors.setSpeeds(0, 0);
+    button.waitForRelease();
+    waitForButtonAndCountDown();
+  }
+
+  
+   int position;
+   position =  reflectanceSensors.readLine(sensor_values);
+
+   for(int i = 0; i<7; i++)
+   {
+    Serial.print(sensor_values[i]);Serial.print("\t");
+   }
+   Serial.println();
+        
+
+  if (ABOVE_LINE(sensor_values[0]) )
+  {
+    // if leftmost sensor detects line, reverse and turn to the right
+    motors.setSpeeds(-REVERSE_SPEED, -REVERSE_SPEED);
+    delay(REVERSE_DURATION);
+    motors.setSpeeds(TURN_SPEED, -TURN_SPEED);
+    delay(TURN_DURATION);
+    motors.setSpeeds(FORWARD_SPEED, FORWARD_SPEED);
+  }
+  else if (ABOVE_LINE(sensor_values[6]))
+  {
+    // if rightmost sensor detects line, reverse and turn to the left
+    motors.setSpeeds(-REVERSE_SPEED, -REVERSE_SPEED);
+    delay(REVERSE_DURATION);
+    motors.setSpeeds(-TURN_SPEED, TURN_SPEED);
+    delay(TURN_DURATION);
+    motors.setSpeeds(FORWARD_SPEED, FORWARD_SPEED);
+  }
+  else
+  {
+    // otherwise, go straight
+    motors.setSpeeds(FORWARD_SPEED, FORWARD_SPEED);
+  }
+}

@@ -1,0 +1,99 @@
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+menu.cpu=Processor
+
+#############################################################
+
+ZeroWorkshop_starter.name=ZeroWorkshop Starter
+
+ZeroWorkshop_starter.upload.tool=avrdude
+ZeroWorkshop_starter.upload.protocol=arduino
+
+ZeroWorkshop_starter.bootloader.tool=avrdude
+ZeroWorkshop_starter.bootloader.unlock_bits=0x3F
+ZeroWorkshop_starter.bootloader.lock_bits=0x0F
+
+ZeroWorkshop_starter.build.board=ZEROWORKSHOP_AVR_STARTER
+ZeroWorkshop_starter.build.core=arduino
+ZeroWorkshop_starter.build.variant=zeroworkshop_starter
+
+## ZeroWorkshop
+## -------------------------------------------------
+## ZeroWorkshop_starter.menu.cpu.16MHzatmega328=ATmega328 (5V, 16 MHz)
+
+ZeroWorkshop_starter.upload.maximum_size=30720
+ZeroWorkshop_starter.upload.maximum_data_size=2048
+ZeroWorkshop_starter.upload.speed=57600
+
+ZeroWorkshop_starter.bootloader.low_fuses=0xFF
+ZeroWorkshop_starter.bootloader.high_fuses=0xDA
+ZeroWorkshop_starter.bootloader.extended_fuses=0x05
+ZeroWorkshop_starter.bootloader.file=atmega/ATmegaBOOT_168_atmega328.hex
+
+ZeroWorkshop_starter.build.mcu=atmega328p
+ZeroWorkshop_starter.build.f_cpu=16000000L
+
+
+
+##############################################################
+##############################################################
+
+ZeroWorkshop_starter_pro.name=ZeroWorkshop Starter Pro
+
+ZeroWorkshop_starter_pro.upload.tool=avrdude
+ZeroWorkshop_starter_pro.upload.protocol=arduino
+
+ZeroWorkshop_starter_pro.bootloader.tool=avrdude
+ZeroWorkshop_starter_pro.bootloader.unlock_bits=0x3F
+ZeroWorkshop_starter_pro.bootloader.lock_bits=0x0F
+
+ZeroWorkshop_starter_pro.build.board=ZEROWORKSHOP_AVR_STARTER_PRO
+ZeroWorkshop_starter_pro.build.core=arduino
+ZeroWorkshop_starter_pro.build.variant=zeroworkshop_starter_pro
+
+## ZeroWorkshop
+## -------------------------------------------------
+## ZeroWorkshop_starter_pro.menu.cpu.16MHzatmega328=ATmega328 (5V, 16 MHz)
+
+ZeroWorkshop_starter_pro.upload.maximum_size=30720
+ZeroWorkshop_starter_pro.upload.maximum_data_size=2048
+ZeroWorkshop_starter_pro.upload.speed=57600
+
+ZeroWorkshop_starter_pro.bootloader.low_fuses=0xFF
+ZeroWorkshop_starter_pro.bootloader.high_fuses=0xDA
+ZeroWorkshop_starter_pro.bootloader.extended_fuses=0x05
+ZeroWorkshop_starter_pro.bootloader.file=atmega/ATmegaBOOT_168_atmega328.hex
+
+ZeroWorkshop_starter_pro.build.mcu=atmega328p
+ZeroWorkshop_starter_pro.build.f_cpu=16000000L
+
+##############################################################
+
+ZeroWorkshop_starter_proV11.name=ZeroWorkshop Starter Pro V1.1
+
+ZeroWorkshop_starter_proV11.upload.tool=avrdude
+ZeroWorkshop_starter_proV11.upload.protocol=arduino
+
+ZeroWorkshop_starter_proV11.bootloader.tool=avrdude
+ZeroWorkshop_starter_proV11.bootloader.unlock_bits=0x3F
+ZeroWorkshop_starter_proV11.bootloader.lock_bits=0x0F
+
+ZeroWorkshop_starter_proV11.build.board=ZEROWORKSHOP_AVR_STARTER_PRO_V11
+ZeroWorkshop_starter_proV11.build.core=arduino
+ZeroWorkshop_starter_proV11.build.variant=zeroworkshop_starter_pro_v1.1
+
+## ZeroWorkshop
+## -------------------------------------------------
+## ZeroWorkshop_starter_pro.menu.cpu.16MHzatmega328=ATmega328 (5V, 16 MHz)
+
+ZeroWorkshop_starter_proV11.upload.maximum_size=30720
+ZeroWorkshop_starter_proV11.upload.maximum_data_size=2048
+ZeroWorkshop_starter_proV11.upload.speed=57600
+
+ZeroWorkshop_starter_proV11.bootloader.low_fuses=0xFF
+ZeroWorkshop_starter_proV11.bootloader.high_fuses=0xDA
+ZeroWorkshop_starter_proV11.bootloader.extended_fuses=0x05
+ZeroWorkshop_starter_proV11.bootloader.file=atmega/starterpro_atmega328.hex
+
+ZeroWorkshop_starter_proV11.build.mcu=atmega328p
+ZeroWorkshop_starter_proV11.build.f_cpu=16000000L

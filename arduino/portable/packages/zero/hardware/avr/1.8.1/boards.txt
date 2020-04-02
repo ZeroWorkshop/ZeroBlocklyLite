@@ -1,0 +1,74 @@
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+
+menu.cpu=Processor
+
+
+
+##############################################################
+
+ZeroWorkshop_beatle.name=ZeroWorkshop Beatle
+
+ZeroWorkshop_beatle.upload.tool=avrdude
+ZeroWorkshop_beatle.upload.protocol=arduino
+
+ZeroWorkshop_beatle.bootloader.tool=avrdude
+ZeroWorkshop_beatle.bootloader.unlock_bits=0x3F
+ZeroWorkshop_beatle.bootloader.lock_bits=0x0F
+
+ZeroWorkshop_beatle.build.board=AVR_PRO
+ZeroWorkshop_beatle.build.core=arduino
+ZeroWorkshop_beatle.build.variant=zeroworkshop_beatle
+## ZeroWorkshop
+## -------------------------------------------------
+## ZeroWorkshop_starter_pro.menu.cpu.16MHzatmega328=ATmega328 (5V, 16 MHz)
+
+ZeroWorkshop_beatle.upload.maximum_size=30720
+ZeroWorkshop_beatle.upload.maximum_data_size=2048
+ZeroWorkshop_beatle.upload.speed=57600
+
+ZeroWorkshop_beatle.bootloader.low_fuses=0xFF
+ZeroWorkshop_beatle.bootloader.high_fuses=0xDA
+ZeroWorkshop_beatle.bootloader.extended_fuses=0x05
+ZeroWorkshop_beatle.bootloader.file=atmega/starterpro_atmega328.hex
+
+ZeroWorkshop_beatle.build.mcu=atmega328p
+ZeroWorkshop_beatle.build.f_cpu=16000000L
+
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+
+####menu.cpu=Processor
+####
+##################################################################
+####ZeroWorkshop_beatle.name=ZeroWorkshop Beatle
+####
+####ZeroWorkshop_beatle.vid.0=0x2341
+####ZeroWorkshop_beatle.pid.0=0x0043
+####ZeroWorkshop_beatle.vid.1=0x2341
+####ZeroWorkshop_beatle.pid.1=0x0001
+####ZeroWorkshop_beatle.vid.2=0x2A03
+####ZeroWorkshop_beatle.pid.2=0x0043
+####ZeroWorkshop_beatle.vid.3=0x2341
+####ZeroWorkshop_beatle.pid.3=0x0243
+####
+####ZeroWorkshop_beatle.upload.tool=avrdude
+####ZeroWorkshop_beatle.upload.protocol=arduino
+####ZeroWorkshop_beatle.upload.maximum_size=32256
+####ZeroWorkshop_beatle.upload.maximum_data_size=2048
+####ZeroWorkshop_beatle.upload.speed=115200
+####
+####ZeroWorkshop_beatle.bootloader.tool=avrdude
+####ZeroWorkshop_beatle.bootloader.low_fuses=0xFF
+####ZeroWorkshop_beatle.bootloader.high_fuses=0xDE
+####ZeroWorkshop_beatle.bootloader.extended_fuses=0x05
+####ZeroWorkshop_beatle.bootloader.unlock_bits=0x3F
+####ZeroWorkshop_beatle.bootloader.lock_bits=0x0F
+####ZeroWorkshop_beatle.bootloader.file=optiboot/optiboot_atmega328.hex
+####
+####ZeroWorkshop_beatle.build.mcu=atmega328p
+####ZeroWorkshop_beatle.build.f_cpu=16000000L
+####ZeroWorkshop_beatle.build.board=AVR_UNO
+####ZeroWorkshop_beatle.build.core=arduino
+####ZeroWorkshop_beatle.build.variant=standard
+

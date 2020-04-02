@@ -1,0 +1,260 @@
+
+html {
+  height: 100%;
+  background-color: #f8f8f8;
+}
+
+body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  color: #555555;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.menu {
+	
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.h_one{
+	/*height: 250px;*/
+}
+.menu-title {
+  display: block;
+  width: 150px;
+  height: 40px;
+  padding: 12px 0 0;
+  background: #DF0084;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s background-color;
+}
+
+.menu-title:before {
+  content: "";
+  display: block;
+  height: 0;
+  border-top: 5px solid #DF0084;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-bottom: 0 solid #dddddd;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 101;
+  transition: 0.2s 0.2s border-top ease-out, 0.3s border-top-color;
+}
+
+.menu-title:hover {
+  background: #DF0084;
+}
+
+.menu-title:hover:before {
+  border-top-color: #DF0084;
+}
+
+.menu:hover > .menu-title:before {
+  border-top-width: 0;
+  transition: 0.2s border-top-width ease-in, 0.3s border-top-color;
+}
+
+.menu-title:after {
+  content: "";
+  display: block;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-bottom: 0 solid #ebebeb;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  transition: 0.2s border-bottom ease-in;
+}
+
+.menu:hover > .menu-title:after {
+  border-bottom-width: 5px;
+  transition: 0.2s 0.2s border-bottom-width ease-out;
+}
+
+.menu-title_2nd {
+  background: #F5AB37;
+}
+
+.menu-title_2nd:hover {
+  background: #F5AB37;
+}
+
+.menu-title_2nd:before {
+  border-top-color: #F5AB37;
+}
+
+.menu-title_2nd:hover:before {
+  border-top-color: #F5AB37;
+}
+
+.menu-title_3rd {
+  background: #098BD4;
+}
+
+.menu-title_3rd:hover {
+  background: #098BD4;
+}
+
+.menu-title_3rd:before {
+  border-top-color: #098BD4;
+}
+
+.menu-title_3rd:hover:before {
+  border-top-color: #098BD4;
+}
+
+.menu-title_4th {
+  background: #51A60B;
+}
+
+.menu-title_4th:hover {
+  background: #51A60B;
+}
+
+.menu-title_4th:before {
+  border-top-color: #51A60B;
+}
+
+.menu-title_4th:hover:before {
+  border-top-color: #51A60B;
+}
+
+.menu-title_5th {
+  background: #565656;
+}
+
+.menu-title_5th:hover {
+  background: #565656;
+}
+
+.menu-title_5th:before {
+  border-top-color: #565656;
+}
+
+.menu-title_5th:hover:before {
+  border-top-color: #565656;
+}
+
+.menu-dropdown {
+  min-width: 100%;
+  /*padding: 15px 0;*/
+  position: absolute;
+  background: #ebebeb;
+  z-index: 100;
+  transition: 0.5s padding, 0.5s background;
+}
+
+.menu-dropdown:after {
+  content: "";
+  display: block;
+  height: 0;
+  border-top: 5px solid #ebebeb;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 101;
+  transition: 0.5s border-top;
+}
+
+.menu:not(:hover) > .menu-dropdown {
+  padding: 4px 0;
+  background: #dddddd;
+  z-index: 99;
+}
+
+.menu:not(:hover) > .menu-dropdown:after {
+  border-top-color: #dddddd;
+}
+
+.menu:not(:hover) > .menu-title:after {
+  border-bottom-color: #dddddd;
+}
+
+.menu-dropdown > * {
+  overflow: hidden;
+  height: 30px;
+  padding: 5px 10px;
+  background: transparent;
+  white-space: nowrap;
+  transition: 0.5s height cubic-bezier(0.73, 0.32, 0.34, 1.5), 0.5s padding cubic-bezier(0.73, 0.32, 0.34, 1.5), 0.5s margin cubic-bezier(0.73, 0.32, 0.34, 1.5), 0.5s 0.2s color, 0.2s background-color;
+}
+
+.menu-dropdown > *:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.menu:not(:hover) > .menu-dropdown > * {
+  visibility: hidden;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  color: rgba(25, 25, 25, 0);
+  transition: 0.5s 0.1s height, 0.5s 0.1s padding, 0.5s 0.1s margin, 0.3s color, 0.6s visibility;
+  z-index: 99;
+}
+
+.hList > * {
+	transform: scalex(0.7);
+	height: 53px;
+  float: left;
+}
+
+.hList > * + * {
+  margin-left: -47px;
+}
+#content_blocks{
+	top: 48px !important;
+	height: 93% !important;
+	
+	-webkit-touch-callout: none; /* iOS Safari */
+
+-webkit-user-select: none; /* Chrome/Safari/Opera */
+
+-khtml-user-select: none; /* Konqueror */
+
+-moz-user-select: none; /* Firefox */
+
+-ms-user-select: none; /* Internet Explorer/Edge */
+
+user-select: none; 
+}
+#content_arduino{
+	top: 48px !important;
+	height: 93% !important;
+}
+ ::-webkit-scrollbar {
+				display: none;
+			}
+			
+.hList_li:hover{
+	height: 200px;
+}
+
+.blocklyScrollbarVertical,.blocklyScrollbarKnob
+{
+      fill-opacity: 0;
+}

@@ -1,0 +1,2748 @@
+<!--<html manifest=node.manifest>-->
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html;">
+	<title>ZeroWorkshop</title>
+	<script type="text/javascript" src="../../blockly_compressed.js"></script>
+	<script type="text/javascript" src="../../core/variables.js"></script>
+	<script type="text/javascript" src="../../core/blockly.js"></script>
+	<script type="text/javascript" src="../../core/events.js"></script>
+	<script type="text/javascript" src="../../arduino.js"></script>
+	<script type="text/javascript" src="company_pin.js"></script>
+	<script type="text/javascript" src="drag.js"></script>
+	<script type="text/javascript" src="code.js"></script>
+	<script type="text/javascript" src="digitalPinToInterrupt.js"></script>
+
+	<script type="text/javascript" src="Blob.js"></script>
+	<script type="text/javascript" src="spin.js"></script>
+	<script type="text/javascript" src="FileSaver.min.js"></script>
+	<script type="text/javascript" src="blockly_helper.js"></script>
+
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	
+	<script src="../../blockly_common/apps/mixly/js/lib/ace/ace.js" type="application/javascript"></script>
+  <script src="../../blockly_common/apps/mixly/js/lib/ace/ext-language_tools.js" type="application/javascript"></script>
+  
+  
+	<script type="text/javascript" src="myblock.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/pins.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/inout.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/control.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/math.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/text.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/lists.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/logic.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/blockgroup.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/storage.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/sensor.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/ethernet.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/variables.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/procedures.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/factory.js"></script>
+	<script type="text/javascript" src="../../blocks/pins.js"></script>
+	<script type="text/javascript" src="../../blocks/inout.js"></script>
+	<script type="text/javascript" src="../../blocks/control.js"></script>
+	<script type="text/javascript" src="../../blocks/math.js"></script>
+	<script type="text/javascript" src="../../blocks/text.js"></script>
+	<script type="text/javascript" src="../../blocks/lists.js"></script>
+	<script type="text/javascript" src="../../blocks/logic.js"></script>
+	<script type="text/javascript" src="../../blocks/blockgroup.js"></script>
+	<script type="text/javascript" src="../../blocks/storage.js"></script>
+	<script type="text/javascript" src="../../blocks/sensor.js"></script>
+	<script type="text/javascript" src="../../blocks/ethernet.js"></script>
+	<script type="text/javascript" src="../../blocks/variables.js"></script>
+	<script type="text/javascript" src="../../blocks/procedures.js"></script>
+	<script type="text/javascript" src="../../blocks/factory.js"></script>
+
+	<script type="text/javascript" src="../../generators/arduino/zw_level0.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/company/Zeroworkshop_math.js"></script>
+	<script type="text/javascript" src="../../generators/arduino/company/Zeroworkshop_procedures.js"></script>
+	<script type="text/javascript" src="../../blocks/company/ZeroWorkshop_math.js"></script>
+	<script type="text/javascript" src="../../blocks/company/ZeroWorkshop_procedures.js"></script>
+	<script type="text/javascript" src="../../blocks/zw_level0.js"></script>
+
+	<script type="text/javascript" src="resetCheckbox.js"></script>
+	<script type="text/javascript" src="resetComplete.js"></script>
+	<script src="iscroll.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="color_zeroworkshop.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	
+	
+
+	<script>
+	var sidecodeDisplay=false;
+
+  /**
+ * 点击侧边显示代码按钮
+ */
+ function sidecodeClick(){
+  if(sidecodeDisplay){
+   document.getElementById('side_code_parent').style.display = 'none';
+   document.getElementById('sidebar').className='right-top';
+   document.getElementById('mid_td').style.display = 'none';
+   sidecodeDisplay=false;
+ }else{
+   document.getElementById('side_code_parent').style.display = '';
+   document.getElementById('sidebar').className='right-top2';
+   document.getElementById('mid_td').style.display = '';
+   sidecodeDisplay=true;
+   
+   if(sideexplainDisplay) {
+					document.getElementById('side_explain_parent').style.display = 'none';
+					document.getElementById('sidebar2').className = 'right-topTwo';
+					sideexplainDisplay = false;
+				}
+ }
+  
+ if(sidecodeDisplay || sideexplainDisplay) {
+				document.getElementById('sidebar').style.opacity = 0.3;
+				document.getElementById('sidebar2').style.opacity = 0.3;
+
+			} else {
+
+				document.getElementById('sidebar').style.opacity = 1;
+				document.getElementById('sidebar2').style.opacity = 1;
+			}
+ Blockly.fireUiEvent(window, 'resize');
+}
+
+var sideexplainDisplay = false;
+		/**
+		 * 点击侧边显示代码按钮
+		 */
+		function sideexplainClick() {
+			if(sideexplainDisplay) {
+				document.getElementById('side_explain_parent').style.display = 'none';
+				document.getElementById('sidebar2').className = 'right-topTwo';
+				document.getElementById('mid_td').style.display = 'none';
+				sideexplainDisplay = false;
+			} else {
+				document.getElementById('side_explain_parent').style.display = '';
+				document.getElementById('sidebar2').className = 'right-topTwo2';
+				document.getElementById('mid_td').style.display = 'none';
+				sideexplainDisplay = true;
+
+				if(sidecodeDisplay) {
+					document.getElementById('side_code_parent').style.display = 'none';
+					document.getElementById('sidebar').className = 'right-top';
+					document.getElementById('mid_td').style.display = 'none';
+					sidecodeDisplay = false;
+				}
+			}
+			if(sidecodeDisplay || sideexplainDisplay) {
+				document.getElementById('sidebar2').style.opacity = 0.3;
+				document.getElementById('sidebar').style.opacity = 0.3;
+
+			} else {
+
+				document.getElementById('sidebar2').style.opacity = 1;
+				document.getElementById('sidebar').style.opacity = 1;
+			}
+			Blockly.fireUiEvent(window, 'resize');
+		}
+/**
+ * List of tab names.
+ * @private
+ */
+ var TABS_ = ['blocks', 'arduino', 'xml'];
+
+ var selected = 'blocks';
+
+/**
+ * Switch the visible pane when a tab is clicked.
+ * @param {string} clickedName Name of tab clicked.
+ */
+ function tabClick(clickedName) {
+  // If the XML tab was open, save and render the content.
+  if (document.getElementById('tab_xml').className == 'tabon') {
+    var xmlTextarea = document.getElementById('content_xml');
+    var xmlText = xmlTextarea.value;
+    var xmlDom = null;
+    try {
+      xmlDom = Blockly.Xml.textToDom(xmlText);
+    } catch (e) {
+      var q =
+      window.confirm('Error parsing XML:\n' + e + '\n\nAbandon changes?');
+      if (!q) {
+        // Leave the user on the XML tab.
+        return;
+      }
+    }
+    if (xmlDom) {
+      Blockly.mainWorkspace.clear();
+      Blockly.Xml.domToWorkspace(xmlDom,Blockly.mainWorkspace);
+    }
+  }
+  if (document.getElementById('tab_blocks').className == 'tabon') {
+    Blockly.mainWorkspace.setVisible(false);
+  }
+  // Deselect all tabs and hide all panes.
+  for (var i = 0; i < TABS_.length; i++) {
+    var name = TABS_[i];
+    document.getElementById('tab_' + name).className = 'taboff';
+    document.getElementById('content_' + name).style.visibility = 'hidden';
+  }
+
+ // Select the active tab.
+ selected = clickedName;
+ document.getElementById('tab_' + clickedName).className = 'tabon';
+  // Show the selected pane.
+  document.getElementById('content_' + clickedName).style.visibility =
+  'visible';
+  renderContent();
+  if (clickedName == 'blocks') {
+    Blockly.mainWorkspace.setVisible(true);
+     /*
+      动态绑定undo和redo按钮，使得ace和blockly都能使用
+      author:zyc
+      date:2018-10-14
+    */
+    //动态绑定undo和redo按钮
+   $('input[name="undo"]').unbind();
+   $('input[name="redo"]').unbind();
+   $('input[name="undo"]').click(function(){
+      Blockly.mainWorkspace.undo(0);
+   });
+   $('input[name="redo"]').click(function(){
+      Blockly.mainWorkspace.undo(1);
+   });
+	//重新显示
+	if(sidecodeDisplay){
+   document.getElementById('side_code_parent').style.display = '';
+   document.getElementById('mid_td').style.display = '';
+   document.getElementById('sidebar').className='right-top2';
+ }else{
+   document.getElementById('side_code_parent').style.display = 'none';
+   document.getElementById('mid_td').style.display = 'none';
+   document.getElementById('sidebar').className='right-top';
+ }
+	//显示右侧悬浮按钮
+	document.getElementById('sidebar').style.visibility = 'visible';
+}
+if(clickedName=="arduino"){
+   //隐藏右侧悬浮按钮
+   document.getElementById('sidebar').style.visibility = 'hidden';
+   //点击代码将隐藏右侧代码，否则出现两个代码区域
+   document.getElementById('side_code_parent').style.display = 'none';
+   document.getElementById('mid_td').style.display = 'none';
+   //动态绑定undo和redo按钮
+   $('input[name="undo"]').unbind();
+   $('input[name="redo"]').unbind();
+   $('input[name="undo"]').click(function(){
+      editor.undo();
+   });
+   $('input[name="redo"]').click(function(){
+      editor.redo();
+   });
+ }
+ Blockly.fireUiEvent(window, 'resize');
+}
+
+/**
+ * Populate the currently selected pane with content generated from the blocks.
+ */
+ function renderContent() {
+  var content = document.getElementById('content_' + selected);
+  // Initialize the pane.
+  if (content.id == 'content_blocks') {
+    // If the workspace was changed by the XML tab, Firefox will have performed
+    // an incomplete rendering due to Blockly being invisible.  Rerender.
+    Blockly.mainWorkspace.render();
+      //var arduinoTextarea = document.getElementById('side_code');
+      var code = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace) || '';
+      var chinese_code = code.replace(/(_[0-9A-F]{2}_[0-9A-F]{2}_[0-9A-F]{2})+/g, function (s) { return decodeURIComponent(s.replace(/_/g, '%')); });
+      editor_side_code.setValue(chinese_code, -1);
+    } else if (content.id == 'content_xml') {
+      var xmlTextarea = document.getElementById('content_xml');
+      var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+      var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+      xmlTextarea.value = xmlText;
+      xmlTextarea.focus();
+    } else if (content.id == 'content_arduino') {
+    //content.innerHTML = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace);
+    //var arduinoTextarea = document.getElementById('content_arduino');
+    //arduinoTextarea.value = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace);
+    //arduinoTextarea.focus();
+    var code = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace) || '';
+    var chinese_code = code.replace(/(_[0-9A-F]{2}_[0-9A-F]{2}_[0-9A-F]{2})+/g, function (s) { return decodeURIComponent(s.replace(/_/g, '%')); });
+    editor.setValue(chinese_code, -1);
+  }
+}
+
+/**
+ * Compute the absolute coordinates and dimensions of an HTML element.
+ * @param {!Element} element Element to match.
+ * @return {!Object} Contains height, width, x, and y properties.
+ * @private
+ */
+ function getBBox_(element) {
+  var height = element.offsetHeight;
+  var width = element.offsetWidth;
+  var x = 0;
+  var y = 0;
+  do {
+    x += element.offsetLeft;
+    y += element.offsetTop;
+    element = element.offsetParent;
+  } while (element);
+  return {
+    height: height,
+    width: width,
+    x: x,
+    y: y
+  };
+}
+
+/**
+ * Initialize Blockly.  Called on page load.
+ */
+ var editor;
+ var editor_side_code;
+/*
+  添加ACE放大缩小事件
+  author:zyc
+  date:2018-10-15
+*/
+/*
+    解决ACE放大后padding扩大导致放大缩小按钮偏移的问题
+    author:zyc
+    date:2018-10-15
+*/
+function resetACEFontSizeButtonPositon(){
+  $('#content_arduino').css("padding","9px");
+}
+var increaseACEFontSize = function(){
+  //放大代码界面字体
+  var size = parseInt(editor.getFontSize(), 10) || 12;
+  editor.setFontSize(size + 1);
+  //放大侧边栏字体
+  var sideSize = parseInt(editor_side_code.getFontSize(), 10) || 12;
+  editor_side_code.setFontSize(sideSize + 1); 
+  resetACEFontSizeButtonPositon()
+}
+var decreaseACEFontSize = function(){
+  var size = parseInt(editor.getFontSize(), 10) || 12;
+  editor.setFontSize(Math.max(size - 1 || 1));
+  var sideSize = parseInt(editor_side_code.getFontSize(), 10) || 12;
+  editor_side_code.setFontSize(Math.max(sideSize - 1 || 1));
+  resetACEFontSizeButtonPositon()
+}
+var resetACEFontSize = function(){
+  editor.setFontSize(17);
+  editor_side_code.setFontSize(17); 
+}
+ function init() {
+  //window.onbeforeunload = function() {
+  //  return 'Leaving this page will result in the loss of your work.';
+  //};
+  editor = ace.edit("content_arduino");
+  if(window.conf == null || window.conf.lastEditorTheme == null){
+      window.conf = window.conf || {};
+      window.conf['lastEditorTheme'] = "ace/theme/xcode";
+  }
+  editor.setTheme(window.conf.lastEditorTheme);
+  editor.getSession().setMode("ace/mode/c_cpp");
+  editor.setFontSize(17);
+  editor.setShowPrintMargin(false);
+  editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableSnippets: true,
+    enableLiveAutocompletion: true
+  });
+  editor.setScrollSpeed(0.05);
+  editor_side_code = ace.edit("side_code");
+  editor_side_code.setTheme(window.conf.lastEditorTheme);
+  editor_side_code.getSession().setMode("ace/mode/c_cpp");
+  editor_side_code.setFontSize(17);
+  editor_side_code.setShowPrintMargin(false);
+  editor_side_code.setReadOnly(true);
+  editor_side_code.setScrollSpeed(0.05);
+  $('#aceTheme').val(window.conf.lastEditorTheme);
+  /*
+  	添加ACE放大缩小快捷键
+  	author:zyc
+  	date:2018-10-14
+   */
+  editor.commands.addCommands([
+  	{
+	    name: "increaseFontSize",
+	    bindKey: "Ctrl-=|Ctrl-+",
+	    exec: function(editor) {
+	        var size = parseInt(editor.getFontSize(), 10) || 12;
+	        editor.setFontSize(size + 1);
+	    }
+	}, {
+	    name: "decreaseFontSize",
+	    bindKey: "Ctrl+-|Ctrl-_",
+	    exec: function(editor) {
+	        var size = parseInt(editor.getFontSize(), 10) || 12;
+	        editor.setFontSize(Math.max(size - 1 || 1));
+	    }
+	}, {
+	    name: "resetFontSize",
+	    bindKey: "Ctrl+0|Ctrl-Numpad0",
+	    exec: function(editor) {
+	        editor.setFontSize(12);
+	    }
+	}]);
+  //动态生成按钮元素
+  $('.ace_scroller').append('<div id="resetFontSize" class="setFontSize" width="32" height="32" onclick="resetACEFontSize()" ></div>');
+  $('.ace_scroller').append('<div id="increaseFontSize" class="setFontSize" width="32" height="32" onclick="increaseACEFontSize()" ></div>');
+  $('.ace_scroller').append('<div id="decreaseFontSize" class="setFontSize" width="32" height="32" onclick="decreaseACEFontSize()" ></div>');
+  //endACE放大缩小
+  var container = document.getElementById('content_area');
+  var onresize = function(e) {
+    var bBox = getBBox_(container);
+    for (var i = 0; i < TABS_.length; i++) {
+      var el = document.getElementById('content_' + TABS_[i]);
+      el.style.top = bBox.y + 'px';
+      el.style.left = bBox.x + 'px';
+      // Height and width need to be set, read back, then set again to
+      // compensate for scrollbars.
+      el.style.height = bBox.height + 'px';
+      el.style.height = (2 * bBox.height - el.offsetHeight) + 'px';
+      el.style.width = bBox.width + 'px';
+      el.style.width = (2 * bBox.width - el.offsetWidth) + 'px';
+    }
+    // Make the 'Blocks' tab line up with the toolbox.
+    if (Blockly.mainWorkspace.toolbox_.width) {
+      document.getElementById('tab_blocks').style.minWidth =
+      (Blockly.mainWorkspace.toolbox_.width - 38) + 'px';
+          // Account for the 19 pixel margin and on each side.
+        }
+      };
+      window.addEventListener('resize', onresize, false);
+
+      var toolbox = document.getElementById('toolbox');
+      var masterWorkspace = Blockly.inject(document.getElementById('content_blocks'),
+      {//grid:
+          //{spacing: 25,
+           //length: 3,
+           //colour: '#ccc',
+           //snap: true},
+           media: '../../media/',
+           toolbox: toolbox,
+           zoom:
+           {controls: true,
+            wheel: true}
+          });
+
+	//实时更新右侧对比代码
+  masterWorkspace.addChangeListener(rightCodeEvent);
+  function rightCodeEvent(masterEvent) {
+   if (masterEvent.type == Blockly.Events.UI) {
+		return;  // Don't update UI events.
+ }
+	  //更新
+	  //var arduinoTextarea = document.getElementById('side_code');
+	  var code = Blockly.Arduino.workspaceToCode(Blockly.mainWorkspace) || '';
+    var chinese_code = code.replace(/(_[0-9A-F]{2}_[0-9A-F]{2}_[0-9A-F]{2})+/g, function (s) { return decodeURIComponent(s.replace(/_/g, '%')); });
+    editor_side_code.setValue(chinese_code, -1);
+  }
+
+  auto_save_and_restore_blocks();
+
+  //load from url parameter (single param)
+  //http://stackoverflow.com/questions/2090551/parse-query-string-in-javascript
+  var dest = unescape(location.search.replace(/^.*\=/, '')).replace(/\+/g, " ");
+  if(dest) {
+//				load_by_url(dest);
+			}
+			changeL0();
+
+
+}
+	</script>
+<link rel="stylesheet" type="text/css" href="../css/reset.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+
+<body onload="init()">
+  <table height="100%" width="100%" id="table_whole">
+		<tr>
+			<td colspan=3>
+				<table width="100%">
+					<tr id="tabRow" height="1em">
+
+						<td style="vertical-align: center;" id="tab_blocks" class="tabon" onclick="tabClick('blocks')"><img style="vertical-align:middle" width="25" src="media/7882735026.jpg" /><span id="span_blocks">Blocks</span></td>
+						<td class="tabmin" style="width: 1%;">&nbsp;</td>
+						<td style="vertical-align: center;text-align:center;" id="tab_arduino" class="taboff" onclick="tabClick('arduino')"><img style="vertical-align:middle" width="25" src="media/arduino.png" /><span id="span_arduino">Code</span></td>
+						<td class="tabmin" style="width: 1%;">&nbsp;</td>
+						<td style="vertical-align: center;text-align:center;" id="tab_xml" class="taboff" onclick="tabClick('xml')"><span id="span_xml">XML</span></td>
+						<td class="tabcoyright">
+							<img style="vertical-align:middle;width: 26%;" width="75" src="media/zeroworkshop.png" /><span id="copyright" style="font-family:arial;font-size:1rem;color:#999;">copyright</span>
+						</td>
+						
+						<td class="tablevel" style="font-size: 26px;margin-left: 0px;position: absolute;">
+							<!--href="index_level0.html"-->
+							<!--<a class="levelUnselected" id="viewLevelS" style="font-family:arial;font-size:12px;"></a>
+							<a class="levelUnselected" id="viewLevelT" style="font-family:arial;font-size:12px;"></a>
+							<a class="levelUnselected" id="viewLevelE" style="font-family:arial;font-size:12px;"></a>
+							<a class="levelUnselected" id="viewLevelA" style="font-family:arial;font-size:12px;"></a>
+							<a class="levelUnselected" id="viewLevelM" style="font-family:arial;font-size:12px;"></a>
+							<a class="levelUnselected" id="viewLevelO" style="font-family:arial;font-size:12px;"></a>-->
+
+							<ul class="hList" >
+								<li style="margin-left: -80px;" class="hList_li">
+									<a href="#click" class="menu h_one">
+										<h2 class="menu-title" id="viewLevelS">S</h2>
+										<ul class="menu-dropdown">
+											<li class="s_serial" style="color: #28419B;text-align: center;">S</li>
+										</ul>
+									</a>
+								</li>
+								<li class="hList_li">
+									<a href="#click" class="menu h_two">
+										<h2 class="menu-title menu-title_2nd" id="viewLevelT">T</h2>
+										<ul class="menu-dropdown" style="text-align: center;">
+											<li class="t_1" style="color: #28419B;">T1</li>
+											<li class="t_2" style="color: #DF0084;">T2</li>
+											<li class="t_3" style="color: #0D4366;">T3</li>
+											<li class="t_4" style="color: #A147AD;">T4</li>
+											<li class="t_5" style="color: #FFCD42;">T5</li>
+										</ul>
+									</a>
+								</li>
+								<li class="hList_li">
+									<a href="#click" class="menu h_three">
+										<h2 class="menu-title menu-title_3rd" id="viewLevelE">E</h2>
+										<ul class="menu-dropdown" style="text-align: center;" >
+											<li class="preE" style="color: #28419B;">PRE-E</li>
+										</ul>
+									</a>
+								</li>
+								<li class="hList_li">
+									<a href="#click" class="menu h_four">
+										<h2 class="menu-title menu-title_4th" id="viewLevelA">A</h2>
+										<ul class="menu-dropdown">
+										</ul>
+									</a>
+								</li>
+								
+								<li class="hList_li">
+									<a href="#click" class="menu h_five">
+										<h2 class="menu-title menu-title_5th" id="viewLevelM">M</h2>
+										<ul class="menu-dropdown">
+											<li id="viewLevelO" style="text-align: center;color: chartreuse;display: none;">Allin</li>
+										</ul>
+									</a>
+								</li>
+							</ul>
+ 
+							<div id="" class="switch-ul" style="width: 10%;margin-left: 90%;height: 46px;">
+							<span id="backgroundSetting" style="font-size: 14px;">&emsp;&emsp;&emsp;</span><span class="icon-bg" style="font-size: 30px;margin-top: 0px;position: absolute;"></span>
+							<!--<span class="icon-downarrow" style="margin-left: 6%;"></span>-->
+							</div>
+							<!--<span class="icon-downarrow" style="margin-left: 2%;"></span>-->
+							<ul class="bgul">
+								<li class="changeBg"><span class="icon-bg" style="font-size: 30px;"></span>
+									<apsn class='bgname'>大地灰</apsn>
+								</li>
+								<li class="changeBg"><span class="icon-bg1" style="font-size: 30px;"></span>
+									<apsn class='bgname'>葡萄粉</apsn>
+								</li>
+								<li class="changeBg"><span class="icon-bg2" style="font-size: 30px;"></span>
+									<apsn class='bgname'>海洋蓝</apsn>
+								</li>
+								<li class="changeBg"><span class="icon-bg3" style="font-size: 30px;"></span>
+									<apsn class='bgname'>玫瑰紫</apsn>
+								</li>
+							</ul>
+						</td>
+						<script type="text/javascript">
+							//							var viewLevel0 = document.getElementById('viewLevel0');
+							//							viewLevel0.href = 'index_level0.html?lang='+Code.LANG;
+							//								var viewLevel4 = document.getElementById('viewLevel4');
+							//								viewLevel4.href = 'index_level4.html?lang=' + Code.LANG;
+						</script>
+
+						<td class="tabmin" style="padding-left:500px;width: 40px;">
+							<input onclick="Blockly.mainWorkspace.undo(0);" name="undo" type="image" title="undo(ctrl+z)" src="media/undo.png" style="padding:5px;" onmouseover="this.src='media/undo1.png'" onmousedown="this.src='media/undo2.png'" onmouseup="this.src='media/undo1.png'" onmouseout="this.src='media/undo.png'" width="20" height="20" border="0">
+						</td>
+						<td class="tabmin" style="padding-right:44px;width: 40px;">
+							<input onclick="Blockly.mainWorkspace.undo(1);" name="redo" type="image" title="redo(ctrl+y)" src="media/redo.png" style="padding:5px" onmouseover="this.src='media/redo1.png'" onmousedown="this.src='media/redo2.png'" onmouseup="this.src='media/redo1.png'" onmouseout="this.src='media/redo.png'" width="20" height="20" border="0">
+						</td>
+						<td class="tabmin" style="padding-right:20px;display:none;">
+							<button id="fakeload">LoadXML</button>
+							<input type="file" id="load" style="display: none;" />
+						</td>
+						<td class="tabmin" style="width: 6%;">
+							<select id="model">
+								<option value="1">课程</option>
+								
+								<option value="3">通用</option>
+							</select>
+						</td>
+						<td class="tabmin" style="width: 6%;">
+							<select id="languageMenu"></select>
+						</td>
+            <td class="tabmin" style="padding-right:20px;display:none;">
+              <select id="aceTheme" style="width:100px; height:23px; margin-left: 10px;">
+               <optgroup label="代码区亮色主题">
+               <option value="ace/theme/chrome">Chrome</option>
+               <option value="ace/theme/clouds">Clouds</option>
+               <option value="ace/theme/crimson_editor">Crimson Editor</option>
+               <option value="ace/theme/dawn">Dawn</option>
+               <option value="ace/theme/dreamweaver">Dreamweaver</option>
+               <option value="ace/theme/eclipse">Eclipse</option>
+               <option value="ace/theme/github">GitHub</option>
+               <option value="ace/theme/iplastic">IPlastic</option>
+               <option value="ace/theme/solarized_light">Solarized Light</option>
+               <option value="ace/theme/textmate">TextMate</option>
+               <option value="ace/theme/tomorrow">Tomorrow</option>
+               <option value="ace/theme/xcode">XCode</option>
+               <option value="ace/theme/kuroir">Kuroir</option>
+               <option value="ace/theme/katzenmilch">KatzenMilch</option>
+               <option value="ace/theme/sqlserver">SQL Server</option>
+              </optgroup>
+              <optgroup label="代码区暗色主题">
+               <option value="ace/theme/ambiance">Ambiance</option>
+               <option value="ace/theme/chaos">Chaos</option>
+               <option value="ace/theme/clouds_midnight">Clouds Midnight</option>
+               <option value="ace/theme/dracula">Dracula</option>
+               <option value="ace/theme/cobalt">Cobalt</option>
+               <option value="ace/theme/gruvbox">Gruvbox</option>
+               <option value="ace/theme/gob">Green on Black</option>
+               <option value="ace/theme/idle_fingers">idle Fingers</option>
+               <option value="ace/theme/kr_theme">krTheme</option>
+               <option value="ace/theme/merbivore">Merbivore</option>
+               <option value="ace/theme/merbivore_soft">Merbivore Soft</option>
+               <option value="ace/theme/mono_industrial">Mono Industrial</option>
+               <option value="ace/theme/monokai">Monokai</option>
+               <option value="ace/theme/pastel_on_dark">Pastel on dark</option>
+               <option value="ace/theme/solarized_dark">Solarized Dark</option>
+               <option value="ace/theme/terminal">Terminal</option>
+               <option value="ace/theme/tomorrow_night">Tomorrow Night</option>
+               <option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option>
+               <option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option>
+               <option value="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</option>
+               <option value="ace/theme/twilight">Twilight</option>
+               <option value="ace/theme/vibrant_ink">Vibrant Ink</option>
+               </optgroup>
+             </select>
+            </td>
+						
+						<script>
+							document.getElementById('span_blocks').textContent = MSG['tab_blocks'];
+							document.getElementById('span_arduino').textContent = MSG['tab_arduino'];
+						</script>
+          </tr>
+				</table>
+			</td>
+			</tr>
+<tr>
+  <td height="100%" width="75%" id="content_area"></td>
+  <td style="display:none;height:100%;width:0.3%;background: #ddd;cursor: w-resize;" id="mid_td"></td>
+  <td width="25%" style="background-color:#eee;display:none;" id="side_code_parent">
+    <div id="side_code" wrap="off" readonly></div>
+  </td>
+  <div id="sidebar" class="right-top" onclick="sidecodeClick()"></div>
+</tr>
+		<tr style="background-color: #EEEEEE;">
+				<!-- <td height="100%" width="75%" id="content_area"></td> -->
+				<!-- <td style="cursor: w-resize;width: 3px !important;" id="mid_td"></td> -->
+				<!-- td width="34%" style="background-color:#eee;display:none;position: absolute;top: 50px;height: 100%;" id="side_code_parent"> -->
+				<!-- <td width="25%" style="background-color:#eee;display:none;" id="side_code_parent"> -->
+				<!-- <textarea id="side_code" wrap="off" readonly></textarea></td> -->
+				<td width="25%" style="background-color:#eee;display:none;" id="side_explain_parent">
+
+							<div class="explain-component" style="overflow-y: scroll;height: 100%;position: absolute;margin-top:50px !important;top:0px;margin-right: 1.3%;background-color: rgb(238, 238, 238);">
+								<ul style="pointer-events: none;">
+									<li>
+										<div class="lessonOne mtop">
+											魔力赛车
+										</div>
+
+										<div class="yaokq ptb">
+											<ul>
+												<li class="blockname marginb0ttom">遥控器</li>
+												<li class="marginb0ttom"><img style="width: 80%;" src="../../media/ZeroWorkshop/yaokq.png" /></li>
+												<li class="marginb0ttom sj">可以通过这个模块设置遥控器各个按键的功能。点亮遥控器上你想要设置的按钮,然后执行里面添加你想要的功能块,这样你就可以实现自定义遥控器各个按键的功能了。</li>
+											</ul>
+										</div>
+										<div class="turnleft ptb">
+											<ul>
+												<li class="blockname marginb0ttom">左转</li>
+												<li class="marginb0ttom"><img style="width: 45%;" src="../../media/ZeroWorkshop/pic-turnleft.png" /></li>
+												<li class="marginb0ttom">可以添加这个块让小车改变方向，向左转</li>
+											</ul>
+										</div>
+										<div class="turnright ptb">
+											<ul>
+												<li class="blockname marginb0ttom">右转</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-turnright.png" /></li>
+												<li class="marginb0ttom">可以添加这个块让小车改变方向，向右转</li>
+											</ul>
+										</div>
+										<div class="goahead ptb">
+											<ul>
+												<li class="blockname marginb0ttom">向前</li>
+												<li class="marginb0ttom"><img style="width: 45%;" src="../../media/ZeroWorkshop/goahead.png" /></li>
+												<li class="marginb0ttom">可以添加这个块让小车向前移动</li>
+											</ul>
+										</div>
+										<div class="goback ptb">
+											<ul>
+												<li class="blockname marginb0ttom">向后</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/goback.png" /></li>
+												<li class="marginb0ttom">可以添加这个块让小车向后移动</li>
+											</ul>
+										</div>
+										<div class="stop ptb">
+											<ul>
+												<li class="blockname marginb0ttom">停止</li>
+												<li class="marginb0ttom"><img style="width: 55%;" src="../../media/ZeroWorkshop/pic-stop.png" /></li>
+												<li class="marginb0ttom">可以添加这个块让小车停止移动</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<div class="lessonOne mtop">
+											吉喵凯蒂
+										</div>
+
+										<div class="catwave ptb">
+											<ul>
+												<li class="blockname marginb0ttom">小猫招手</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/catwave.png" /></li>
+												<li class="marginb0ttom">可以添加这个块让小猫招手</li>
+											</ul>
+										</div>
+										<div class="catSound ptb">
+											<ul>
+												<li class="blockname marginb0ttom">小猫猫叫</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/catSound.png" /></li>
+												<li class="marginb0ttom">可以添加这个块让小猫喵叫</li>
+											</ul>
+										</div>
+
+									</li>
+									<li>
+										<div class="lessonOne mtop">
+											雷神战车
+										</div>
+
+										<div class="firstBtn ptb">
+											<ul>
+												<li class="blockname marginb0ttom">左轮前进</li>
+												<li class="marginb0ttom"><img class="allshow" src="../../media/ZeroWorkshop/leftWheelGo.png" /></li>
+												<li class="marginb0ttom">可以添加这个块实现战车按下左键按钮战车左轮向前移动，松开按钮时战车左轮停止移动</li>
+											</ul>
+										</div>
+										<div class="secondBtn ptb">
+											<ul>
+												<li class="blockname marginb0ttom">右轮前进</li>
+												<li class="marginb0ttom"><img class="allshow" src="../../media/ZeroWorkshop/rightWheelGo.png" /></li>
+												<li class="marginb0ttom">可以添加这个块实现战车按下键右按钮战车右轮向前移动，松开按钮时战车轮右停止移动</li>
+											</ul>
+										</div>
+										<div class="backBtn ptb">
+											<ul>
+												<li class="blockname marginb0ttom">战车后退</li>
+												<li class="marginb0ttom"><img style="width: 85%;" src="../../media/ZeroWorkshop/allWheelBack.png" /></li>
+												<li class="marginb0ttom">可以添加这个块实现战车按下键中间的按钮战车向后退，松开按钮时战车停止后退</li>
+											</ul>
+										</div>
+										<div class="hammerKnock ptb">
+											<ul>
+												<li class="blockname marginb0ttom">战车攻击</li>
+												<li class="marginb0ttom"><img style="width: 85%;" src="../../media/ZeroWorkshop/goFight.png" /></li>
+												<li class="marginb0ttom">可以添加这个块设置战车遇到敌人时进行自动攻击</li>
+											</ul>
+										</div>
+										<div class="numberLives ptb">
+											<ul>
+												<li class="blockname marginb0ttom">战车生命值</li>
+												<li class="marginb0ttom"><img style="width: 85%;" src="../../media/ZeroWorkshop/numberLives.png" /></li>
+												<li class="marginb0ttom">可以通过设置模块设置战车的生命值大小</li>
+											</ul>
+										</div>
+									</li>
+									<li>
+										<div class="lessonOne mtop">
+											恐龙先锋
+										</div>
+
+										<div class="scanningGoForward ptb">
+											<ul>
+												<li class="blockname marginb0ttom">扫描前行</li>
+												<li class="marginb0ttom"><img style="width: 85%;" src="../../media/ZeroWorkshop/scanningGoForward.png" /></li>
+												<li class="marginb0ttom">可以添加移动这个模块让恐龙左右扫描并向前</li>
+											</ul>
+										</div>
+										<div class="obstacleGoBack ptb">
+											<ul>
+												<li class="blockname marginb0ttom">避开障碍物</li>
+												<li class="marginb0ttom"><img style="width: 103%;" src="../../media/ZeroWorkshop/obstacleGoBack.png" /></li>
+												<li class="marginb0ttom">可以添加这个模块实现恐龙扫描到障碍物时可以避开障碍物，然后继续向前移动</li>
+											</ul>
+										</div>
+
+									</li>
+									<li>
+										<div class="lessonOne mtop">
+											飞鸟伯德
+										</div>
+
+										<div class="presShake ptb">
+											<ul>
+												<li class="blockname marginb0ttom">摇尾巴</li>
+												<li class="marginb0ttom"><img style="width: 65%;" src="../../media/ZeroWorkshop/presShake.png" /></li>
+												<li class="marginb0ttom">可以添加这个模块，选择飞鸟的尾巴摇晃次数，实现飞鸟伯德摇尾巴的功能</li>
+											</ul>
+										</div>
+										<div class="pursuit1 ptb">
+											<ul>
+												<li class="blockname marginb0ttom">追赶障碍物</li>
+												<li class="marginb0ttom"><img style="width: 70%;" src="../../media/ZeroWorkshop/pursuit1.png" /></li>
+												<li class="marginb0ttom">可以添加这个块让飞鸟伯德遇到障碍物时能够追赶障碍物</li>
+											</ul>
+										</div>
+
+									</li>
+
+									<li>
+										<div class="lessonOne mtop">
+											灌篮高手
+										</div>
+
+										<div class="Score ptb">
+											<ul>
+												<li class="blockname marginb0ttom">计分</li>
+												<li class="marginb0ttom"><img style="width: 90%;" src="../../media/ZeroWorkshop/Score1.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，并选择分数值设置每次投篮进球获得的分数</li>
+											</ul>
+										</div>
+										<div class="basketSpeed ptb">
+											<ul>
+												<li class="blockname marginb0ttom">规则设置</li>
+												<li class="marginb0ttom"><img style="width: 100%;" src="../../media/ZeroWorkshop/basketSpeed1.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，设置不同得分范围，改变篮框的移动速度</li>
+											</ul>
+										</div>
+
+									</li>
+
+									<li>
+										<div class="lessonOne mtop">
+											通用模块
+										</div>
+
+										<div class="control_Button_if ptb">
+											<ul>
+												<li class="blockname marginb0ttom">开关</li>
+												<li class="marginb0ttom"><img style="width: 90%;" src="../../media/ZeroWorkshop/pic-control_Button_if.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，选择你想要的按钮，添加功能模块到执行里面，就可以实现按下该按钮实现相应的功能</li>
+											</ul>
+										</div>
+										<div class="control_IRsensor_if ptb">
+											<ul>
+												<li class="blockname marginb0ttom">传感器</li>
+												<li class="marginb0ttom"><img style="width: 80%;" src="../../media/ZeroWorkshop/pic-control_IRsensor_if.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，选择你想要的传感器，添加功能模块到执行里面，就可以实现该传感器遇到障碍物时实现相应的功能</li>
+											</ul>
+										</div>
+
+										<div class="play_note ptb">
+											<ul>
+												<li class="blockname marginb0ttom">音节</li>
+												<li class="marginb0ttom"><img style="width: 100%;" src="../../media/ZeroWorkshop/pic-play_note.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，选择不同的选项，设置不同的声音</li>
+											</ul>
+										</div>
+										<div class="play_song ptb">
+											<ul>
+												<li class="blockname marginb0ttom">播放器</li>
+												<li class="marginb0ttom"><img style="width: 60%;" src="../../media/ZeroWorkshop/pic-play_song.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，选择你想要的歌曲进行播放</li>
+											</ul>
+										</div>
+										<div class="policeLight ptb">
+											<ul>
+												<li class="blockname marginb0ttom">警灯</li>
+												<li class="marginb0ttom"><img style="width: ;" src="../../media/ZeroWorkshop/pic-policeLight.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，选择灯的数量，进入警灯闪烁模式</li>
+											</ul>
+										</div>
+										<div class="greenLED ptb">
+											<ul>
+												<li class="blockname marginb0ttom">绿灯</li>
+												<li class="marginb0ttom"><img style="width: ;" src="../../media/ZeroWorkshop/pic-greenLED.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让绿灯亮起来</li>
+											</ul>
+										</div>
+										<div class="redLED ptb">
+											<ul>
+												<li class="blockname marginb0ttom">红灯</li>
+												<li class="marginb0ttom"><img style="width: ;" src="../../media/ZeroWorkshop/pic-redLED.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让红灯亮起来</li>
+											</ul>
+										</div>
+
+										<div class="blueLED ptb">
+											<ul>
+												<li class="blockname marginb0ttom">蓝灯</li>
+												<li class="marginb0ttom"><img style="width: ;" src="../../media/ZeroWorkshop/pic-blueLED.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让蓝灯亮起来</li>
+											</ul>
+										</div>
+										<div class="yellowLED ptb">
+											<ul>
+												<li class="blockname marginb0ttom">黄灯</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-yellowLED.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让黄灯亮起来</li>
+											</ul>
+										</div>
+										<div class="offLED ptb">
+											<ul>
+												<li class="blockname marginb0ttom">关灯</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-offLED.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让灯熄灭</li>
+											</ul>
+										</div>
+										<div class="leftturn_light_flash ptb">
+											<ul>
+												<li class="blockname marginb0ttom">左灯闪烁</li>
+												<li class="marginb0ttom"><img style="width: 45%;" src="../../media/ZeroWorkshop/pic-leftturn_light_flash.gif" /></li>
+												<li class="marginb0ttom">可以添加这个块，让左灯不断闪烁</li>
+											</ul>
+										</div>
+										<div class="leftturn_light_off ptb">
+											<ul>
+												<li class="blockname marginb0ttom">左灯关闭</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-leftturn_light_off.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让左灯熄灭</li>
+											</ul>
+										</div>
+
+										<div class="leftturn_light_on ptb">
+											<ul>
+												<li class="blockname marginb0ttom">左灯常亮</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-leftturn_light_on.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让左灯一直保持亮的状态</li>
+											</ul>
+										</div>
+										<div class="rightturn_light_flash ptb">
+											<ul>
+												<li class="blockname marginb0ttom">右灯闪烁</li>
+												<li class="marginb0ttom"><img style="width: 45%;" src="../../media/ZeroWorkshop/pic-rightturn_light_flash.gif" /></li>
+												<li class="marginb0ttom">可以添加这个块，让右灯不断闪烁</li>
+											</ul>
+										</div>
+										<div class="rightturn_light_off ptb">
+											<ul>
+												<li class="blockname marginb0ttom">右灯关闭</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-rightturn_light_off.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让右灯熄灭</li>
+											</ul>
+										</div>
+										<div class="rightturn_light_on ptb">
+											<ul>
+												<li class="blockname marginb0ttom">右灯常亮</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-rightturn_light_on.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让右灯一直保持亮的状态</li>
+											</ul>
+										</div>
+										<div class="rear_light_on ptb">
+											<ul>
+												<li class="blockname marginb0ttom">左右灯常亮</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-rear_light.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让左右灯一直保持常亮状态</li>
+											</ul>
+										</div>
+										<div class="rear_light_off ptb">
+											<ul>
+												<li class="blockname marginb0ttom">左右灯关闭</li>
+												<li class="marginb0ttom"><img src="../../media/ZeroWorkshop/pic-rear_light_off.png" /></li>
+												<li class="marginb0ttom">可以添加这个块，让左右灯熄灭</li>
+											</ul>
+										</div>
+
+									</li>
+
+									<li style="height: 50px;">
+ 
+									</li>
+</ul>
+							</div>
+
+							
+				</td>
+				<div id="sidebar" class="right-top"  onclick="sidecodeClick()"></div>
+				<div id="sidebar2" class="right-topTwo"  onclick="sideexplainClick()" style="display: none;"></div>
+			</tr>
+	</table>
+<div id="content_blocks" class="content"></div>
+<div id="content_arduino" class="content" wrap="off" ></div>
+<textarea id="content_xml" class="content" wrap="off" readonly></textarea>
+<xml id="toolbox" style="">
+		<!--第一课 1 车-->
+		<category name="" id="car" colour="#0023E8">
+			<block type="controls_if_new"></block>
+			<block type="left_turn"></block>
+			<block type="right_turn"></block>
+			<block type="go_forward"></block>
+			<block type="go_reverse"></block>
+			<block type="stop"></block>
+		</category>
+		<!--第二课2 喵咪-->
+		<category name="" id="catInputController" colour="#0D4366">
+			<block type="catHandle"></block>
+			<block type="catSound"></block>
+		</category>
+		<!--第三课 3锤子机器人-->
+		<category name="" id="catSound" colour="#4b53d7">
+
+			<!--<block type="firstBtn"></block>
+			<block type="secondBtn"></block>
+			<block type="backBtn"></block>-->
+
+			<block type="hammerKnock"> </block>
+			<block type="numberLives"></block>
+		</category>
+		<!--第四课4 恐龙机器人-->
+		<category name="" id="catMovement" colour="#FFE600">
+			<!--<block type="test"></block>-->
+
+			<block type="scanningGoForward"></block>
+			<block type="obstacleGoBack"></block>
+		</category>
+
+		<!--第五课飞5鸟机器人-->
+		<category name="" id="bird" colour="#F5821F">
+			<block type="presShake"></block>
+			<block type="pursuit"></block>
+		</category>
+		<!--第六课投篮6机器人-->
+		<category name="" id="catText" colour="#3EC1CC">
+			<block type="Score"></block>
+			<block type="basketSpeed"></block>
+		</category>
+
+		<!-- common7-->
+		<category name="" id="common" colour="#42D342">
+			<block type="control_Button_if"></block>
+			<!--<block type="control_IRsensor_if"></block>-->
+			<block type="play_note"></block>
+			<block type="play_song"></block>
+			<block type="policeLight"></block>
+			<!--<block type="greenLED"></block>
+			<block type="redLED"></block>
+			<block type="blueLED"></block>-->
+			<block type="yellowLED"></block>
+			<block type="offLED"></block>
+			<block type="leftturn_light_flash"></block>
+			<block type="leftturn_light_off"></block>
+			<block type="leftturn_light_on"></block>
+			<block type="rightturn_light_flash"></block>
+			<block type="rightturn_light_off"></block>
+			<block type="rightturn_light_on"></block>
+			<block type="rear_light"></block>
+			<block type="rear_light_off"></block>
+			<block type="delay"></block>
+			<block type="optionalServe"></block>
+		</category>
+
+		<!--T2 运动8-->
+		<category name="" id="movement" colour="#0055ff">  
+			<block type="left_turn"></block>
+			<block type="right_turn"></block>
+			<block type="go_forward"></block>
+			<block type="go_reverse"></block>
+			<block type="stop"></block>
+			
+			<block type="left_turn_speed"></block>
+			<block type="right_turn_speed"></block>
+			<block type="go_forward_speed"></block>
+			<block type="go_reverse_speed"></block>
+			
+		</category>
+		<!--T2 动作9-->
+		<category name="" id="act" colour="#F77103">
+			<block type='upwards'></block>
+			<block type='downwards'></block>
+			<!--歌利亚战车-->
+			
+			<block type='pull'></block>
+			<block type='pull2'></block>
+			<block type='pull_another'></block>
+			<block type='pull_another2'></block>
+			<block type='leftwards'></block>
+			<block type='rightwards'></block>
+			<!-- <block type='chassis_leftwards'></block> -->
+			<!-- <block type='chassis_rightwards'></block> -->
+			<block type='turnonlight'></block>
+			<block type='turnofflight'></block>
+			<!--台灯-->
+			
+			<block type='readyFire'></block>
+			<block type='accumulating'></block>
+			<block type='fire'></block>
+			<!--射击车-->
+			
+			<block type='radarMove'></block>
+			<block type='radarStop'></block>
+			<block type='indicatorLight'></block>
+			<block type='indicatorLightOff'></block>
+			<!--雷达车-->
+			
+			<block type='intoAuto'></block>
+			<block type='outAuto'></block>
+			<block type="loadingCarriage"></block>
+			<block type="unloadingCarriage"></block>
+			<!--巡线-->
+			
+			<block type='lfet_punches'></block>
+			<block type='lfet_takeAFist'></block>
+			<block type='right_punches'></block>
+			<block type='right_takeAFist'></block>
+			<!--拳击robot-->
+
+			
+		</category>
+
+		<!--T2 遥控10-->
+
+		<category name="" id="remoteControl_T2" colour="#d7d7d7">
+			<block type="controls_if_new"></block>
+		</category>
+
+		<!--电风扇11-->
+		<category name="" id="fans" colour="#3EC1CC">
+			<block type="spin_start"></block>
+			<block type="spin_stop"></block>
+			<block type="big_wind"></block>
+			<block type="mid_wind"></block>
+			<block type="small_wind"></block>
+			<block type="LRspin_start"></block>
+			<block type="LRspin_stop"></block>
+			<block type="UCD_U"></block>
+			<block type="UCD_C"></block>
+			<block type="UCD_D"></block>
+		</category>
+		<!--搬运机器人12-->
+		<category name="" id="handlingRobot" colour="#3EC1CC">
+			<block type="catch"></block>
+			<block type="place"></block>
+			<block type="catchUp"></block>
+			<block type="catchDown"></block>
+			<block type="catchClose"></block>
+			<block type="catchOpen"></block>
+		</category>
+		<!--子弹发射机器人13-->
+		<category name="" id="bullet" colour="#3EC1CC">
+			<block type="loaded"></block>
+			<block type="shot"></block>
+			<block type="AdjustLoaderAngle"></block>
+			<block type="singleShot"></block>
+			<block type="Bursts"></block>
+		</category>
+		<!--炮弹发射机器人14-->
+		<category name="" id="shell" colour="#3EC1CC">
+			<block type="shell_loaded"></block>
+			<block type="shell_shot"></block>
+			<block type="singleShell"></block>
+			<block type="burstsShell"></block>
+			<block type="Bursts"></block>
+
+			<block type="mot1"></block>
+		</category>
+		<!--遥控器15-->
+		<category name="" id="remoteControl" colour="#3EC1CC">
+			<block type="controls_if_new"></block>
+			<block type="control_Button_if"></block>
+			<block type="control_IRsensor_if"></block>
+		</category>
+		<!--运动16-->
+		<category name="" id="motion" colour="#3EC1CC">
+			<block type="left_turn"></block>
+			<block type="stop"></block>
+			<block type="right_turn"></block>
+			<block type="go_forward"></block>
+			<block type="go_reverse"></block>
+			<block type="left_CW"></block>
+			<block type="left_ACW"></block>
+			<block type="right_CW"></block>
+			<block type="right_ACW"></block>
+			<block type="left_Stop"></block>
+			<block type="right_Stop"></block>
+			<block type="left_back"></block>
+			<block type="left_goahead"></block>
+			<block type="right_goahead"></block>
+
+			<block type="right_back"></block>
+			<block type="left_back_speed"></block>
+			<block type="left_goahead_speed"></block>
+			<block type="right_goahead_speed"></block>
+
+			<block type="right_back_speed"></block>
+			<block type="go_brake"></block>
+			<block type="steeringRight"></block>
+			<block type="steeringLeft"></block>
+			<block type="steeringCenter"></block>
+		</category>
+		<!--灯 17-->
+		<category name="" id="lamp" colour="#3EC1CC">
+			<block type="greenLED"></block>
+			<block type="redLED"></block>
+			<block type="blueLED"></block>
+			<block type="yellowLED"></block>
+			<block type="leftturn_light_flash"></block>
+			<block type="leftturn_light_off"></block>
+			<block type="leftturn_light_on"></block>
+			<block type="rightturn_light_flash"></block>
+			<block type="rightturn_light_off"></block>
+			<block type="rightturn_light_on"></block>
+			<block type="rear_light"></block>
+			<block type="rear_light_off"></block>
+			<block type="policeLight"></block>
+		</category>
+		<!--摄像18头-->
+		<category name="" id="camera" colour="#3EC1CC">
+			<block type="pan_clockwise"></block>
+			<block type="pan_counterclockwise"></block>
+			<block type="tilt_up"></block>
+			<block type="tilt_down"></block>
+			<block type="cam_init"></block>
+		</category>
+		<!--音乐19-->
+		<category name="" id="song" colour="#3EC1CC">
+			<block type="play_note"></block>
+			<block type="play_song"></block>
+		</category>
+		<!--控制20-->
+		<category name="" id="motor" colour="#3EC1CC">
+			<block type="MotorControl"></block>
+		</category>
+		<!--逻辑-->
+		<category id="catLogic" colour="210">
+			<block type="logic_compare"></block>
+			<block type="logic_operation"></block>
+			<block type="logic_negate"></block>
+			<block type="logic_boolean"></block>
+			<block type="logic_null"></block>
+			<block type="logic_true_or_false"></block>
+		</category>
+		<!--执行器-->
+		<category id="catActuator" colour="100">
+			<block type="servo_move">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+				<value name="DEGREE">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="DELAY_TIME">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="servo_writeMicroseconds">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+				<value name="DEGREE">
+					<shadow type="math_number">
+						<field name="NUM">1500</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="servo_read_degrees">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+			</block>
+			<block type="controls_tone">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+				<value name="FREQUENCY">
+					<shadow type="tone_notes"></shadow>
+				</value>
+			</block>
+			<block type="controls_tone2">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+				<value name="FREQUENCY">
+					<shadow type="tone_notes"></shadow>
+				</value>
+				<value name="DURATION">
+					<shadow type="math_number">
+						<field name="NUM">1000</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="controls_notone">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+			</block>
+			<block type="group_stepper_setup">
+				<value name="PIN1">
+					<shadow type="pins_digital">
+						<field name="PIN">1</field>
+					</shadow>
+				</value>
+				<value name="PIN2">
+					<shadow type="pins_digital">
+						<field name="PIN">2</field>
+					</shadow>
+				</value>
+				<value name="steps">
+					<shadow type="math_number">
+						<field name="NUM">100</field>
+					</shadow>
+				</value>
+				<value name="speed">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="group_stepper_setup2">
+				<value name="PIN1">
+					<shadow type="pins_digital">
+						<field name="PIN">1</field>
+					</shadow>
+				</value>
+				<value name="PIN2">
+					<shadow type="pins_digital">
+						<field name="PIN">2</field>
+					</shadow>
+				</value>
+				<value name="PIN3">
+					<shadow type="pins_digital">
+						<field name="PIN">3</field>
+					</shadow>
+				</value>
+				<value name="PIN4">
+					<shadow type="pins_digital">
+						<field name="PIN">4</field>
+					</shadow>
+				</value>
+				<value name="steps">
+					<shadow type="math_number">
+						<field name="NUM">100</field>
+					</shadow>
+				</value>
+				<value name="speed">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="group_stepper_move">
+				<value name="step">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+			</block>
+			<!--第五课-->
+
+		</category>
+		<!--control 控制器-->
+		<category name="" id="control" colour="#3EC1CC">
+			<block type="base_setup"></block>
+			<block type="base_delay"></block>
+			<block type="controls_for"></block>
+			<block type="controls_whileUntil"></block>
+			<block type="controls_flow_statements"></block>
+			<block type="controls_millis"></block>
+			<block type="controls_if"></block>
+			<!--<block type="controls_switch_case"></block>-->
+			<block type="controls_mstimer2"></block>
+			<block type="controls_mstimer2_start"></block>
+			<block type="controls_mstimer2_stop"></block>
+			<block type="controls_end_program"></block>
+		</category>
+		<!--ethernet 碰碰车     24-->
+		<category name="" id="bumperCar" colour="#3EC1CC">
+			<block type="bumperCar"></block>
+		</category>
+		<!--factory 工厂-->
+		<category name="" id="factory" colour="#3EC1CC">
+			<block type="factory_include"></block>
+			<block type="factory_function_noreturn"></block>
+			<!--<block type="factory_create_with_container"></block>
+			<block type="factory_create_with_item"></block>-->
+			<block type="factory_function_return"></block>
+			<block type="factory_declare"></block>
+			<block type="factory_static_method_noreturn"></block>
+			<block type="factory_static_method_return"></block>
+			<block type="factory_callMethod_noreturn"></block>
+			<block type="factory_callMethod_return"></block>
+			<block type="factory_block"></block>
+			<block type="factory_block_return"></block>
+		</category>
+		<!--inout 流-->
+		<category name="" id="inout" colour="#3EC1CC">
+			<block type="inout_highlow"></block>
+			<block type="inout_pinMode"></block>
+			<block type="inout_digital_write"></block>
+			<block type="inout_digital_write2"></block>
+			<block type="inout_digital_read"></block>
+			<block type="inout_digital_read2"></block>
+			<block type="ZWinout_analog_write">
+    <field name="PIN">ZW_B2</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+			<block type="inout_analog_read"></block>
+			<block type="inout_buildin_led"></block>
+			<block type="controls_attachInterrupt"></block>
+			<block type="controls_detachInterrupt"></block>
+			<block type="controls_attachPinInterrupt"></block>
+
+			<block type="controls_detachPinInterrupt"></block>
+			<block type="inout_pulseIn"></block>
+			<block type="inout_pulseIn2"></block>
+			<block type="inout_shiftout"></block>
+		</category>
+		<!--lists 表-->
+		<category name="" id="lists" colour="#3EC1CC">
+			<block type="lists_create_with"></block>
+			<block type="lists_create_with_text"></block>
+			<block type="lists_create_with2"></block>
+			<block type="lists_create_with_text2"></block>
+			<!--<block type="lists_create_with_container"></block>
+			<block type="lists_create_with_item"></block>-->
+			<block type="lists_getIndex"></block>
+			<block type="lists_setIndex"></block>
+			<block type="lists_length"></block>
+		</category>
+		<!--math-->
+		<category name="" id="math" colour="#3EC1CC">
+			<block type="math_number"></block>
+			<block type="math_arithmetic"></block>
+			<block type="math_bit"></block>
+			<block type="math_trig"></block>
+			<block type="math_to_int"></block>
+			<block type="math_max_min"></block>
+			<block type="math_random_int"></block>
+			<block type="math_constrain"></block>
+			<block type="base_map"></block>
+		</category>
+		<!--pin-->
+		<category name="" id="pin" colour="#3EC1CC">
+			<block type="pins_digital"></block>
+			<block type="pins_analog"></block>
+			<block type="pins_pwm"></block>
+			<block type="pins_interrupt"></block>
+			<block type="ZWpins_digital"></block>
+			<block type="ZWpins_analog"></block>
+			<block type="ZWpins_interrupt"></block>
+		</category>
+		<!--procedures-->
+		<category name="" id="procedures" colour="#3EC1CC">
+			<block type="procedures_defnoreturn"></block>
+			<block type="procedures_defreturn"></block>
+			<!--<block type="procedures_mutatorcontainer"></block>-->
+			<!--<block type="procedures_mutatorarg"></block>-->
+			<block type="procedures_callnoreturn"></block>
+			<block type="procedures_callreturn"></block>
+			<block type="procedures_ifreturn"></block>
+		</category>
+		<!--sensor-->
+		<category name="" id="sensor" colour="#3EC1CC">
+			<block type="gps_init"></block>
+			<block type="gps_data_available"></block>
+			<block type="gps_data_encode"></block>
+			<block type="gps_xxx_isValid"></block>
+			<block type="gps_getData_xxx"></block>
+		</category>
+		<!--storage-->
+		<category name="" id="storage" colour="#3EC1CC">
+			<block type="store_sd_write"></block>
+			<block type="store_eeprom_write_long"></block>
+			<block type="store_eeprom_read_long"></block>
+			<block type="store_eeprom_write_byte"></block>
+			<block type="store_eeprom_read_byte"></block>
+		</category>
+		<!--text-->
+		<category name="" id="text" colour="#3EC1CC">
+			<block type="text"></block>
+			<block type="text_char"></block>
+			<block type="text_join"></block>
+			<block type="text_to_number"></block>
+			<block type="number_to_text"></block>
+			<block type="text_length"></block>
+			<block type="text_char_at"></block>
+			<block type="text_equals_starts_ends"></block>
+			<block type="text_compareTo"></block>
+		</category>
+		<!--variables-->
+		<category name="" id="variables" colour="#3EC1CC">
+			<block type="variables_declare"></block>
+			<block type="variables_get"></block>
+			<block type="variables_set"></block>
+		</category>
+		<!--s系列  35-->
+		<category name="" id="level_s" colour="#3EC1CC">
+			<block type="level_s"></block>
+		</category>
+		<!--T3 36  马达模块-->
+		<category name="" id="motor_modular" colour="#E5A811">
+			<block type='left_motor'></block>
+			<block type='right_motor'></block>
+			
+			<block type='spin_start'></block>
+			<block type='spin_stop'></block>
+			<block type='big_wind'></block>
+			<block type='mid_wind'></block>
+			<block type='small_wind'></block>
+			
+		</category>
+		<!--37伺服模块-->
+		<category name="" id="servo_modular" colour="#017DC7">
+			
+			<block type='UCD_U'></block>
+			<block type='UCD_C'></block>
+			<block type='UCD_D'></block>
+			<block type='LRspin_start'></block>
+			<block type='LRspin_stop'></block>
+			
+			
+			<block type='fireBoom'></block>
+			<block type='filter'></block>
+			
+			<block type='pawOpen'></block>
+			<block type='pawClose'></block>
+			<block type='pawUp'></block>
+			<block type='pawDown'></block>
+			
+			<!--<block type='loadBullets'></block>
+			<block type='shotBullet'></block>
+			<block type='backOrigin'></block>-->
+			
+			<block type='AdjustLoaderAngle'></block>
+			<block type='loaded'></block>
+			<block type='shot'></block>
+			<block type='Bursts'></block>
+			<block type='singleShot'></block>
+			
+			<block type='handlebarLeft'></block>
+			<block type='handlebarRight'></block>
+			<block type='handlebarReturn'></block>
+			
+			<block type='shovelUp'></block>
+			<block type='shovelDown'></block>
+			<block type='armUp'></block>
+			<block type='armDown'></block>
+			
+		</category>
+		<!--38 传感器模块-->
+		<category name="" id="sensor_modular" colour="#7C163E">
+			<block type="colorChoose"></block>
+			<block type='bollColor'></block>
+		</category>
+		<!--39 逻辑模块-->
+		<category name="" id="logical_modular" colour="#ED0C68">
+			<block type="controls_if_new"></block>
+			<block type="controls_if"></block> 
+			<block type='intelligentLearning'></block>
+			<block type='bollChoosed'></block>
+		</category>
+		<!--T2  40时间模块-->
+		<category name="" id="timing_modular" colour="#118972">
+			<block type="delay"></block>
+		</category>
+		<!--41灯光模块-->
+		<category name="" id="lighteffects_modular" colour="#7030a0">
+			<block type="yellowLED"></block>
+			<block type="offLED"></block>
+			
+		</category>
+		<!--42 声音模块-->
+		<category name="" id="sound_modular" colour="#bf2761">
+			<block type="play_note"></block>
+			<block type="play_song"></block>
+		</category>
+		<!--43 巡线模块-->
+		<category name="" id="findLine_modular" colour="#6caa1c">
+			<block type="controls_if"></block> 
+			<block type="twoSensor"></block>
+			<block type='isAuto'></block>
+		</category>
+		<!--44 T3 灯光模块-->
+		<category name="" id="lighteffects_modular_T3" colour="#7030a0">
+			
+			<block type="lampOn"></block>
+			<block type="lampOff"></block>
+			
+			<block type="forkliftLampOn"></block>
+			<block type="forkliftLampOff"></block>
+			<block type="forkliftTopLampOn"></block>
+			<block type="forkliftTopLampOff"></block>
+		</category>
+		<!--44444444444444444444444444444444444444444444444-->
+		<!--t4逻辑遥控器模块   45 -->
+		<category name="" id="logical_modular_t4" colour="#FFA102">
+			<block type="controls_if_new"></block>
+		</category>
+		<!--t4语音模块  46-->
+		<category name="" id="volume_modular_t4" colour="#EE3FD3">
+			<block type="volume"></block>
+			<block type="volumeOnlyOnce"></block>
+			<block type="pause"></block>
+		</category>
+		<!--t4电机模块 47-->
+		<category name="" id="motor_modular_t4" colour="#0078D7">
+			<block type="MotorControl"></block>
+			<block type="MotorControlTime"></block>
+		</category>
+ 		<!--t4伺服马达 48-->
+ 		<category name="" id="servo_modular_t4" colour="#3AE215">
+			<!-- block type="chooseServo"></block>
+			<!--<block type="servoSpeed"></block>
+			<block type="servoInit"></block>
+			<block type="servoRotate"></block>
+			<block type="servoIncrement"></block>
+			<block type="dance"></block>
+			<block type="danceStop"></block> -->
+			<block type="ServoOrigin"></block>
+			<block type="ServoControl"></block>
+			<block type="ServoTurnto"></block>
+		</category>
+		<!--t4灯光模块 49-->
+ 		<category name="" id="lamp_modular_t4" colour="#F4EA2A">
+ 			
+ 			<block type="yellowLED"></block>
+			<block type="offLED"></block>
+			<block type="custom_lamp"></blcok>
+		</category>
+		<!--t4传感模块 50-->
+ 		<category name="" id="sensor_modular_t4" colour="#F4B5A1">
+ 			<block type="infrared_sensor"></block>
+ 			<block type="ultrasonic_sensor"></block>
+ 			<block type="temperature"></block>
+ 			<block type="temperature_value_sbt"></block>
+ 			<block type="ultrasonic_sensor_value_sbt"></block>
+ 			<block type="followLine"></block>
+ 			<block type="followLine_speed"></block>
+ 			<block type="followLine_verification"></block>
+ 			<block type="followLine_traversal"></block>
+ 			<block type="followLine_finishLine"></block>
+		</category>
+		<!--t4逻辑模块 51 -->
+		<category id="logic_modular_t4" colour="#B3A7D3">
+			<block type="base_setup"></block>
+			<block type="controls_if"></block> 
+			<block type="RemoteControlButton"></block> 
+			<block type="RemoteControlButtonLast"></block> 
+			<block type="controls_whileUntil"></block>
+			<block type="logic_compare"></block>
+			<block type="math_number"></block>
+		</category>
+		<!--t5传感模块 52 -->
+		<category id="sensor_modular_t5" colour="#384D9E">
+			<block type="infrared_sensor_single"></block>
+			<block type="pressureTransducer"></block>
+		</category>
+		<!--t5数学模块 53 -->
+		<category id="variable_modular_t5" colour="#A55B80" custom="VARIABLE">
+			<!-- block type="variables_declare"></block>
+			<block type="variables_get"></block>
+			<block type="variables_set"></block> -->
+		</category>
+		<!--t5延迟        54 -->
+		<category id="delay_modular_t5" colour="#A55B80">
+			<block type="delay_t5"></block>
+		</category>
+		<!--t5 逻辑       55 -->
+		<category id="logic_modular_t5" colour="#7C83A7">
+			<block type="base_setup_t5"></block>
+			<block type="controls_if"></block> 
+			<block type="RemoteControlButton_t5"></block> 
+			<block type="RemoteControlButtonLast_t5"></block> 
+			<block type="controls_whileUntil"></block>
+			
+			<block type="logic_negate_t5"></block>
+			<block type="logic_boolean_t5"></block>
+		</category>
+		<!--t5 串口输出       56 -->
+		<category id="serial_modular_t5" colour="#FF6A49">
+			<block type='serial_print_t5'></block>
+			<block type='serial_println_t5'></block>
+		</category>
+		<!--t5伺服马达 57-->
+ 		<category name="" id="servo_modular_t5" colour="#3AE215">
+			<block type="chooseServo"></block>
+			<!--<block type="servoSpeed"></block>-->
+			<block type="servoInit"></block>
+			<block type="servoRotate_t5"></block>
+			<block type="servoIncrementPro"></block>
+		</category>
+		<!--t5 数学   58 -->
+		<category id="math_modular_t5" colour="#5B67A5">
+			<block type="math_number_t5"></block>
+			<block type="math_arithmetic"></block>
+			<block type="logic_compare_t5"></block>
+			<block type="logic_operation_t5"></block>
+			<block type="base_map"></block>
+		</category>
+		<!--t5 文本   59 -->
+		<category id="text_modular_t5" colour="#FF4201">
+			<block type="text"></block>		
+		</category>
+		<!--t5 灯光   60 -->
+		<category id="lamp_modular_t5" colour="#F4EA2A">			
+			<block type="optional_LED"></block>
+			<block type="custom_lamp"></blcok>	
+		</category>
+		<!--dragon PREE 61-->
+		<category name="" id="dinosaur" colour="#FFE600">
+			<block type="scanningGoForward"></block>
+			<block type="obstacleGoBack"></block>
+		</category>
+		<!--bird  62-->
+		<category name="" id="flyBird" colour="#B3A7D3">
+			<block type="presShake"></block>
+			<block type="pursuit"></block>
+		</category>
+		<!--运动模块63-->
+		<category name="" id="preEMovement" colour="#EE3FD3">
+			<block type="left_turn"></block>
+			<block type="right_turn"></block>
+			<block type="go_forward"></block>
+			<block type="go_reverse"></block>
+			<block type="stop"></block>
+			
+			<block type='left_motor'></block>
+			<block type='right_motor'></block>
+			
+			<block type="MotorControl"></block>
+			<block type="MotorControlTime"></block>
+			
+			<block type="chooseServo"></block>
+			<block type="servoInit"></block>
+			<block type="servoRotate"></block>
+			<block type="servoIncrement"></block>
+			<block type="dance"></block>
+			<block type="danceStop"></block>
+		</category>
+		<!--动作模块64-->
+		<category name="" id="preEAction" colour="#bf2761">
+			<block type='readyFire'></block>
+			<block type='accumulating'></block>
+			<block type='fire'></block>
+			<block type='lfet_punches'></block>
+			<block type='lfet_takeAFist'></block>
+			<block type='right_punches'></block>
+			<block type='right_takeAFist'></block>
+			<block type='pawOpen'></block>
+			<block type='pawClose'></block>
+			<block type='pawUp'></block>
+			<block type='pawDown'></block>
+			<block type='handlebarLeft'></block>
+			<block type='handlebarRight'></block>
+			<block type='handlebarReturn'></block>
+			<block type='AdjustLoaderAngle'></block>
+			<block type='loaded'></block>
+			<block type='shot'></block>
+			<block type='Bursts'></block>
+			<block type='singleShot'></block>
+		</category>
+		<!--灯光模块65-->
+		<category id="preELamp" colour="#ED0C68">
+			<block type="lampOn"></block>
+			<block type="lampOff"></block>
+			
+			<block type="custom_lamp"></blcok>
+		</category>
+		<!--语音模块66-->
+		<category id="preEVoice" colour="#017DC7">
+			<block type="volume"></block>
+			<block type="volumeOnlyOnce"></block>
+			<block type="pause"></block>
+		</category>
+		<!--逻辑模块67-->
+		<category id="preELogic" colour="#3EC1CC">
+			<block type="base_setup"></block>
+			<block type="controls_if"></block> 
+			<block type="RemoteControlButton"></block> 
+			<block type="RemoteControlButtonLast"></block> 
+			<block type="controls_whileUntil"></block>
+			<block type="logic_compare"></block>
+			<block type="math_number"></block>
+		</category>
+		<!--传感器模块68-->
+		<category id="preESensor" colour="#F77103">
+			<block type="temperature"></block>
+			<block type="ultrasonic_sensor"></block>
+			
+			<block type="followLine"></block>
+ 			<block type="followLine_speed"></block>
+ 			<block type="followLine_verification"></block>
+ 			<block type="followLine_traversal"></block>
+ 			<block type="followLine_finishLine"></block>
+		</category>、
+		<!--延迟模块69-->
+		<category id="preEDelay" colour="#0055ff">
+			<block type="delay_t5"></block>
+		</category>
+		<!--遥控器模块70-->
+		<category id="preEControl" colour="#F5821F">
+			<block type="controls_if_new"></block>
+		</category>
+		
+		
+		
+		
+		
+		<!--逻辑71-->
+		<category id="catLogicLT" colour="210">
+			<block type="logic_compare_t5"></block>
+			<block type="logic_operation"></block>
+			<block type="logic_negate"></block>
+			<block type="logic_boolean"></block>
+			<block type="logic_null"></block>
+			<block type="logic_true_or_false"></block>
+			
+		</category>
+		<!--执行器72-->
+		<category id="catActuatorLT" colour="100">
+			<block type="MotorControlLT"></block>
+			<block type="ServoOrigin"></block>
+			<block type="ServoControl"></block>
+			<block type="ServoTurnto"></block>
+			<!--<block type="MotorControlSetOrigin"></block>
+			<block type="MotorControl"></block>
+			<block type="motor_changeSpeed"></block>-->
+			<block type="motor_speed_fillings"></block>
+			<block type="servo_move">
+				<value name="PIN">
+					<shadow type="ZWpins_servo"></shadow>
+				</value>
+				<value name="DEGREE">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="DELAY_TIME">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="servo_writeMicroseconds">
+				<value name="PIN">
+					<shadow type="ZWpins_servo"></shadow>
+				</value>
+				<value name="DEGREE">
+					<shadow type="math_number">
+						<field name="NUM">1500</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="servo_read_degrees">
+				<value name="PIN">
+					<shadow type="ZWpins_servo"></shadow>
+				</value>
+			</block>
+			<block type="controls_tone">
+				<value name="PIN">
+					<shadow type="ZWpins_digital"></shadow>
+				</value>
+				<value name="FREQUENCY">
+					<shadow type="tone_notes"></shadow>
+				</value>
+			</block>
+			<block type="controls_tone2">
+				<value name="PIN">
+					<shadow type="ZWpins_digital"></shadow>
+				</value>
+				<value name="FREQUENCY">
+					<shadow type="tone_notes"></shadow>
+				</value>
+				<value name="DURATION">
+					<shadow type="math_number">
+						<field name="NUM">1000</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="controls_notone">
+				<value name="PIN">
+					<shadow type="ZWpins_digital"></shadow>
+				</value>
+			</block>
+			<block type="group_stepper_setup">
+				<value name="PIN1">
+					<shadow type="pins_digital">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+				<value name="PIN2">
+					<shadow type="pins_digital">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+				<value name="steps">
+					<shadow type="math_number">
+						<field name="NUM">100</field>
+					</shadow>
+				</value>
+				<value name="speed">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="group_stepper_setup2">
+				<value name="PIN1">
+					<shadow type="pins_digital">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+				<value name="PIN2">
+					<shadow type="pins_digital">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+				<value name="PIN3">
+					<shadow type="pins_digital">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+				<value name="PIN4">
+					<shadow type="pins_digital">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+				<value name="steps">
+					<shadow type="math_number">
+						<field name="NUM">100</field>
+					</shadow>
+				</value>
+				<value name="speed">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="group_stepper_move">
+				<value name="step">
+					<shadow type="math_number">
+						<field name="NUM">10</field>
+					</shadow>
+				</value>
+			</block>
+		</category>
+		<!--control73 控制器-->
+		<category name="" id="controlLT" colour="#3EC1CC">
+			<block type="controls_switch_case"></block>
+			<block type="base_setup"></block>
+			<block type="base_delay">
+                <value name="DELAY_TIME">
+                    <shadow type="math_number">
+                        <field name="NUM">1000</field>
+                    </shadow>
+                </value>
+            </block>
+
+			<block type="controls_for">
+                <value name="FROM">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+                <value name="TO">
+                    <shadow type="math_number">
+                        <field name="NUM">10</field>
+                    </shadow>
+                </value>
+                <value name="STEP">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                    </shadow>
+                </value>
+            </block>
+			<block type="controls_whileUntil"></block>
+			<block type="controls_flow_statements"></block>
+			<block type="controls_millis"></block>
+			<block type="controls_if"></block>
+			<!--<block type="controls_switch_case"></block>-->
+			<block type="controls_mstimer2"></block>
+			<block type="controls_mstimer2_start"></block>
+			<block type="controls_mstimer2_stop"></block>
+			<block type="controls_end_program"></block>
+		</category>
+		<!--inout74 流-->
+		<category name="" id="inoutLT" colour="#3EC1CC">
+			<block type="inout_highlow"></block>
+			<block type="inout_pinMode"></block>
+			<block type="inout_digital_write"></block>
+			<!--<block type="inout_digital_write2"></block>-->
+			<block type="inout_digital_read"></block>
+			<!--<block type="inout_digital_read2"></block>-->
+			<block type="inout_analog_write"></block>
+			<block type="inout_analog_read"></block>
+			
+			<block type="inout_buildin_led"></block>
+			
+			
+			
+			<block type="controls_attachInterrupt"></block>
+			<block type="controls_detachInterrupt"></block>
+			<block type="controls_attachPinInterrupt"></block>
+
+			<block type="controls_detachPinInterrupt"></block>
+			
+			
+			<block type="inout_pulseIn"></block>
+			<block type="inout_pulseIn2"></block>
+			<block type="inout_shiftout"></block>
+			
+
+		</category>
+		<!--lists 75表-->
+		<category name="" id="listsLT" colour="#3EC1CC">
+			<block type="lists_create_with"></block>
+			<block type="lists_create_with_text"></block>
+			<block type="lists_create_with2"></block>
+			<block type="lists_create_with_text2"></block>
+			<!--<block type="lists_create_with_container"></block>
+			<block type="lists_create_with_item"></block>-->
+			<block type="lists_getIndex"></block>
+			<block type="lists_setIndex"></block>
+			<block type="lists_length"></block>
+		</category>
+		<!--math76-->
+		<category name="" id="mathLT" colour="#3EC1CC">
+			<block type="math_number"></block>
+			<block type="math_arithmetic"></block>
+			<block type="math_bit"></block>
+			<block type="math_trig"></block>
+			<block type="math_to_int"></block>
+			<block type="math_max_min"></block>
+			<block type="math_random_int"></block>
+			<block type="math_constrain"></block>
+			<block type="base_map"></block>
+		</category>
+		<!--77-->
+		<category id="catFunLT" custom="PROCEDURE" colour="290">
+ 
+  		</category>
+  		<!--text78-->
+		<category name="" id="textLT" colour="#3EC1CC">
+			<block type="text"></block>
+			<block type="text_char"></block>
+			<block type="text_join"></block>
+			<block type="text_to_number"></block>
+			<block type="number_to_text"></block>
+			<block type="text_length"></block>
+			<block type="text_char_at"></block>
+			<block type="text_equals_starts_ends"></block>
+			<block type="text_compareTo"></block>
+		</category>
+		<!--variables79-->
+		<category name="" id="variablesLT" colour="#3EC1CC" custom="VARIABLE">
+			<!-- <block type="variables_declare"></block>
+			<block type="variables_get"></block>
+			<block type="variables_set"></block> -->
+			
+		</category>
+		<!--80-->
+		<category id="catGroupLT" colour="140">
+			<block type="ir_recv">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+				<statement name="DO">
+					<block type="serial_println">
+						<value name="CONTENT">
+							<block type="variables_get">
+								<field name="VAR">ir_item</field>
+							</block>
+						</value>
+					</block>
+				</statement>
+			</block>
+			<block type="ir_send_nec">
+				<value name="data">
+					<shadow type="math_number">
+						<field name="NUM">0x89ABCDEF</field>
+					</shadow>
+				</value>
+				<value name="bits">
+					<shadow type="math_number">
+						<field name="NUM">32</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="ir_recv_enable">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+			</block>
+			<block type="ir_recv_raw">
+				<value name="PIN">
+					<shadow type="pins_digital"></shadow>
+				</value>
+			</block>
+			<block type="ir_send_raw">
+				<value name="length">
+					<shadow type="math_number">
+						<field name="NUM">3</field>
+					</shadow>
+				</value>
+				<value name="freq">
+					<shadow type="math_number">
+						<field name="NUM">38</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="i2c_master_writer"></block>
+			<block type="i2c_master_reader"></block>
+			<block type="i2c_master_reader2"></block>
+			<block type="i2c_available"></block>
+			<block type="spi_transfer">
+				<value name="pin">
+					<shadow type="pins_digital"></shadow>
+				</value>
+				<value name="value">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+			</block>
+		</category>
+		<!--81-->
+		<category id="catMonitorLT" colour="180">
+			<block type="group_lcd_init">
+				<value name="device">
+					<shadow type="math_number">
+						<field name="NUM">0x27</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="group_lcd_init2">
+				<value name="device">
+					<shadow type="math_number">
+						<field name="NUM">0x27</field>
+					</shadow>
+				</value>
+				<value name="PIN1">
+					<shadow type="pins_digital">
+						<field name="PIN">A1</field>
+					</shadow>
+				</value>
+				<value name="PIN2">
+					<shadow type="pins_digital">
+						<field name="PIN">A2</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="group_lcd_init3">
+				<value name="PIN1">
+					<shadow type="pins_digital">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+				<value name="PIN2">
+					<shadow type="pins_digital">
+						<field name="PIN">8</field>
+					</shadow>
+				</value>
+				<value name="PIN3">
+					<shadow type="pins_digital">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+				<value name="PIN4">
+					<shadow type="pins_digital">
+						<field name="PIN">10</field>
+					</shadow>
+				</value>
+				<value name="PIN5">
+					<shadow type="pins_digital">
+						<field name="PIN">11</field>
+					</shadow>
+				</value>
+				<value name="PIN6">
+					<shadow type="pins_digital">
+						<field name="PIN">12</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="group_lcd_print">
+				<value name="TEXT">
+					<block type="text">
+						<field name="TEXT"></field>
+					</block>
+				</value>
+				<value name="TEXT2">
+					<block type="text">
+						<field name="TEXT"></field>
+					</block>
+				</value>
+			</block>
+			<block type="group_lcd_print2">
+				<value name="row">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+				<value name="column">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+				<value name="TEXT">
+					<block type="text">
+						<field name="TEXT"></field>
+					</block>
+				</value>
+			</block>
+			<block type="group_lcd_power">
+				<field name="STAT">clear</field>
+			</block>
+			<block type="lp2i_u8g_draw_string">
+				<value name="Text">
+					<shadow type="text">
+						<field name="TEXT">Example</field>
+					</shadow>
+				</value>
+				<value name="X">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="Y">
+					<shadow type="math_number">
+						<field name="NUM">12</field>
+					</shadow>
+				</value>
+			</block>
+
+			<block type="lp2i_u8g_draw_4strings">
+				<value name="Text_line1">
+					<shadow type="text">
+						<field name="TEXT">Example line 1</field>
+					</shadow>
+				</value>
+				<value name="Text_line2">
+					<shadow type="text">
+						<field name="TEXT">Example line 2</field>
+					</shadow>
+				</value>
+				<value name="Text_line3">
+					<shadow type="text">
+						<field name="TEXT">Example line 3</field>
+					</shadow>
+				</value>
+				<value name="Text_line4">
+					<shadow type="text">
+						<field name="TEXT">Example line 4</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="lp2i_u8g_print">
+				<value name="N">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="X">
+					<shadow type="math_number">
+						<field name="NUM">0</field>
+					</shadow>
+				</value>
+				<value name="Y">
+					<shadow type="math_number">
+						<field name="NUM">12</field>
+					</shadow>
+				</value>
+			</block>
+		</category>
+		<!--82-->
+		<category id="catSensorLT" colour="40">
+			<block type="chaoshengbo2">
+				<value name="PIN1">
+					<shadow type="pins_analog">
+						<field name="PIN">请选择串口</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="ultrasonic_sensor_sbt"></block>
+			<block type="temperature_sbt"></block>
+			<block type="infrared_sensor_sbt"></block>
+			
+			<block type="ultrasonic_sensor_value_sbt"></block>
+			<block type="temperature_value_sbt"></block>
+			<block type="infrared_sensor_value_sbt"></block>
+			
+			<block type="dht11">
+				<value name="PIN">
+					<shadow type="pins_digital">	<field name="PIN">请选择串口</field></shadow>
+				</value>
+			</block>
+			<block type="ds18b20">
+				<value name="PIN">
+					<shadow type="pins_digital">	<field name="PIN">请选择串口</field></shadow>
+				</value>
+			</block>
+			<block type="gps_init">
+				<value name="RX">
+					<shadow type="pins_digital">	<field name="PIN">请选择串口</field></shadow>
+				</value>
+				<value name="TX">
+					<shadow type="pins_digital">	<field name="PIN">请选择串口</field></shadow>
+				</value>
+				<value name="CONTENT">
+					<shadow type="math_number">
+						<field name="NUM">4800</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="controls_whileUntil">
+				<field name="MODE">WHILE</field>
+				<value name="BOOL">
+					<block type="gps_data_available"></block>
+				</value>
+				<statement name="DO">
+					<block type="controls_if">
+						<value name="IF0">
+							<block type="gps_data_encode"></block>
+						</value>
+						<statement name="DO0">
+							<block type="controls_if">
+								<value name="IF0">
+									<block type="gps_xxx_isValid">
+										<field name="WHAT">location</field>
+									</block>
+								</value>
+								<statement name="DO0">
+									<block type="serial_println">
+										<field name="serial_select">Serial</field>
+										<value name="CONTENT">
+											<block type="gps_getData_xxx">
+												<field name="WHAT">location.lat</field>
+											</block>
+										</value>
+										<next>
+											<block type="serial_println">
+												<field name="serial_select">Serial</field>
+												<value name="CONTENT">
+													<block type="gps_getData_xxx">
+														<field name="WHAT">location.lng</field>
+													</block>
+												</value>
+											</block>
+										</next>
+									</block>
+								</statement>
+							</block>
+						</statement>
+					</block>
+				</statement>
+			</block>
+		</category>
+		<!--83-->
+		<category id='pin_newLT'>
+			<block type='serial_begin'></block>
+			<block type='serial_write'></block>
+			<block type='serial_print'></block>
+			<block type='serial_println'></block>
+			<block type='serial_print_hex'></block>
+			<block type='serial_available'></block>
+			<block type='serial_readstr'></block>
+			<block type='serial_readstr_until'></block>
+			<block type='serial_parseInt_Float'></block>
+			<block type="serial_softserial"></block>
+		</category>
+		<!--83-->
+		<category id = "voiceLT" colour="#A55B80">
+			<block type="voiceNumber"></block>
+			<block type="voiceWord"></block>
+			<block type="play_note"></block>
+		</category>
+		
+		
+		<!--T2 84-->
+		<category name="" id="movementC_sbt" colour="#FA8071">
+			<block type="left_turn"></block>
+			<block type="right_turn"></block>
+			<block type="go_forward"></block>
+			<block type="go_reverse"></block>
+			<block type="stop"></block>
+		</category>
+		<!--马达  85-->
+		<category name="" id="motor_sbt" colour="#3EC1CC">
+			<block type="MotorControl"></block>
+			<block type="MotorControlTime"></block>
+			<block type="MultipleMotorSet"></block>
+
+		</category>
+		<!--舵机  86-->
+		<category name="" id="servo_sbt" colour="#3EC1CC">
+			<block type="ServoOrigin"></block>
+			<block type="ServoControl"></block>
+			<block type="ServoTurnto"></block>
+			<block type="MultipleServoSet"></block>
+			<block type="MultipleServoSetPD"></block>
+		</category>
+		<!--控制  87-->
+		<category name="" id="control_sbt" colour="#3EC1CC">
+			<block type="controls_if_new"></block>
+			<block type="control_Button_if"></block>
+		</category>
+		<!--传感  88-->
+		<category name="" id="sense_sbt" colour="#3EC1CC">
+			<block type="ultrasonic_sensor_sbt"></block>
+			<block type="temperature_sbt"></block>
+			<block type="infrared_sensor_sbt"></block>
+			
+			<block type="ultrasonic_sensor_value_sbt"></block>
+			<block type="temperature_value_sbt"></block>
+			<block type="infrared_sensor_value_sbt"></block>
+			
+			<block type="colorChoose"></block>
+			<block type='bollColor'></block>
+			<block type='readColorSensor'></block>
+		  <block type='readColorSensorValue'></block>
+
+		  
+			<block type="followLine"></block>
+ 			<block type="followLine_speed"></block>
+ 			<block type="followLine_verification"></block>
+ 			<block type="followLine_traversal"></block>
+ 			<block type="followLine_finishLine"></block>
+		</category>
+		<!--灯  89-->
+		<category name="" id="light_sbt" colour="#3EC1CC">
+			<block type="yellowLED"></block>
+			<block type="offLED"></block>
+			<!--<block type="optional_LED"></block>-->
+			<block type="custom_lamp"></block>	
+			
+			<block type="RGB_color_seclet" >
+ <field name="COLOR">#ff0000</field>
+</block>
+<block type="RGB_color_rgb">
+  <value name="R">
+    <shadow type="math_number">
+      <field name="NUM">0</field>
+    </shadow>
+  </value>
+  <value name="G">
+    <shadow type="math_number">
+      <field name="NUM">0</field>
+    </shadow>
+  </value>
+  <value name="B">
+    <shadow type="math_number">
+      <field name="NUM">0</field>
+    </shadow>
+  </value>
+</block>
+<block type="display_rgb_init">
+  <value name="PIN">
+    <shadow type="pins_digital" />
+  </value>
+  <value name="LEDCOUNT">
+    <shadow type="math_number">
+      <field name="NUM">4</field>
+    </shadow>
+  </value>
+  <value name="Brightness">
+    <shadow type="math_number">
+      <field name="NUM">20</field>
+    </shadow>
+  </value>
+</block>
+<block type="display_rgb_show">
+</block>
+<block type="display_rgb_Brightness">
+  <value name="PIN">
+    <shadow type="pins_digital" />
+  </value>
+  <value name="Brightness">
+    <shadow type="math_number">
+      <field name="NUM">20</field>
+    </shadow>
+  </value>
+</block>
+<block type="display_rgb">
+  <value name="PIN">
+    <shadow type="pins_digital" />
+  </value>
+  <value name="_LED_">
+    <shadow type="math_number">
+      <field name="NUM">1</field>
+    </shadow>
+  </value>
+  <value name="COLOR">
+    <shadow type="math_number">
+      <field name="NUM">
+      </field>
+    </shadow>
+    <block type="RGB_color_rgb">
+      <value name="R">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="G">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="B">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+  </value>
+</block>
+
+<block type="display_rainbow_stream">
+  <value name="PIN">
+    <shadow type="pins_digital" />
+  </value>
+  <value name="WAIT">
+    <shadow type="math_number">
+      <field name="NUM">20</field>
+    </shadow>
+  </value>
+  <value name="Brightness">
+    <shadow type="math_number">
+      <field name="NUM">20</field>
+    </shadow>
+  </value>
+</block>
+<block type="display_theaterChase_rainbow_stream">
+  <value name="PIN">
+    <shadow type="pins_digital" />
+  </value>
+  <value name="WAIT">
+    <shadow type="math_number">
+      <field name="NUM">20</field>
+    </shadow>
+  </value>
+  <value name="Brightness">
+    <shadow type="math_number">
+      <field name="NUM">20</field>
+    </shadow>
+  </value>
+</block>
+		</category>
+		<!--语音  90-->
+		<category name="" id="sound_sbt" colour="#3EC1CC">
+			<block type="play_note"></block>
+			<block type="play_song"></block>
+			
+			<block type="volume"></block>
+			<block type="volumeOnlyOnce"></block>
+			<block type="pause"></block>
+		</category>
+		<!--逻辑91-->
+		<category id="catLogic_sbt" colour="210">
+			<block type="logic_compare"></block>
+			<block type="logic_operation"></block>
+			<block type="logic_negate"></block>
+			<block type="logic_boolean"></block>
+			<block type="logic_null"></block>
+			<block type="logic_true_or_false"></block>
+			
+			<block type='intelligentLearning'></block>
+			<block type='bollChoosed'></block>
+		</category>
+		<!--control 92-->
+		<category name="" id="structure_sbt" colour="#3EC1CC">
+			<block type="base_setup"></block>
+			<block type="base_delay"></block>
+			<block type="controls_switch_case"></block>
+			<block type="controls_for"></block>
+			<block type="controls_whileUntil"></block>
+			<block type="controls_flow_statements"></block>
+			<block type="controls_millis"></block>
+			<block type="controls_if"></block>
+			<!--<block type="controls_switch_case"></block>-->
+			<block type="controls_mstimer2"></block>
+			<block type="controls_mstimer2_start"></block>
+			<block type="controls_mstimer2_stop"></block>
+			<block type="controls_end_program"></block>
+		</category>
+		<!--math 93-->
+		<category name="" id="math_sbt" colour="#3EC1CC">
+			<block type="math_number"></block>
+			<block type="math_arithmetic"></block>
+			<block type="math_bit"></block>
+			<block type="math_trig"></block>
+			<block type="math_to_int"></block>
+			<block type="math_max_min"></block>
+			<block type="math_random_int"></block>
+			<block type="math_constrain"></block>
+			<block type="base_map"></block>
+			<block type="setpassword"></block>
+			<block type="checkpassword"></block>
+			<block type="resetpasswordinput"></block>
+			<block type="password">
+    <field name="PIN">ZW_A1</field>
+    <value name="VALUE">
+      <block type="text_char">
+        <field name="TEXT">1</field>
+      </block>
+    </value>
+  </block>
+		</category>
+		<!--text  94-->
+		<category name="" id="text_sbt" colour="#3EC1CC">
+			<block type="text"></block>
+			<block type="text_char"></block>
+			<block type="text_join"></block>
+			<block type="text_to_number"></block>
+			<block type="number_to_text"></block>
+			<block type="text_length"></block>
+			<block type="text_char_at"></block>
+			<block type="text_equals_starts_ends"></block>
+			<block type="text_compareTo"></block>
+		</category>
+		<!--variables 95-->
+		<category name="" id="variables_sbt" colour="#3EC1CC" custom="VARIABLE">
+			<!-- <block type="variables_declare"></block>
+			<block type="variables_get"></block>
+			<block type="variables_set"></block> -->
+		</category>
+		<!-- print模块 96-->
+		<category name="" id="print_sbt" colour="#3EC1CC">
+			<!-- block type='serial_print_t5'></block>
+			<block type='serial_println_t5'></block> -->
+			<block type='serial_begin'></block>
+			<block type='serial_write'></block>
+			<block type='serial_print'></block>
+			<block type='serial_println'></block>
+			<block type='serial_print_hex'></block>
+			<block type='serial_available'></block>
+			<block type='serial_readstr'></block>
+			<block type='serial_readstr_until'></block>
+			<block type='serial_parseInt_Float'></block>
+			<block type="serial_softserial"></block>
+		</category>
+		
+		<!-- 童创未来 自动程序模块 98-->
+		<category name="" id="autoRunMode" colour="#3EC1CC">
+			<block type='TongChuangAuto'></block>
+			<block type='TongChuangAutoMotorClaw'></block>
+		</category>		
+		
+		<!-- T2 逻辑模块 99-->
+		<category id="catT2Logic" colour="210">
+			<block type="logic_compare"></block>
+			<block type="logic_operation"></block>
+		</category>
+		
+		<!-- T2 数学模块 100-->
+		<category name="" id="T2math" colour="#3EC1CC">
+			<block type="math_number"></block>
+			<block type="math_arithmetic"></block>
+		</category>
+		
+		<!--T2 传感模块  101-->
+		<category name="" id="T2sense_sbt" colour="#3EC1CC">
+			<block type="ultrasonic_sensor_sbt"></block>
+			<block type="ultrasonic_sensor_value_sbt"></block>
+			<block type="infrared_sensor_sbt"></block>
+			<block type="infrared_sensor_value_sbt"></block>
+		</category>
+		
+		<!-- T2 print模块 102-->
+		<category name="" id="T2print_sbt" colour="#3EC1CC">
+			<block type='serial_print_t5'></block>
+			<block type='serial_println_t5'></block>
+		</category>
+		
+		<!--T5 语音模块 103-->
+		<category id="T5Voice" colour="#017DC7">
+			<block type="playFileInFolder">
+			    <value name="folderName">
+					  <shadow type="math_number">
+						  <field name="NUM">0</field>
+					  </shadow>
+				  </value>
+				  <value name="fileName">
+					  <shadow type="math_number">
+						  <field name="NUM">0</field>
+					  </shadow>
+				  </value>
+		  </block>
+			<block type="playWeight">
+			    <value name="WeightVar">
+			      <shadow type="math_number">
+						  <field name="NUM">0</field>
+					  </shadow>
+				  </value>
+			</block>
+			<block type="setVolume">
+			    <value name="volumeVar">
+			      <shadow type="math_number">
+						  <field name="NUM">30</field>
+					  </shadow>
+				  </value>
+			</block>
+		</category>
+	</xml>
+<script src="scrolljs.js"></script>
+<script type="text/javascript" src="merge.js"></script>
+<style>
+	
+		.changeBlack+.blocklyText,.blocklyEditableText .blocklyText{
+			fill: #000 !important;
+		}
+		
+		#abc {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.blocklyMainBackground {
+			
+		}
+		
+		.blocklyTreeRow,
+		#tabRow {
+			moz-user-select: -moz-none;
+			-moz-user-select: none;
+			-o-user-select: none;
+			-khtml-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		#tab_blocks,#tab_arduino{
+			width: 155px;
+   			 height: 50px;
+		}
+		
+		.blocklyText {
+			moz-user-select: -moz-text;
+			-moz-user-select: text;
+			-o-user-select: text;
+			-khtml-user-select: text;
+			-webkit-user-select: text;
+			-ms-user-select: text;
+			user-select: text;
+		}
+		/*.blocklySvg{
+			background: url(../../media/ZeroWorkshop/12345.jpg) no-repeat;
+			background-size: 100%;
+		}*/
+	</style>
+	
+	<script src="copy.js"></script>
+</body>
+
+</html>
