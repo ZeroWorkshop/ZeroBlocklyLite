@@ -1,6 +1,7 @@
 # 同步时忽略以下路径
 /mixlyBuild
 .git
+.gitignore
 *.pdf
 /PortableGit
 /setting
