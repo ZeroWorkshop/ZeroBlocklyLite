@@ -2374,11 +2374,11 @@ void checkHeadTouch(int HeadSensorPin) {
 
 void RaptorCruise(Servo head_servo, double *head_pos, int *moving_direction) {
 
-//    LeftWheelForward_SpeedControl(127);
-//    RightWheelForward_SpeedControl(127);
+    LeftWheelForward_SpeedControl(200);
+    RightWheelForward_SpeedControl(200);
   
-	MotorControl(1, BACKWARD, 120);
-  	MotorControl(2, FORWARD, 120);
+	//MotorControl(2, BACKWARD, 120);
+  //MotorControl(1, FORWARD, 120);
 
 
   if ((*moving_direction) == POSITIVE) {
@@ -2402,12 +2402,13 @@ void RaptorCruise(Servo head_servo, double *head_pos, int *moving_direction) {
   Serial.println((*head_pos));
       delay(1);
 }
+/*
 void avoidObstacle(int RaptorSensorPin, int *head_moving_direction, double *raptorHead_pos, Servo head_servo) {
   int IRSensorValue = analogRead(RaptorSensorPin);
 
   double head_pos = *raptorHead_pos;
   //  if (isLow(RaptorSensorPin)) {
-  if (IRSensorValue < 900) {
+  if (IRSensorValue < 800) {
 	MotorControl(1, FORWARD, 120);
   	MotorControl(2, BACKWARD, 120);
   	delay(1300);
@@ -2438,6 +2439,44 @@ void avoidObstacle(int RaptorSensorPin, int *head_moving_direction, double *rapt
   }
 
 }
+
+void avoidObstacle(int RaptorSensorPin, int *head_moving_direction, double *raptorHead_pos, Servo head_servo) {
+  int IRSensorValue = analogRead(RaptorSensorPin);
+
+  double head_pos = *raptorHead_pos;
+  
+  if (IRSensorValue < 800) {
+	  MotorControl(1, FORWARD, 120);
+    MotorControl(2, BACKWARD, 120);
+  	delay(1300);
+    if ((*head_moving_direction == POSITIVE)) {
+    	
+    		MotorControl(1, STOP, 0);
+  			MotorControl(2, FORWARD, 120);
+    		delay(800);
+      	head_pos = 180;
+        (*raptorHead_pos) = head_pos;
+        head_servo.write(head_pos);
+        delay(400);
+    	
+    }
+    else if ((*head_moving_direction == NEGATIVE)) {
+    	 	MotorControl(1, BACKWARD, 120);
+  			MotorControl(2, STOP, 0);
+    		delay(800);
+    	head_pos = 0;
+        (*raptorHead_pos) = head_pos;
+        head_servo.write(head_pos);
+        delay(400);
+    }
+  }
+  else {
+    MotorControl(1, BACKWARD, 120);
+  	MotorControl(2, FORWARD, 120);
+  }
+
+}
+*/
 void LeftWheelForward_SpeedControl(int SpeedSet) {
   digitalWrite(MOTOR1P, HIGH);
   //digitalWrite(MOTOR1M, LOW);
@@ -2464,150 +2503,150 @@ void RightWheelBackward_SpeedControl(int SpeedSet) {
   analogWrite(MOTOR2M, SpeedSet);
 }
 
-//void avoidObstacle(int RaptorSensorPin, int *head_moving_direction, double *raptorHead_pos, Servo head_servo) {
-//int IRSensorValue = analogRead(RaptorSensorPin);
-//
-//double head_pos = *raptorHead_pos;
-////  if (isLow(RaptorSensorPin)) {
-//if (IRSensorValue < 700) {
-//	
-//  if ((*head_moving_direction == POSITIVE)) {
-//	
-//    if (head_pos > 90) {
-//#ifndef SERVO_ZW1100     	
-//      LeftWheelBackward_SpeedControl(255);
-//      RightWheelForward_SpeedControl(127);
-//      delay(400);       
-//      LeftWheelForward_SpeedControl(150);
-//      RightWheelForward_SpeedControl(150);
-//      //        head_pos = 0;
-//      head_pos = 88;
-//      (*raptorHead_pos) = head_pos;
-//      head_servo.write(head_pos);
-//      delay(1000);
-//      LeftWheelForward_SpeedControl(127);
-//      RightWheelBackward_SpeedControl(255);    //Make the raptor to face front again.
-//      delay(400);
-//#else   
-//      RightWheelBackward_SpeedControl(255);
-//      LeftWheelForward_SpeedControl(127);
-//      delay(400);        
-//      LeftWheelForward_SpeedControl(150);
-//      RightWheelForward_SpeedControl(150);
-//      //        head_pos = 0;
-//      head_pos = 90;
-//      (*raptorHead_pos) = head_pos;
-//      head_servo.write(head_pos);
-//      delay(1000);
-//      RightWheelForward_SpeedControl(127);
-//      LeftWheelBackward_SpeedControl(255);    //Make the raptor to face front again.
-//      delay(400);
-//#endif        
-//    }
-//
-//    else if (head_pos < 90) {
-//#ifndef SERVO_ZW1100       	
-//      RightWheelBackward_SpeedControl(255);
-//      LeftWheelForward_SpeedControl(127);
-//      delay(500);       //It means the obstacle is in left of the raptor. But the main body maybe still in front of it. So the raptor turns to right for a longer time(100ms).
-//      LeftWheelForward_SpeedControl(150);
-//      RightWheelForward_SpeedControl(150);
-//      //        head_pos = 180;
-//      head_pos = 88;
-//      (*raptorHead_pos) = head_pos;
-//      head_servo.write(head_pos);
-//      delay(1000);
-//      LeftWheelBackward_SpeedControl(255);
-//      RightWheelForward_SpeedControl(127);
-//      delay(500);
-//#else
-//      LeftWheelBackward_SpeedControl(255);
-//      RightWheelForward_SpeedControl(127);
-//      delay(500);       //It means the obstacle is in right of the raptor. But the main body maybe still in front of it. So the raptor turns to left for a longer time(100ms).
-//      LeftWheelForward_SpeedControl(150);
-//      RightWheelForward_SpeedControl(150);
-//      //        head_pos = 180;
-//      head_pos = 90;
-//      (*raptorHead_pos) = head_pos;
-//      head_servo.write(head_pos);
-//      delay(1000);
-//      RightWheelBackward_SpeedControl(255);
-//      LeftWheelForward_SpeedControl(127);
-//      delay(500);
-//#endif        
-//    }
-//  }
-//  else if ((*head_moving_direction == NEGATIVE)) {
-//    if (head_pos > 90) {
-//#ifndef SERVO_ZW1100       	
-//      LeftWheelBackward_SpeedControl(255);
-//      RightWheelForward_SpeedControl(127);
-//      delay(500);      //It means the obstacle is in right of the raptor. But the main body maybe still in front of it. So the raptor turns to left for a longer time(100ms).
-//      LeftWheelForward_SpeedControl(150);
-//      RightWheelForward_SpeedControl(150);
-//      //        head_pos = 0;
-//      head_pos = 88;
-//      (*raptorHead_pos) = head_pos;
-//      head_servo.write(head_pos);
-//      delay(1000);
-//      RightWheelBackward_SpeedControl(255);    //Make the raptor to face front again.
-//      LeftWheelForward_SpeedControl(127);
-//      delay(500);
-//#else
-//      RightWheelBackward_SpeedControl(255);
-//      LeftWheelForward_SpeedControl(127);
-//      delay(500);      //It means the obstacle is in left of the raptor. But the main body maybe still in front of it. So the raptor turns to right for a longer time(100ms).
-//      LeftWheelForward_SpeedControl(150);
-//      RightWheelForward_SpeedControl(150);
-//      //        head_pos = 0;
-//      head_pos = 90;
-//      (*raptorHead_pos) = head_pos;
-//      head_servo.write(head_pos);
-//      delay(1000);
-//      LeftWheelBackward_SpeedControl(255);    //Make the raptor to face front again.
-//      RightWheelForward_SpeedControl(127);
-//      delay(500);
-//#endif        
-//    }
-//    else if (head_pos < 90) {
-//#ifndef SERVO_ZW1100        	
-//      RightWheelBackward_SpeedControl(255);
-//      LeftWheelForward_SpeedControl(127);
-//      delay(400);     //It means the obstacle is mainly in the left front of the raptor but the mainly body is not in front of the raptor. So the raptor turns right a short time(80ms) to avoid it.
-//      LeftWheelForward_SpeedControl(150);
-//      RightWheelForward_SpeedControl(150);
-//      //        head_pos = 180;
-//      head_pos = 88;
-//      (*raptorHead_pos) = head_pos;
-//      head_servo.write(head_pos);
-//      delay(1000);
-//      LeftWheelBackward_SpeedControl(255);
-//      RightWheelForward_SpeedControl(127);
-//      delay(400);
-//#else
-//      LeftWheelBackward_SpeedControl(255);
-//      RightWheelForward_SpeedControl(127);
-//      delay(400);     //It means the obstacle is mainly in the right front of the raptor but the mainly body is not in front of the raptor. So the raptor turns left a short time(80ms) to avoid it.
-//      LeftWheelForward_SpeedControl(150);
-//      RightWheelForward_SpeedControl(150);
-//      //        head_pos = 180;
-//      head_pos = 90;
-//      (*raptorHead_pos) = head_pos;
-//      head_servo.write(head_pos);
-//      delay(1000);
-//      RightWheelBackward_SpeedControl(255);
-//      LeftWheelForward_SpeedControl(127);
-//      delay(400);
-//#endif        
-//    }
-//  }
-//}
-//else {
-//  LeftWheelForward_SpeedControl(127);
-//  RightWheelForward_SpeedControl(127);
-//}
-//
-//}
+void avoidObstacle(int RaptorSensorPin, int *head_moving_direction, double *raptorHead_pos, Servo head_servo) {
+int IRSensorValue = analogRead(RaptorSensorPin);
+
+double head_pos = *raptorHead_pos;
+//  if (isLow(RaptorSensorPin)) {
+if (IRSensorValue < 700) {
+	
+  if ((*head_moving_direction == POSITIVE)) {
+	
+    if (head_pos > 90) {
+#ifndef SERVO_ZW1100     	
+      LeftWheelBackward_SpeedControl(255);
+      RightWheelForward_SpeedControl(127);
+      delay(400);       
+      LeftWheelForward_SpeedControl(150);
+      RightWheelForward_SpeedControl(150);
+      //        head_pos = 0;
+      head_pos = 88;
+      (*raptorHead_pos) = head_pos;
+      head_servo.write(head_pos);
+      delay(1000);
+      LeftWheelForward_SpeedControl(127);
+      RightWheelBackward_SpeedControl(255);    //Make the raptor to face front again.
+      delay(400);
+#else   
+      RightWheelBackward_SpeedControl(255);
+      LeftWheelForward_SpeedControl(127);
+      delay(400);        
+      LeftWheelForward_SpeedControl(150);
+      RightWheelForward_SpeedControl(150);
+      //        head_pos = 0;
+      head_pos = 90;
+      (*raptorHead_pos) = head_pos;
+      head_servo.write(head_pos);
+      delay(1000);
+      RightWheelForward_SpeedControl(127);
+      LeftWheelBackward_SpeedControl(255);    //Make the raptor to face front again.
+      delay(400);
+#endif        
+    }
+
+    else if (head_pos < 90) {
+#ifndef SERVO_ZW1100       	
+      RightWheelBackward_SpeedControl(255);
+      LeftWheelForward_SpeedControl(127);
+      delay(500);       //It means the obstacle is in left of the raptor. But the main body maybe still in front of it. So the raptor turns to right for a longer time(100ms).
+      LeftWheelForward_SpeedControl(150);
+      RightWheelForward_SpeedControl(150);
+      //        head_pos = 180;
+      head_pos = 88;
+      (*raptorHead_pos) = head_pos;
+      head_servo.write(head_pos);
+      delay(1000);
+      LeftWheelBackward_SpeedControl(255);
+      RightWheelForward_SpeedControl(127);
+      delay(500);
+#else
+      LeftWheelBackward_SpeedControl(255);
+      RightWheelForward_SpeedControl(127);
+      delay(500);       //It means the obstacle is in right of the raptor. But the main body maybe still in front of it. So the raptor turns to left for a longer time(100ms).
+      LeftWheelForward_SpeedControl(150);
+      RightWheelForward_SpeedControl(150);
+      //        head_pos = 180;
+      head_pos = 90;
+      (*raptorHead_pos) = head_pos;
+      head_servo.write(head_pos);
+      delay(1000);
+      RightWheelBackward_SpeedControl(255);
+      LeftWheelForward_SpeedControl(127);
+      delay(500);
+#endif        
+    }
+  }
+  else if ((*head_moving_direction == NEGATIVE)) {
+    if (head_pos > 90) {
+#ifndef SERVO_ZW1100       	
+      LeftWheelBackward_SpeedControl(255);
+      RightWheelForward_SpeedControl(127);
+      delay(500);      //It means the obstacle is in right of the raptor. But the main body maybe still in front of it. So the raptor turns to left for a longer time(100ms).
+      LeftWheelForward_SpeedControl(150);
+      RightWheelForward_SpeedControl(150);
+      //        head_pos = 0;
+      head_pos = 88;
+      (*raptorHead_pos) = head_pos;
+      head_servo.write(head_pos);
+      delay(1000);
+      RightWheelBackward_SpeedControl(255);    //Make the raptor to face front again.
+      LeftWheelForward_SpeedControl(127);
+      delay(500);
+#else
+      RightWheelBackward_SpeedControl(255);
+      LeftWheelForward_SpeedControl(127);
+      delay(500);      //It means the obstacle is in left of the raptor. But the main body maybe still in front of it. So the raptor turns to right for a longer time(100ms).
+      LeftWheelForward_SpeedControl(150);
+      RightWheelForward_SpeedControl(150);
+      //        head_pos = 0;
+      head_pos = 90;
+      (*raptorHead_pos) = head_pos;
+      head_servo.write(head_pos);
+      delay(1000);
+      LeftWheelBackward_SpeedControl(255);    //Make the raptor to face front again.
+      RightWheelForward_SpeedControl(127);
+      delay(500);
+#endif        
+    }
+    else if (head_pos < 90) {
+#ifndef SERVO_ZW1100        	
+      RightWheelBackward_SpeedControl(255);
+      LeftWheelForward_SpeedControl(127);
+      delay(400);     //It means the obstacle is mainly in the left front of the raptor but the mainly body is not in front of the raptor. So the raptor turns right a short time(80ms) to avoid it.
+      LeftWheelForward_SpeedControl(150);
+      RightWheelForward_SpeedControl(150);
+      //        head_pos = 180;
+      head_pos = 88;
+      (*raptorHead_pos) = head_pos;
+      head_servo.write(head_pos);
+      delay(1000);
+      LeftWheelBackward_SpeedControl(255);
+      RightWheelForward_SpeedControl(127);
+      delay(400);
+#else
+      LeftWheelBackward_SpeedControl(255);
+      RightWheelForward_SpeedControl(127);
+      delay(400);     //It means the obstacle is mainly in the right front of the raptor but the mainly body is not in front of the raptor. So the raptor turns left a short time(80ms) to avoid it.
+      LeftWheelForward_SpeedControl(150);
+      RightWheelForward_SpeedControl(150);
+      //        head_pos = 180;
+      head_pos = 90;
+      (*raptorHead_pos) = head_pos;
+      head_servo.write(head_pos);
+      delay(1000);
+      RightWheelBackward_SpeedControl(255);
+      LeftWheelForward_SpeedControl(127);
+      delay(400);
+#endif        
+    }
+  }
+}
+else {
+  LeftWheelForward_SpeedControl(127);
+  RightWheelForward_SpeedControl(127);
+}
+
+}
 
 void ControlLeftWheel(int LeftWheelButton, int BackwardButton) {
   if (isLow(LeftWheelButton)) {
