@@ -61,7 +61,7 @@ function reSetBt(z) {
 	$('.' + z + 'test0000').next().find('rect').css('fill-opacity', '0');
 	$('.' + z + 'test0000').next().next().find('rect').css('fill-opacity', '0');
 	
-	$('.' + z + 'test0000').next().next().next().css('transform', 'translate(250px,273px)');
+	$('.' + z + 'test0000').next().next().next().css('transform', 'translate(200px,273px)');
 	$('.' + z + 'test0000').next().next().next().find('rect').css('fill', '#ffff');
 	
 }
