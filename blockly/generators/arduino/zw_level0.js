@@ -585,8 +585,8 @@ stc+='     \n'
 stc+='     \n'
 
 
-  Blockly.Arduino.definitions_['colorChoose'] = '#include "PS2.h"\n';   //added by Liang 20190912
-  Blockly.Arduino.definitions_['colorChoose'] += '#include <EasyButton.h>\n';
+  //Blockly.Arduino.definitions_['colorChoose'] = '#include "PS2.h"\n';   //added by Liang 20190912
+  Blockly.Arduino.definitions_['colorChoose'] = '#include <EasyButton.h>\n';
   Blockly.Arduino.definitions_['colorChoose'] += '#include "Adafruit_TCS34725.h"\n';
   Blockly.Arduino.definitions_['colorChoose'] += '#include "EEPROM.h"\n'; 
   Blockly.Arduino.definitions_['colorChoose'] += 'enum'+' '+'color_type'+'\n'+ '{NOTHING =0'+hasComma+ code.join(', ') + '};\n'+'#define  COLOR_NUM_MAX       '+max_num+'\n';
@@ -5351,7 +5351,7 @@ followLineDefinitions +='  NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_
 followLineDefinitions +='};\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='// note durations: 4 = quarter note, 8 = eighth note, etc.:\n';
-followLineDefinitions +='int noteDurations[] = {\n';
+followLineDefinitions +='int noteDurations_[] = {\n';
 followLineDefinitions +='  4, 8, 8, 4, 4, 4, 4, 4\n';
 followLineDefinitions +='};\n';
 followLineDefinitions +='\n';
@@ -5914,7 +5914,7 @@ followLineDefinitions +='  for (int thisNote = 0; thisNote < 8; thisNote++) {\n'
 followLineDefinitions +='\n';
 followLineDefinitions +='    // to calculate the note duration, take one second divided by the note type.\n';
 followLineDefinitions +='    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.\n';
-followLineDefinitions +='    int noteDuration = 1000 / noteDurations[thisNote];\n';
+followLineDefinitions +='    int noteDuration = 1000 / noteDurations_[thisNote];\n';
 followLineDefinitions +='    tone(8, melody[thisNote], noteDuration);\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='    // to distinguish the notes, set a minimum time between them.\n';

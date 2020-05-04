@@ -1291,6 +1291,302 @@ void playSong(int songSelected) {
     break;
 
   case 5:
+    delay(quaterNote * 1.3 * meters_x1);
+    
+    playNote(a4, eighthNote, meters_x1);
+    playNote(b4, eighthNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    playNote(g5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(d4, sixteenthNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    
+    playNote(f4, eighthNote, meters_x1);
+    playNote(a4, eighthNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    playNote(a4, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(d4, quaterNote, meters_x1);
+    
+    playNote(g4, eighthNote, meters_x1);
+    playNote(a4, eighthNote, meters_x1);
+    
+    playNote(b4, quaterNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(c4, sixteenthNote, meters_x1);
+    playNote(e5, quaterNote, meters_x1);
+    
+    playNote(e4, eighthNote, meters_x1);
+    playNote(g4, eighthNote, meters_x1);
+    
+    playNote(b4, quaterNote, meters_x1);
+    playNote(g4, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(e4, eighthNote, meters_x1);
+    playNote(a4, eighthNote, meters_x1);
+    
+    playNote(e5, eighthNote, meters_x1);
+    playNote(e5, eighthNote, meters_x1);
+    
+    playNote(a5, quaterNote, meters_x1);
+    playNote(g5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(d4, sixteenthNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    
+    playNote(d5, eighthNote, meters_x1);
+    playNote(f4, eighthNote, meters_x1);
+    
+    playNote(a4, quaterNote, meters_x1);
+    playNote(c5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(d4, quaterNote, meters_x1);
+    
+    playNote(b4, eighthNote, meters_x1);
+    playNote(c5, eighthNote, meters_x1);
+    
+    playNote(d5, quaterNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(c4, sixteenthNote, meters_x1);
+    playNote(e5, quaterNote, meters_x1);
+    
+    playNote(e4, eighthNote, meters_x1);
+    playNote(g4, eighthNote, meters_x1);
+    
+    playNote(b4, quaterNote, meters_x1);
+    playNote(g4, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(e4, quaterNote, meters_x1);
+    
+    playNote(a4, eighthNote, meters_x1);
+    playNote(b4, eighthNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    playNote(g5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(d4, sixteenthNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    
+    playNote(f4, eighthNote, meters_x1);
+    playNote(a4, eighthNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    playNote(a4, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(d4, quaterNote, meters_x1);
+    
+    playNote(g4, eighthNote, meters_x1);
+    playNote(a4, eighthNote, meters_x1);
+    
+    playNote(b4, quaterNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(c4, sixteenthNote, meters_x1);
+    playNote(e5, quaterNote, meters_x1);
+    
+    playNote(e4, eighthNote, meters_x1);
+    playNote(g4, eighthNote, meters_x1);
+    
+    playNote(b4, quaterNote, meters_x1);
+    playNote(g4, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(e4, eighthNote, meters_x1);
+    playNote(a4, eighthNote, meters_x1);
+    
+    playNote(e5, eighthNote, meters_x1);
+    playNote(e5, eighthNote, meters_x1);
+    
+    playNote(a5, quaterNote, meters_x1);
+    playNote(g5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(d4, sixteenthNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    
+    playNote(d5, eighthNote, meters_x1);
+    playNote(f4, eighthNote, meters_x1);
+    
+    playNote(a4, quaterNote, meters_x1);
+    
+    playNote(c5, eighthNote, meters_x1);
+    playNote(e4, eighthNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(b4, quaterNote, meters_x1);
+    
+    playNote(e5, eighthNote, meters_x1);
+    playNote(d5, eighthNote, meters_x1);
+    
+    playNote(e4, quaterNote, meters_x1);
+    
+    playNote(c5, eighthNote, meters_x1);
+    playNote(b4, eighthNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(c4, sixteenthNote, meters_x1);
+    //playNote(e4, sixteenthNote, meters_x1);
+    
+    playNote(a4, quaterNote, meters_x1);
+    
+    playNote(a4, eighthNote, meters_x1);
+    playNote(a4, eighthNote, meters_x1);
+    
+    //playNote(g4, sixteenthNote, meters_x1);
+    playNote(a4, quaterNote, meters_x1);
+    
+    playNote(a5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(f4, sixteenthNote, meters_x1);
+    playNote(a5, quaterNote, meters_x1);
+    
+    playNote(a4, eighthNote, meters_x1);
+    playNote(c5, eighthNote, meters_x1);
+    
+    playNote(f5, quaterNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(f4, quaterNote, meters_x1);
+    
+    playNote(a4, eighthNote, meters_x1);
+    playNote(a5, eighthNote, meters_x1);
+    
+    playNote(g5, quaterNote, meters_x1);
+    
+    playNote(a5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(c4, sixteenthNote, meters_x1);
+    playNote(e5, quaterNote, meters_x1);
+    
+    playNote(e4, eighthNote, meters_x1);
+    playNote(g4, eighthNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    
+    playNote(g4, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(c4, quaterNote, meters_x1);
+    
+    playNote(e5, eighthNote, meters_x1);
+    playNote(e5, eighthNote, meters_x1);
+    
+    playNote(a5, quaterNote, meters_x1);
+    
+    playNote(g5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(d4, sixteenthNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    
+    playNote(d5, eighthNote, meters_x1);
+    playNote(f4, eighthNote, meters_x1);
+    
+    playNote(a4, quaterNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(d4, sixteenthNote, meters_x1);
+    playNote(b4, quaterNote, meters_x1);
+    
+    playNote(c5, eighthNote, meters_x1);
+    playNote(d5, eighthNote, meters_x1);
+    
+    playNote(g4, quaterNote, meters_x1);
+    
+    playNote(f5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(c4, sixteenthNote, meters_x1);
+    playNote(e5, quaterNote, meters_x1);
+    
+    playNote(e4, eighthNote, meters_x1);
+    playNote(g4, eighthNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    
+    playNote(g4, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(c4, quaterNote, meters_x1);
+    
+    playNote(a4, eighthNote, meters_x1);
+    playNote(a4, eighthNote, meters_x1);
+    
+    //playNote(e4, sixteenthNote, meters_x1);
+    playNote(a4, quaterNote, meters_x1);
+    
+    playNote(a5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(f4, sixteenthNote, meters_x1);
+    playNote(a5, quaterNote, meters_x1);
+    
+    playNote(a4, eighthNote, meters_x1);
+    playNote(c5, eighthNote, meters_x1);
+    
+    playNote(f5, quaterNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(f4, quaterNote, meters_x1);
+    
+    playNote(b5, eighthNote, meters_x1);
+    playNote(c6, eighthNote, meters_x1);
+    
+    playNote(d6, quaterNote, meters_x1);
+    
+    playNote(c6, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(c4, sixteenthNote, meters_x1);
+    playNote(e5, quaterNote, meters_x1);
+    
+    playNote(e4, eighthNote, meters_x1);
+    playNote(g4, eighthNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    
+    playNote(g4, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    playNote(c4, quaterNote, meters_x1);
+    
+    playNote(e5, eighthNote, meters_x1);
+    playNote(e5, eighthNote, meters_x1);
+    
+    playNote(a5, quaterNote, meters_x1);
+    
+    playNote(g5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(b4, sixteenthNote, meters_x1);
+    playNote(f5, quaterNote, meters_x1);
+    
+    playNote(d5, eighthNote, meters_x1);
+    playNote(f4, eighthNote, meters_x1);
+    
+    playNote(a4, quaterNote, meters_x1);
+    
+    playNote(c5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(g4, sixteenthNote, meters_x1);
+    playNote(g5, quaterNote, meters_x1);
+    
+    playNote(a5, eighthNote, meters_x1);
+    playNote(b5, eighthNote, meters_x1);
+    
+    playNote(b4, quaterNote, meters_x1);
+    
+    playNote(b5, quaterNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(c4, sixteenthNote, meters_x1);
+    playNote(e6, quaterNote, meters_x1);
+    
+    playNote(g4, eighthNote, meters_x1);
+    playNote(b4, eighthNote, meters_x1);
+    
+    playNote(e5, quaterNote, meters_x1);
+    
+    playNote(d6, eighthNote, meters_x1);
+    playNote(c6, eighthNote, meters_x1);
+    ////////////////////////////////////////
+    //playNote(b4, sixteenthNote, meters_x1);
+    
+    playNote(b5, quaterNote, meters_x4);
     break;
 
   default:

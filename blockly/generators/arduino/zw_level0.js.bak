@@ -2265,7 +2265,7 @@ Blockly.Arduino.controls_if_new = function() {
 	if(buttonUp == 'TRUE' && --button_pressed_num > 0) button_ += 'PS2_UP + ';
 	else if(buttonUp == 'TRUE' && button_pressed_num == 0) button_ += 'PS2_UP';
 
-	if(buttonRight == 'TRUE' && --button_pressed_num > 0) button_ += ' + PS2_RIGHT + ';
+	if(buttonRight == 'TRUE' && --button_pressed_num > 0) button_ += 'PS2_RIGHT + ';
 	else if(buttonRight == 'TRUE' && button_pressed_num == 0) button_ += 'PS2_RIGHT';
 
 	if(buttonDown == 'TRUE' && --button_pressed_num > 0) button_ += 'PS2_DOWN + ';
@@ -5351,7 +5351,7 @@ followLineDefinitions +='  NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_
 followLineDefinitions +='};\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='// note durations: 4 = quarter note, 8 = eighth note, etc.:\n';
-followLineDefinitions +='int noteDurations[] = {\n';
+followLineDefinitions +='int noteDurations_[] = {\n';
 followLineDefinitions +='  4, 8, 8, 4, 4, 4, 4, 4\n';
 followLineDefinitions +='};\n';
 followLineDefinitions +='\n';
@@ -5914,7 +5914,7 @@ followLineDefinitions +='  for (int thisNote = 0; thisNote < 8; thisNote++) {\n'
 followLineDefinitions +='\n';
 followLineDefinitions +='    // to calculate the note duration, take one second divided by the note type.\n';
 followLineDefinitions +='    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.\n';
-followLineDefinitions +='    int noteDuration = 1000 / noteDurations[thisNote];\n';
+followLineDefinitions +='    int noteDuration = 1000 / noteDurations_[thisNote];\n';
 followLineDefinitions +='    tone(8, melody[thisNote], noteDuration);\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='    // to distinguish the notes, set a minimum time between them.\n';
