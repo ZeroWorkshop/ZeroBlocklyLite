@@ -423,12 +423,12 @@ int QTRSensors::readLine(unsigned int *sensor_values,
             value = 1000-value;
 
         // keep track of whether we see the line at all
-        if(value > 200) {
+        if(value > 400) {
             on_line = 1;
         }
 
         // only average in values that are above a noise threshold
-        if(value > 50) {
+        if(value > 400) {
             avg += (long)(value) * (i * 1000);
             sum += value;
         }

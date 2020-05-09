@@ -7,14 +7,14 @@ void setup() {
   beatle.motors.flipLeftMotor(true);
   beatle.StartProgram();
   beatle.setDebugLevel(1);
-  beatle.led.colorAll(led.strip.Color(0,0,255));
+  beatle.led.colorAll(beatle.led.strip.Color(0,0,255));
   delay(500);
   beatle.LineSensorCalibration(true,128,20);
  
   beatle.button.waitForButton();
   // Play music and wait for it to finish before we start driving.
-  buzzer.play("L16 cdegreg4");
-  while(buzzer.isPlaying());  
+  beatle.buzzer.play("L16 cdegreg4");
+  while(beatle.buzzer.isPlaying());  
 }
 
 void loop() {

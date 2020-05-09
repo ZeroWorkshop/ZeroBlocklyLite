@@ -294,9 +294,9 @@ private:
 	int 	REVERSE_DURATION=  200; // ms  //for border detect
 	int 	TURN_DURATION   =  300; // ms  /for border detect
 	
-	double _Kp;
-	double _Kd;
-	double _Ki;
+	double _Kp = 1.0/8.0;
+	double _Kd = 6.0;
+	double _Ki = 0;
 
 	
 //	int   REVERSE_DURATION= 250;

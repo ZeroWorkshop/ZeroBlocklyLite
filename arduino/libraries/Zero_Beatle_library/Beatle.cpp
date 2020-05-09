@@ -15,11 +15,11 @@ Beatle::Beatle()
 	
 	// SENSOR_THRESHOLD is a value to compare reflectance sensor
 	// readings to to decide if the sensor is over a black line
-	SENSOR_THRESHOLD =   300;
+	SENSOR_THRESHOLD =   500;
 	
 	AT_END_POINT - 0;
 	
-	_Kp = 1.0/12.0;
+	_Kp = 1.0/8.0;
 	_Kd = 6.0;
 	_Ki = 0;
 	
@@ -89,43 +89,45 @@ void Beatle::SetupAll(int idx)
 	switch(select)
    {
     case 1:
-    	led.colorAll(led.strip.Color(255,0,0));
+    	led.colorAll(led.Color(0xFF,0,0)); //red
   		delay(1000);
   		//led.rainbow_stream(20,&led.firstPixelHue);
       Setup_AvoidObstacle();
      break;
     case 2:
-    	led.colorAll(led.strip.Color(0,255,0));
+    	led.colorAll(led.Color(0xFF,0xA5,0)); //Orange
   		delay(1000);
   		//led.rainbow_stream(20,&led.firstPixelHue);
     	Setup_BorderDetect();
      break;
      case 3:
-     	led.colorAll(led.strip.Color(0,0,255));
+     	led.colorAll(led.Color(0xFF,0xFF,0)); //yellow
   		delay(1000);
   		//led.rainbow_stream(20,&led.firstPixelHue);
     Setup_FollowLine();
      break;
      case 4:
-     	led.colorAll(led.strip.Color(255,255,0));
+     	led.colorAll(led.Color(0x00,0xFF,0x00));  //green
   		delay(1000);
+  		//led.colorAll(led.Color(0x00,0x0,0));  //green
+  		//delay(1000);
   		//led.rainbow_stream(20,&led.firstPixelHue);
       Setup_MazeSolver();
      break;
      case 5:
-     	led.colorAll(led.strip.Color(0,255,0));
+     	led.colorAll(led.Color(0x00,0xFF,0xFF));  //cyan
   		delay(1000);
   		//led.rainbow_stream(20,&led.firstPixelHue);
       Setup_Sumo();
      break;
      case 6:
-     	led.colorAll(led.strip.Color(0,255,255));
+     	led.colorAll(led.Color(0,0,0xFF)); //Blue
   		delay(1000);
   		//led.rainbow_stream(20,&led.firstPixelHue);
       Setup_RemoteControl();
      break;
      case 7:
-     	led.colorAll(led.strip.Color(0,255,255));
+     	led.colorAll(led.Color(0x80,0x00,0x80));  //purple
   		delay(1000);
   		//led.rainbow_stream(20,&led.firstPixelHue);
       Setup_Wandering();
@@ -282,9 +284,9 @@ void Beatle::LoopAll(int idx)
 
 void Beatle::Setup_BorderDetect()
 {
-	//led.colorAll(led.strip.Color(0,255,0));
+	//led.colorAll(led.Color(0,255,0));
 	//delay(500);
-	//led.colorAll(led.strip.Color(0,255,0));
+	//led.colorAll(led.Color(0,255,0));
 	SetForwardSpeed(128);
 	SetTurnSpeed(128);
 	SetReverseSpeed(128);
@@ -383,6 +385,7 @@ void Beatle::Setup_FollowLine()
 	pinMode(DSL,INPUT);
 	pinMode(DSR,INPUT);	
 	LineSensorCalibration(true,128, 20); 
+	SetPID(1.0/6.0,0,6.0);
   button.waitForButton(); 
   // Play music and wait for it to finish before we start driving.
   buzzer.play("L16 cdegreg4");
@@ -626,7 +629,7 @@ void Beatle::executeCommands()
 void Beatle::Loop_FollowLine()
 {
 	
-	//led.colorAll(led.strip.Color(0, 0, 0)); //Set all RGB to red  
+	//led.colorAll(led.Color(0, 0, 0)); //Set all RGB to red  
   //led.show();
 	followSegment();	
 	
@@ -664,27 +667,27 @@ void Beatle::Loop_RemoteControl()
  
  if(_ButtonTriangle)
  	{
- 		led.colorAll(led.strip.Color(255,0,0));
+ 		led.colorAll(led.Color(255,0,0));
  	}
  	else if(_ButtonCircle)
  		{
- 			led.colorAll(led.strip.Color(0,255,0));
+ 			led.colorAll(led.Color(0,255,0));
  		}
  		else if(_ButtonCross)
  		{
- 			led.colorAll(led.strip.Color(0,0,255));
+ 			led.colorAll(led.Color(0,0,255));
  		}
  		else if(_ButtonSquare)
  		{
- 			led.colorAll(led.strip.Color(255,255,0));
+ 			led.colorAll(led.Color(255,255,0));
  		}
  		else if(_ButtonL1)
  		{
- 			led.theaterChase(led.strip.Color(127, 0, 0), 50); // Blue
+ 			led.theaterChase(led.Color(127, 0, 0), 50); // Blue
  		}
  		else if(_ButtonL2)
  		{
- 			led.theaterChase(led.strip.Color(0, 0, 127), 50); // Blue
+ 			led.theaterChase(led.Color(0, 0, 127), 50); // Blue
  		}
  		else if(_ButtonR1)
  		{
@@ -712,7 +715,7 @@ void Beatle::Loop_AvoidObstacle()
   LeftValue = digitalRead(DSL);
   RightValue = digitalRead(DSR);
 
-  led.theaterChaseRainbow(3);
+  //led.theaterChaseRainbow(3);
   
   if((LeftValue == 0) && (RightValue == 0))
   {
@@ -743,7 +746,8 @@ void Beatle::Setup_MazeSolver()
 {
 	 pinMode(DSL,INPUT);
 	 pinMode(DSR,INPUT);
-   LineSensorCalibration(true,128, 20);
+   LineSensorCalibration(true,128, 22);
+   SetPID(1.0/6.0,0,6.0);
    button.waitForButton(); 
    // Play music and wait for it to finish before we start driving.
    buzzer.play("L16 cdegreg4");
@@ -791,7 +795,7 @@ void Beatle::turn(char dir)
   unsigned short count;
   unsigned short last_status = 0;
   unsigned int sensors[7];
-  delay(10);
+  //delay(5);  //10
 
   count = 0;
   // dir tests for which direction to turn
@@ -905,7 +909,7 @@ void Beatle::followSegment()
       // You probably want to use trial and error to tune these constants for
       // your particular Zumo and line course.
       //int speedDifference = _Kp *error  + _Kd * (error - lastError);  //Kp = 1/12 Kd = 6
-      int speedDifference = error / 12 + 6 * (error - lastError);
+      int speedDifference = error * _Kp + _Kd * (error - lastError);
 
       lastError = error;
 
@@ -1044,12 +1048,12 @@ void Beatle::solveMaze()
        if(dir == 'S')
        {
          maze_path[maze_path_length] = dir;
-        maze_path_length++;
+         maze_path_length++;
         // Serial.print( millis() - time_start);Serial.print("\t");
         // Serial.println(dir);
        }
-        else if( millis() - time_start >350)
-        {
+       else if( millis() - time_start >350)
+       {
         maze_path[maze_path_length] = dir;
         maze_path_length++;
          //Serial.print( millis() - time_start);Serial.print("\t");

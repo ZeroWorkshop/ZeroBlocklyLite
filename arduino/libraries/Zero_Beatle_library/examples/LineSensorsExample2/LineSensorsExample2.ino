@@ -17,8 +17,8 @@ void setup() {
   beatle.readCalibrationData();
   beatle.button.waitForButton();
   // Play music and wait for it to finish before we start driving.
-  buzzer.play("L16 cdegreg4");
-  while(buzzer.isPlaying());  
+  beatle.buzzer.play("L16 cdegreg4");
+  while(beatle.buzzer.isPlaying());  
 }
 
 void loop() {

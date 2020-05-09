@@ -12,12 +12,13 @@ void setup()
    Serial.begin(115200);
   //beatle.motors.flipLeftMotor(true);
   beatle.StartProgram();
-  
+  beatle.led.colorAll(beatle.led.strip.Color(255,255,0));
+  delay(500);  
   LineSensorCalibration(true,128, 20);
-  button.waitForButton(); 
+  beatle.button.waitForButton(); 
    // Play music and wait for it to finish before we start driving.
-  buzzer.play("L16 cdegreg4");
-  while(buzzer.isPlaying());  
+  beatle.buzzer.play("L16 cdegreg4");
+  while(beatle.buzzer.isPlaying());  
  
 }
 
