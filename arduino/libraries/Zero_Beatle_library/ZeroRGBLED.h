@@ -71,6 +71,18 @@ public:
   void policeLightWipe(int pix_num, int *pixel);
   void policeLightFlash(int pix_num, int flashSpeed, int swap);
   void policeLightRun(int TotalPix, int *pixels);
+  
+  void init()
+  {
+    if (!initialized)
+    {
+      initialized = true;
+      init2();
+      Serial.println("init");
+    }
+
+  }
+
     
 private:
 	int _num;
@@ -88,17 +100,7 @@ private:
   unsigned long FlashStartTime = 0;
   unsigned long policeLightStart = 0;
     
-	void init()
-  {
-    if (!initialized)
-    {
-      initialized = true;
-      init2();
-      Serial.println("init");
-    }
-
-  }
-
+	
 
  void init2();
 
