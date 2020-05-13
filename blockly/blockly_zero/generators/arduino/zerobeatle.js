@@ -365,7 +365,7 @@ Blockly.Arduino.beatle_display_rgb_show = function () {
 
 
 
-  var code = LEDstrip + '.show();\n';
+  var code = LEDstrip + '.strip.show();\n';
   return code;
 };
 
