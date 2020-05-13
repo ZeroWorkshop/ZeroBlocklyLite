@@ -375,7 +375,10 @@ Blockly.Arduino.beatle_RGB_color_rgb = function () {
   var G = Blockly.Arduino.valueToCode(this, 'G', Blockly.Arduino.ORDER_ATOMIC);
   var B = Blockly.Arduino.valueToCode(this, 'B', Blockly.Arduino.ORDER_ATOMIC);
   var colour = R + "*65536" + "+" + G + "*256" + "+" + B;
-  return [colour, Blockly.Arduino.ORDER_NONE];
+  
+  var code = 'strip.Color(' + R + ',' + G + ',' + B + ')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+  //return code;
 };
 
 
@@ -417,7 +420,7 @@ Blockly.Arduino.beatle_display_rgb = function () {
   */
 
   COLOR = COLOR.replace(/#/g, "0x");
-  var code = LEDstrip + '.strip.setPixelColor((' + value_led + ')-1, ' + COLOR + ');\n';
+  var code = LEDstrip + '.strip.setPixelColor((' + value_led + ')-1, ' + LEDstrip + '.' + COLOR + ');\n';
   return code;
 };
 
