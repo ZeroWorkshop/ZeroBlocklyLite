@@ -255,14 +255,15 @@ Blockly.Arduino.finish = function (code) {
 		definitions_fun.push('#include    "ZeroWorkshop_lib_levelCIE.h"\n'); 
 		definitions_fun.push('#include    "level1_all_prog.h"');  
 	}
-	/*else if (isLevelS == 2) {
+	else if (isLevelS == 2) {    //uncommented this elsif branch for "迷宫小车", 在这个程序中不需要include ZeroWorkshop_lib.h， 2020/5/15 by Qixin
 		definitions_fun.push('    '); 
-  }else if (isLevelS == 4) {
+  }/*
+  else if (isLevelS == 4) {
 		definitions_fun.push('    '); 
 	}
 	*/
 	else{
-		definitions_fun.push('#include    "ZeroWorkshop_lib.h"\n');  
+		definitions_fun.push('#include    "ZeroWorkshop_lib.h"\n');   
 	}
 	
 	//if(isLevelS != 2 || isLevelS != 3 ){
@@ -292,7 +293,7 @@ Blockly.Arduino.finish = function (code) {
 	}
 	
 	
-	if(isLevelS == 1){
+	if(isLevelS == 1){  
 		setups.unshift('StartProgram(&ProgramSelected);\n');
 	}
 	/*
@@ -312,8 +313,10 @@ Blockly.Arduino.finish = function (code) {
 		//setups.push(Blockly.Arduino.setups_[name]);
 	}
 	
-		    //This is added by Qixin for Zeroworkshop. This is add a START button to run the program
+	//This is added by Qixin for Zeroworkshop. This is add a START button to run the program
+	if(isLevelS != 2){  //针对迷宫小车程序，不需要StartProgram,否则无法编译 2020/5/15 by Qixin
 		    setups.push('StartProgram(&ProgramSelected);\n');  
+  }
   //setups.push('playNoteShort(e7, sixteenthNote * 0.5, meters_x1);');  
   //setups.push('playNoteShort(g7, sixteenthNote * 0.5, meters_x1);\n'); 
   //setups.push('delay(100);\n'); 
