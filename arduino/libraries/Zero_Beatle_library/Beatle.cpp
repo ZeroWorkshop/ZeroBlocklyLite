@@ -9,7 +9,7 @@ Beatle::Beatle()
 	TURN_SPEED      =  100;
  	FORWARD_SPEED   =  128;
  	SPEED           =  128;
-	MAX_SPEED       =  128;
+	MAX_SPEED       =  170;
 	REVERSE_DURATION=  200; // ms  //for border detect
 	TURN_DURATION   =  300; // ms  /for border detect
 	
@@ -744,8 +744,13 @@ void Beatle::Loop_AvoidObstacle()
 
 void Beatle::Setup_MazeSolver()
 {
-	 pinMode(DSL,INPUT);
-	 pinMode(DSR,INPUT);
+	 pinMode(DSL,OUTPUT);
+	 pinMode(DSR,OUTPUT);
+	 digitalWrite(DSL,LOW);
+	 digitalWrite(DSR,LOW);
+	 delay(500);
+	 digitalWrite(DSL,HIGH);
+	 digitalWrite(DSR,HIGH);
    LineSensorCalibration(true,128, 22);
    SetPID(1.0/6.0,0,6.0);
    button.waitForButton(); 
@@ -808,10 +813,24 @@ void Beatle::turn(char dir)
   // line under the sensor. If 'B' is passed to the turn function when there is a
   // left turn available, then the Zumo will turn onto the left segment.
     case 'L':
-    
+       //digitalWrite(DSL,LOW);
+       motors.setSpeeds(-100, 100);
+     
+      // This while loop monitors line position
+      // until the turn is complete.
+      while(count < 2)
+      {
+        LineSensors.readLine(sensors);
+        count += ABOVE_LINE(sensors[1]) ^ last_status;
+        last_status = ABOVE_LINE(sensors[1]);
+      }
+
+    break;
   case 'B':
       // Turn left.
       //motors.setSpeeds(-TURN_SPEED, TURN_SPEED);
+      //digitalWrite(DSL,LOW);
+      //digitalWrite(DSR,LOW);
       motors.setSpeeds(-100, 100);
      
       // This while loop monitors line position
@@ -834,6 +853,7 @@ void Beatle::turn(char dir)
     case 'R':
       // Turn right.
       //motors.setSpeeds(TURN_SPEED, -TURN_SPEED);
+      //digitalWrite(DSR,LOW);
       motors.setSpeeds(100, -100);
 
       // This while loop monitors line position
@@ -864,13 +884,31 @@ char Beatle::selectTurn(unsigned char found_left, unsigned char found_straight,
   // implements a left-hand-on-the-wall strategy, where we always
   // turn as far to the left as possible.
   if(found_left)
-    return 'L';
+  {
+  		digitalWrite(DSL,LOW);
+      return 'L';
+  }
+  	
   else if(found_straight)
-    return 'S';
+  {
+  		//digitalWrite(DSL,LOW);
+  		//digitalWrite(DSR,LOW);
+  		 return 'S';
+  }
+   
   else if(found_right)
-    return 'R';
+  {
+  		digitalWrite(DSR,LOW);
+  		return 'R';
+  }
+    
   else
-    return 'B';
+  {
+  		digitalWrite(DSL,LOW);
+  		digitalWrite(DSR,LOW);
+  		return 'B';		
+  }
+    
 }
 
 // The maze is broken down into segments. Once the Zumo decides
@@ -1052,28 +1090,34 @@ void Beatle::solveMaze()
         // Serial.print( millis() - time_start);Serial.print("\t");
         // Serial.println(dir);
        }
-       else if( millis() - time_start >350)
+       else if( millis() - time_start >250)
        {
         maze_path[maze_path_length] = dir;
         maze_path_length++;
          //Serial.print( millis() - time_start);Serial.print("\t");
          //Serial.println(dir);
+           
        }
-       
+       digitalWrite(DSL,HIGH);
+       digitalWrite(DSR,HIGH);
 
         // You should check to make sure that the maze_path_length does not
         // exceed the bounds of the array.  We'll ignore that in this
         // example.
 
         // Simplify the learned maze_path.
-        simplifymaze_path();
+        simplifymaze_path(); 
 
        
 
     }
     
+    //eeprom_write_string(900,maze_path);
+    //Serial.println(maze_path);
+    eeprom_write_string(900,maze_path);
     delay(200);
     buzzer.play(">>a32");  
+    
 }
 
 
@@ -1255,31 +1299,31 @@ void Beatle::setDefaultvalue(void)
  
 
   encoder_eeprom.S0_pin = A3;
-  encoder_eeprom.S0_maxval = 2000;
+  encoder_eeprom.S0_maxval = 2500;
   encoder_eeprom.S0_minval = 0;
   
   encoder_eeprom.S1_pin = 4;
-  encoder_eeprom.S1_maxval = 2000;
+  encoder_eeprom.S1_maxval = 2500;
   encoder_eeprom.S1_minval = 0;
   
   encoder_eeprom.S2_pin = A2;
-  encoder_eeprom.S2_maxval = 2000;
+  encoder_eeprom.S2_maxval = 2500;
   encoder_eeprom.S2_minval = 0;
   
   encoder_eeprom.S3_pin = 7;
-  encoder_eeprom.S3_maxval = 2000;
+  encoder_eeprom.S3_maxval = 2500;
   encoder_eeprom.S3_minval = 0;
   
   encoder_eeprom.S4_pin = A1;
-  encoder_eeprom.S4_maxval = 2000;
+  encoder_eeprom.S4_maxval = 2500;
   encoder_eeprom.S4_minval = 0;
   
   encoder_eeprom.S5_pin = 8;
-  encoder_eeprom.S5_maxval = 2000;
+  encoder_eeprom.S5_maxval = 2500;
   encoder_eeprom.S5_minval = 0;
   
   encoder_eeprom.S6_pin = A0;
-  encoder_eeprom.S6_maxval = 2000;
+  encoder_eeprom.S6_maxval = 2500;
   encoder_eeprom.S6_minval = 0;
   
   encoder_eeprom.mid_data = EEPROM_CAL_MID;
@@ -1726,3 +1770,4 @@ void Beatle::SetCalibrationFlag(int flag)
 {
   	CalibrationFlag = flag;
 }
+

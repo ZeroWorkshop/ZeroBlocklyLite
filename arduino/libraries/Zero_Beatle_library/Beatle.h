@@ -265,6 +265,7 @@ private:
 	
 	unsigned long time_start;
 	unsigned long time_start_maze;
+	unsigned long time_start_led = millis();
 
 	unsigned long startTime = millis();   // the time in milliseconds that the command queue started executingCommands
 	unsigned long nextCommand = millis(); // the time that the queue should execute the next command
