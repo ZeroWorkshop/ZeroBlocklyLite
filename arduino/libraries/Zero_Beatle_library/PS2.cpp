@@ -18,9 +18,9 @@ void serialEvent() {
   #if	0
   Serial.print("Bytes in buffer is : ");
   Serial.println(Serial.available());
-  #endif
+  
   if (Serial.available() % 6) Serial.println("ERROR!!Bytes in UART buffer is not an valid PS2 control data. Data will be discarsed");
-
+  #endif
 
 
   int TotalBytesInBuffer = Serial.available();     
@@ -60,7 +60,7 @@ void serialEvent() {
     }
    
   }
-#if 1
+#if 0
   Serial.print("***********                         0x");
   Serial.print(Rx_Buffer[2], HEX);
   Serial.print("\t0x");

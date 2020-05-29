@@ -2,55 +2,55 @@
   "files" : [ {
     "remoteURL" : "https://arduino.esp8266.com/stable/package_esp8266com_index.json",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\arduino.esp8266.com\\stable\\package_esp8266com_index.json",
-    "eTag" : "5df791da-17703",
-    "md5" : "MD5:a9929e8b3fedc7ab81c08fe649bfd402",
-    "createdAt" : "2020-04-26T13:42:14.799",
+    "eTag" : "5eb471e4-1a215",
+    "md5" : "MD5:87bc32b45e5cb7c2139ab58c856f9ea6",
+    "createdAt" : "2020-05-27T11:26:39.843",
     "cacheControl" : {
       "maxAge" : 600,
-      "mustRevalidate" : false,
+      "noCache" : false,
       "noStore" : false,
-      "noCache" : false
+      "mustRevalidate" : false
     },
-    "expires" : "2020-04-26T13:52:14.799"
+    "expires" : "2020-05-27T11:36:39.843"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.gz",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\libraries\\library_index.json.gz",
-    "eTag" : "86a592727248420d3b84fbf9e1120d51",
-    "md5" : "MD5:86a592727248420d3b84fbf9e1120d51",
-    "createdAt" : "2020-04-26T13:42:28.481",
+    "eTag" : "4c84c4fcb9903cc2453b4acbd435f03d",
+    "md5" : "MD5:4c84c4fcb9903cc2453b4acbd435f03d",
+    "createdAt" : "2020-05-27T11:26:51.047",
     "cacheControl" : {
       "maxAge" : 14400,
-      "mustRevalidate" : false,
+      "noCache" : false,
       "noStore" : false,
-      "noCache" : false
+      "mustRevalidate" : false
     },
-    "expires" : "2020-04-26T17:42:28.481"
-  }, {
-    "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.sig",
-    "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\libraries\\library_index.json.sig",
-    "eTag" : "9c429ad1074d7bb36e4c29ed7211cbec",
-    "md5" : "MD5:9c429ad1074d7bb36e4c29ed7211cbec",
-    "createdAt" : "2020-04-26T13:42:29.236",
-    "cacheControl" : {
-      "maxAge" : 14400,
-      "mustRevalidate" : false,
-      "noStore" : false,
-      "noCache" : false
-    },
-    "expires" : "2020-04-26T17:42:29.236"
+    "expires" : "2020-05-27T15:26:51.047"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json.sig",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\packages\\package_index.json.sig",
-    "eTag" : "1d601242706b48fb2b95a9165330807d",
-    "md5" : "MD5:1d601242706b48fb2b95a9165330807d",
-    "createdAt" : "2020-04-26T13:42:19.337",
+    "eTag" : "989f16a03ef7ef773063be91f68fc925",
+    "md5" : "MD5:989f16a03ef7ef773063be91f68fc925",
+    "createdAt" : "2020-05-27T11:26:43.348",
     "cacheControl" : {
       "maxAge" : 3600,
-      "mustRevalidate" : false,
+      "noCache" : false,
       "noStore" : false,
-      "noCache" : false
+      "mustRevalidate" : false
     },
-    "expires" : "2020-04-26T14:42:19.337"
+    "expires" : "2020-05-27T12:26:43.348"
+  }, {
+    "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.sig",
+    "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\libraries\\library_index.json.sig",
+    "eTag" : "5f4f7cb6e60555d60f767dad37e2b26e",
+    "md5" : "MD5:5f4f7cb6e60555d60f767dad37e2b26e",
+    "createdAt" : "2020-05-27T11:26:51.652",
+    "cacheControl" : {
+      "maxAge" : 14400,
+      "noCache" : false,
+      "noStore" : false,
+      "mustRevalidate" : false
+    },
+    "expires" : "2020-05-27T15:26:51.652"
   }, {
     "remoteURL" : "https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\raw.githubusercontent.com\\espressif\\arduino-esp32\\gh-pages\\package_esp32_index.json",
@@ -59,9 +59,9 @@
     "createdAt" : "2020-03-26T11:15:48.514",
     "cacheControl" : {
       "maxAge" : 300,
-      "mustRevalidate" : false,
+      "noCache" : false,
       "noStore" : false,
-      "noCache" : false
+      "mustRevalidate" : false
     },
     "expires" : "2020-03-26T11:20:48.514"
   }, {
@@ -69,13 +69,13 @@
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\packages\\package_index.json",
     "eTag" : "c6204a924d0c49bd87097d95a17e0061",
     "md5" : "MD5:c6204a924d0c49bd87097d95a17e0061",
-    "createdAt" : "2020-04-26T13:42:17.73",
+    "createdAt" : "2020-05-27T11:26:42.88",
     "cacheControl" : {
       "maxAge" : 3600,
-      "mustRevalidate" : false,
+      "noCache" : false,
       "noStore" : false,
-      "noCache" : false
+      "mustRevalidate" : false
     },
-    "expires" : "2020-04-26T14:42:17.730"
+    "expires" : "2020-05-27T12:26:42.880"
   } ]
 }
