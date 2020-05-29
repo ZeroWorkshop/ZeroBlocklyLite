@@ -1057,7 +1057,7 @@ void Beatle::solveMaze()
         // solved the maze.
         if(ABOVE_LINE(sensors[1]) && ABOVE_LINE(sensors[2]) && ABOVE_LINE(sensors[3]) && ABOVE_LINE(sensors[4]) && ABOVE_LINE(sensors[5]))
         {
-           delay(100);
+           delay(30);
 
         // Check for a straight exit.
            position = LineSensors.readLine(sensors);
@@ -1112,10 +1112,9 @@ void Beatle::solveMaze()
 
     }
     
+ 
     //eeprom_write_string(900,maze_path);
-    //Serial.println(maze_path);
-    eeprom_write_string(900,maze_path);
-    delay(200);
+    //delay(200);
     buzzer.play(">>a32");  
     
 }
