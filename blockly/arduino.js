@@ -293,7 +293,7 @@ Blockly.Arduino.finish = function (code) {
 	}
 	
 	
-	if(isLevelS == 1){  
+	if(isLevelS == 1 || isLevelS == 4){  
 		setups.unshift('StartProgram(&ProgramSelected);\n');
 	}
 	/*
@@ -314,7 +314,7 @@ Blockly.Arduino.finish = function (code) {
 	}
 	
 	//This is added by Qixin for Zeroworkshop. This is add a START button to run the program
-	if(isLevelS != 2 && isLevelS != 1){  //针对迷宫小车程序，不需要StartProgram,否则无法编译 2020/5/15 by Qixin, 增加了&& isLevelS != 1,否则S1程序中出现两个StartProgram(&ProgramSelected)
+	if(isLevelS != 2 && isLevelS != 1 && isLevelS != 4){  //针对迷宫小车程序，不需要StartProgram,否则无法编译 2020/5/15 by Qixin, 增加了&& isLevelS != 1,否则S1程序中出现两个StartProgram(&ProgramSelected)
 		    setups.push('StartProgram(&ProgramSelected);\n');  
   }
   
