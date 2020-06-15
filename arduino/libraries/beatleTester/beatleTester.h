@@ -22,13 +22,16 @@ namespace beatleCMD
   const uint8_t RUNWHEELS       = 0x01;
 	const uint8_t PLAYBUZZER      = 0x02;
 	const uint8_t SETLED          = 0x03;
+	const uint8_t RESET_BEATLE    = 0x04;
+	const uint8_t WRITE_EEPROM    = 0x05;
+	const uint8_t SET_PRODDATE    = 0x06;
 	
   //-------------------------------------------------------------------------------------//
   // Run Wheel Parameter values
   //-------------------------------------------------------------------------------------//
   const uint8_t RUNFORWARD      = 0x00;
   const uint8_t RUNBACKWARD     = 0x01;
-  const uint8_t WHEELSPEED        = 0x02;
+  const uint8_t WHEELSPEED      = 0x02;
 
   
   //-------------------------------------------------------------------------------------//
@@ -127,12 +130,14 @@ public:
 	} sendStack, recStack;
 
 	unsigned long timer;
-	unsigned long threshold = 50;
+	unsigned long threshold = 500;
 
 
 
 
 	bool begin(Stream& stream);
+	void progEEPROM(uint8_t prodY, uint8_t prodM, uint8_t prodD, uint8_t delY, uint8_t delM, uint8_t delD);
+	void resetBeatle();
 	void runWheel(uint8_t direct, uint8_t speed);
 	void playBuzzer();
 	void setLED(uint8_t on_off, uint8_t color);

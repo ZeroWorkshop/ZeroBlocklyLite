@@ -4,78 +4,78 @@
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\arduino.esp8266.com\\stable\\package_esp8266com_index.json",
     "eTag" : "5eb471e4-1a215",
     "md5" : "MD5:87bc32b45e5cb7c2139ab58c856f9ea6",
-    "createdAt" : "2020-05-27T11:26:39.843",
+    "createdAt" : "2020-06-15T12:29:27.746",
     "cacheControl" : {
       "maxAge" : 600,
       "noCache" : false,
       "noStore" : false,
       "mustRevalidate" : false
     },
-    "expires" : "2020-05-27T11:36:39.843"
+    "expires" : "2020-06-15T12:39:27.746"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.gz",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\libraries\\library_index.json.gz",
-    "eTag" : "4c84c4fcb9903cc2453b4acbd435f03d",
-    "md5" : "MD5:4c84c4fcb9903cc2453b4acbd435f03d",
-    "createdAt" : "2020-05-27T11:26:51.047",
+    "eTag" : "ea8f532d065da99fdc6abaa538e36b1d",
+    "md5" : "MD5:ea8f532d065da99fdc6abaa538e36b1d",
+    "createdAt" : "2020-06-15T12:29:35.617",
     "cacheControl" : {
       "maxAge" : 14400,
       "noCache" : false,
       "noStore" : false,
       "mustRevalidate" : false
     },
-    "expires" : "2020-05-27T15:26:51.047"
+    "expires" : "2020-06-15T16:29:35.617"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json.sig",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\packages\\package_index.json.sig",
-    "eTag" : "989f16a03ef7ef773063be91f68fc925",
-    "md5" : "MD5:989f16a03ef7ef773063be91f68fc925",
-    "createdAt" : "2020-05-27T11:26:43.348",
+    "eTag" : "9002c67fcd18edca431498fa277437b8",
+    "md5" : "MD5:9002c67fcd18edca431498fa277437b8",
+    "createdAt" : "2020-06-15T12:29:31.026",
     "cacheControl" : {
       "maxAge" : 3600,
       "noCache" : false,
       "noStore" : false,
       "mustRevalidate" : false
     },
-    "expires" : "2020-05-27T12:26:43.348"
+    "expires" : "2020-06-15T13:29:31.026"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.sig",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\libraries\\library_index.json.sig",
-    "eTag" : "5f4f7cb6e60555d60f767dad37e2b26e",
-    "md5" : "MD5:5f4f7cb6e60555d60f767dad37e2b26e",
-    "createdAt" : "2020-05-27T11:26:51.652",
+    "eTag" : "459e16e480d3a31cc2f0741a29bff943",
+    "md5" : "MD5:459e16e480d3a31cc2f0741a29bff943",
+    "createdAt" : "2020-06-15T12:29:36.849",
     "cacheControl" : {
       "maxAge" : 14400,
       "noCache" : false,
       "noStore" : false,
       "mustRevalidate" : false
     },
-    "expires" : "2020-05-27T15:26:51.652"
+    "expires" : "2020-06-15T16:29:36.849"
   }, {
     "remoteURL" : "https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\raw.githubusercontent.com\\espressif\\arduino-esp32\\gh-pages\\package_esp32_index.json",
-    "eTag" : "W/d048d1eef84e09612f7f9fff67f520c6e6ae18505b7b8c563a442e943cc79f59",
+    "eTag" : "8ef239c1c73d553b2ae44d035dd1cbf212872112495d42c947edb4a4596073bf",
     "md5" : "MD5:679997c493a03acebb280957acc01eae",
-    "createdAt" : "2020-03-26T11:15:48.514",
+    "createdAt" : "2020-06-15T12:29:28.286",
     "cacheControl" : {
       "maxAge" : 300,
       "noCache" : false,
       "noStore" : false,
       "mustRevalidate" : false
     },
-    "expires" : "2020-03-26T11:20:48.514"
+    "expires" : "2020-06-15T12:34:28.286"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\packages\\package_index.json",
-    "eTag" : "c6204a924d0c49bd87097d95a17e0061",
-    "md5" : "MD5:c6204a924d0c49bd87097d95a17e0061",
-    "createdAt" : "2020-05-27T11:26:42.88",
+    "eTag" : "1239f6b728d31a640708170177e62db2",
+    "md5" : "MD5:1239f6b728d31a640708170177e62db2",
+    "createdAt" : "2020-06-15T12:29:30.235",
     "cacheControl" : {
       "maxAge" : 3600,
       "noCache" : false,
       "noStore" : false,
       "mustRevalidate" : false
     },
-    "expires" : "2020-05-27T12:26:42.880"
+    "expires" : "2020-06-15T13:29:30.235"
   } ]
 }

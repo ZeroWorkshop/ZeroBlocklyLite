@@ -17,7 +17,45 @@ bool beatleTester::begin(Stream &stream)
   return true;
 }
 
+void beatleTester::progEEPROM(uint8_t prodY, uint8_t prodM, uint8_t prodD, uint8_t delY, uint8_t delM, uint8_t delD) {
+	sendStack.commandValue  = beatleCMD::SET_PRODDATE;
+	sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
+		
+	uint8_t tempMSB = ((prodY & 0x1F) << 3) | ((prodM >> 1) & 0x7);
+	uint8_t tempLSB = ((prodM & 0x1)  << 7) | (((prodD >> 2) & 0x1F) << 2);
+	 
+  sendStack.paramMSB = tempMSB;
+  sendStack.paramLSB = tempLSB;
 
+  findChecksum(&sendStack);
+  sendData();
+  
+  delay(10);
+  
+  sendStack.commandValue  = beatleCMD::WRITE_EEPROM;
+	sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
+		
+	tempMSB = ((delY & 0x1F) << 3) | ((delM >> 1) & 0x7);
+	tempLSB = ((delM & 0x1)  << 7) | (((delD >> 2) & 0x1F) << 2);
+	 
+  sendStack.paramMSB = tempMSB;
+  sendStack.paramLSB = tempLSB;
+
+  findChecksum(&sendStack);
+  sendData();
+}
+
+
+void beatleTester::resetBeatle() {
+  sendStack.commandValue  = beatleCMD::RESET_BEATLE;
+
+  sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
+  sendStack.paramMSB = 0;
+  sendStack.paramLSB = 0;
+
+  findChecksum(&sendStack);
+  sendData();
+}
 
 
 void beatleTester::runWheel(uint8_t direct, uint8_t speed) {
