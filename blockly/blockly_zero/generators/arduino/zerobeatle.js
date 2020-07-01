@@ -569,9 +569,18 @@ Blockly.Arduino.RGBLED_policelight = function() {
 }
 
 Blockly.Arduino.beatleIRsensor = function () {
+
+    Blockly.Arduino.definitions_['include_ZumoShield'] = '#include <Beatle.h>';
+    
+    Blockly.Arduino.definitions_['declare_Beatle_beatle'] = 'Beatle beatle;\n';
+        
+    Blockly.Arduino.setups_['beatleIRsensor'] = 'beatle.Setup_RemoteControl();\n';
+    
+    Blockly.Arduino.setups_['beatle_basicSetup'] = 'beatle.StartProgram();\n';
+    
     var IRsensor = this.getFieldValue('SensorName');
     var IRvalue = this.getFieldValue('IRStatus');
-
+    
     var code;
     if (IRvalue == "IRsensored")
       code = "(digitalRead(" + IRsensor + ") == LOW)";
