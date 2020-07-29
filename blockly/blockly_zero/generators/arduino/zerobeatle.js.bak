@@ -365,7 +365,7 @@ Blockly.Arduino.beatle_display_rgb_show = function () {
 
 
 
-  var code = LEDstrip + '.show();\n';
+  var code = LEDstrip + '.strip.show();\n';
   return code;
 };
 
@@ -375,7 +375,10 @@ Blockly.Arduino.beatle_RGB_color_rgb = function () {
   var G = Blockly.Arduino.valueToCode(this, 'G', Blockly.Arduino.ORDER_ATOMIC);
   var B = Blockly.Arduino.valueToCode(this, 'B', Blockly.Arduino.ORDER_ATOMIC);
   var colour = R + "*65536" + "+" + G + "*256" + "+" + B;
-  return [colour, Blockly.Arduino.ORDER_NONE];
+  
+  var code = 'strip.Color(' + R + ',' + G + ',' + B + ')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+  //return code;
 };
 
 
@@ -400,6 +403,8 @@ Blockly.Arduino.beatle_display_rgb = function () {
   Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
 
 	Blockly.Arduino.setups_['beatle_basicSetup'] = 'beatle.StartProgram();\n';
+	
+	Blockly.Arduino.setups_['beatle_display_rgb_setup'] = 'LEDStrip_2.init();\n';
 
   if (Blockly.Arduino.definitions_["RGBLED_function_def1"] == null) Blockly.Arduino.definitions_["RGBLED_function_def1"] = "";
   if (Blockly.Arduino.definitions_["RGBLED_function_def2"] == null) Blockly.Arduino.definitions_["RGBLED_function_def2"] = "";
@@ -415,7 +420,7 @@ Blockly.Arduino.beatle_display_rgb = function () {
   */
 
   COLOR = COLOR.replace(/#/g, "0x");
-  var code = LEDstrip + '.strip.setPixelColor((' + value_led + ')-1, ' + COLOR + ');\n';
+  var code = LEDstrip + '.strip.setPixelColor((' + value_led + ')-1, ' + LEDstrip + '.' + COLOR + ');\n';
   return code;
 };
 
@@ -564,9 +569,19 @@ Blockly.Arduino.RGBLED_policelight = function() {
 }
 
 Blockly.Arduino.beatleIRsensor = function () {
+
+    Blockly.Arduino.definitions_['include_ZumoShield'] = '#include <Beatle.h>';
+    
+    Blockly.Arduino.definitions_['declare_Beatle_beatle'] = 'Beatle beatle;\n';
+    
+    
+    Blockly.Arduino.setups_['beatleIRsensor'] = 'beatle.Setup_RemoteControl();\n';
+    
+    Blockly.Arduino.setups_['beatle_basicSetup'] = 'beatle.StartProgram();\n';
+    
     var IRsensor = this.getFieldValue('SensorName');
     var IRvalue = this.getFieldValue('IRStatus');
-
+    
     var code;
     if (IRvalue == "IRsensored")
       code = "(digitalRead(" + IRsensor + ") == LOW)";
