@@ -1,17 +1,19 @@
-#include <Beatle.h>
 
-Beatle beatle;
+#include <ESP32_Servo.h>
+
+Servo servo_0;
 
 void setup(){
-  Serial.begin(115200);
-
-  beatle.StartProgram();
-
-  beatle.SetupAll(0);
-
+  pinMode(0, OUTPUT);
+  servo_0.attach(0,500,2500);
 }
 
 void loop(){
-  beatle.LoopAll(0);
+  digitalWrite(0,HIGH);
+
+  do{
+    servo_0.write(0);
+    delay(0);
+  }while(true);
 
 }
