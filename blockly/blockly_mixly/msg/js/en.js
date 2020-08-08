@@ -80,7 +80,8 @@ var MSG = {
 	catproperty: "Attributes",
 	catmethod: "Method",
 	catobject: "Object",
-	catEvents: "Events"
+	catEvents: "Events",
+	catArduinoESP32basic: "ESP32 Basic Blocks"
 };
 Blockly.Msg.ADD_COMMENT= "Add Comment";
 Blockly.Msg.AUTH= "Please authorize this app to enable your work to be saved and to allow it to be shared by you.";

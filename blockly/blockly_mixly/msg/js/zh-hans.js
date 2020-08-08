@@ -80,7 +80,8 @@ var MSG = {
 	catproperty: "属性",
 	catmethod: "方法",
 	catobject: "对象",
-	catEvents: "事件"
+	catEvents: "事件",
+	catArduinoESP32basic:"ESP32通用模块"
 };
 Blockly.Msg.ADD_COMMENT = "添加注释";
 Blockly.Msg.AUTH = "请授权这个应用程序以保存您的作品并共享。";
