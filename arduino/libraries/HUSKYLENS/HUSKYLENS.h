@@ -13,7 +13,7 @@
 
 #include "Arduino.h"
 #include "Wire.h"
-#include "SoftwareSerial.h"
+//#include "SoftwareSerial.h"
 #include "HuskyLensProtocolCore.h"
 
 #ifndef _HUSKYLENS_H
@@ -168,7 +168,7 @@ private:
         currentIndex = 0;
         if (!wait(COMMAND_RETURN_INFO)) return false;
         protocolReadReturnInfo(protocolInfo);
-        protocolPtr = (Protocol_t*) realloc(protocolPtr, max(protocolInfo.protocolSize, 1) * sizeof(Protocol_t));
+        protocolPtr = (Protocol_t*) realloc(protocolPtr, max((int)protocolInfo.protocolSize, 1) * sizeof(Protocol_t));
         
         for (int i = 0; i < protocolInfo.protocolSize; i++)
         {
@@ -294,7 +294,7 @@ public:
 
     int available(){
         int result = count();
-        currentIndex = min(currentIndex, result);
+        currentIndex = min((int)currentIndex, result);
         return result - currentIndex;
     }
 
