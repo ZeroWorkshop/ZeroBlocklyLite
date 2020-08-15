@@ -81,7 +81,8 @@ var MSG = {
 	catmethod: "方法",
 	catobject: "对象",
 	catEvents: "事件",
-	catArduinoESP32basic:"ESP32通用模块"
+	catArduinoESP32basic:"BeatleESP32通用模块",
+	catBeatleAI: "BeatleESP32预制AI模块"
 };
 Blockly.Msg.ADD_COMMENT = "添加注释";
 Blockly.Msg.AUTH = "请授权这个应用程序以保存您的作品并共享。";
@@ -2864,3 +2865,15 @@ Blockly.MIXLY_SD_clusterCount="簇数";
 Blockly.MIXLY_SD_blocksPerCluster="每簇扇区数";
 Blockly.MIXLY_SD_TOTAL_blocks="总扇区数";
 Blockly.MIXLY_PRINT_INLINE="不换行";
+
+
+
+Blockly.BeatleColorFollower="颜色追踪";
+Blockly.BeatleObjectFollower="物体追踪";
+Blockly.beatleObjectClassifierFollower="物体识别并追踪";
+Blockly.BeatleCamFollowline="视觉巡线";
+Blockly.BeatleSpeedPID="速度PID控制:";
+Blockly.BeatleServoPID="舵机PID控制:";
+Blockly.beatleFaceTracking="人脸识别追踪";
+Blockly.beatleQRcodeRecog="二维码识别";
+Blockly.beatleCombo="追踪多合一";

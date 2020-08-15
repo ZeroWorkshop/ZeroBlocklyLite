@@ -81,7 +81,8 @@ var MSG = {
 	catmethod: "Method",
 	catobject: "Object",
 	catEvents: "Events",
-	catArduinoESP32basic: "ESP32 Basic Blocks"
+	catArduinoESP32basic: "BeatleESP32 Basic Blocks",
+	catBeatleAI: "BeatleESP32 Built-in AI"
 };
 Blockly.Msg.ADD_COMMENT= "Add Comment";
 Blockly.Msg.AUTH= "Please authorize this app to enable your work to be saved and to allow it to be shared by you.";
@@ -2855,3 +2856,14 @@ Blockly.MIXLY_SD_clusterCount="Cluster Count";
 Blockly.MIXLY_SD_blocksPerCluster="Blocks Per Cluster";
 Blockly.MIXLY_SD_TOTAL_blocks="Total blocks";
 Blockly.MIXLY_PRINT_INLINE="in line";
+
+
+Blockly.BeatleColorFollower="Color Follower";
+Blockly.BeatleObjectFollower="Object Follower";
+Blockly.beatleObjectClassifierFollower="Object Recogniton & Tracking";
+Blockly.BeatleCamFollowline="Cam Line Follower";
+Blockly.BeatleSpeedPID="Speed PID Control:";
+Blockly.BeatleServoPID="Servo PID Control:";
+Blockly.beatleFaceRecog="Face Recogniton & Tracking";
+Blockly.beatleQRcodeRecog="QR code recognition";
+Blockly.beatleCombo="Combo";

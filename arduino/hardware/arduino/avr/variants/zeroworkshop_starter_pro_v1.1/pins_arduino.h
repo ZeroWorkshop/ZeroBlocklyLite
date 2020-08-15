@@ -27,6 +27,8 @@
 /******  PIN DEFINITION FOR STARTER_PRO_V1.1 with I2C CPU BOARD ******/
 /****************************************************************/
 #ifdef  STARTERPROV11       //Pins below are for Kim level 1
+
+#define BOARD_VERSION 1
 #define ZW_A1 A0
 #define ZW_A2 A1
 #define ZW_A3 A4

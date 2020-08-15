@@ -549,9 +549,9 @@ stc+='            rgb.blue = 0;\n'
 stc+='            rgb.blue_min = 255;\n'
 stc+='            rgb.blue_max = 0;\n'
 stc+='         if (tcs.begin()) {\n'
-stc+='           Serial.println("Sensor founded!");\n'
+stc+='           Serial.println(F("Sensor founded!"));\n'
 stc+='         } else {\n'
-stc+='           Serial.println("TCS34725 is not available, please try check it !");\n'
+stc+='           Serial.println(F("TCS34725 is not available, please try check it !"));\n'
 stc+='           while (1); \n'
 stc+='         } \n'
 stc+='     \n'
@@ -560,12 +560,12 @@ stc+='         digitalWrite(ZW_B1,HIGH);\n'
 stc+='     \n'
 stc+='     if(CALIBRATION_COLOR)\n'
 stc+='     {\n'
-stc+='          Serial.println("=======================================================================");\n'
-stc+='          Serial.println("Please follow bellow steps to calibration those colors.");  \n'
-stc+='          Serial.println("Step 1: Read the color of surronding.");\n'
-stc+='          Serial.println("\t  Please keep nothing and try to adjust the position of the sensor, then press button A1.");\n'
-stc+='          Serial.print  ("\t  Please do the same steps and try "); Serial.print(COLOR_CALIBRATION_TIMES); Serial.println(" times at least.");\n'
-stc+='          Serial.println("\t  Please press button A2 when finished. it will save the surrounding color data to EEPROM.");   \n'
+stc+='          Serial.println(F("======================================================================="));\ndelay(50);\n'
+stc+='          Serial.println(F("Please follow bellow steps to calibration those colors."));  \ndelay(50);\n'
+stc+='          Serial.println(F("Step 1: Read the color of surrounding."));\ndelay(50);\n'
+stc+='          Serial.println(F("\t  Please keep nothing and try to adjust the position of the sensor, then press button A1."));\ndelay(50);\n'
+stc+='          Serial.print  (F("\t  Please do the same steps and try ")); Serial.print(COLOR_CALIBRATION_TIMES); Serial.println(F(" times at least."));\ndelay(50);\n'
+stc+='          Serial.println(F("\t  Please press button A2 when finished. It will save the surrounding color data to EEPROM."));   \ndelay(50);\n'
 stc+='     }\n'
 stc+='     else\n'
 stc+='     {\n'
@@ -574,19 +574,19 @@ stc+='           {\n'
 stc+='           int COLOR_START_POS;\n'
 stc+='           COLOR_START_POS  =COLOR1_START_POS +  i * COLOR_LENGTH;\n'
 stc+='           EEPROM.get(COLOR_START_POS,RGB_STORE_DATA[i]);\n'
-stc+='           Serial.print("Read Color "); Serial.print(i);Serial.print(" data from EEPROM ");Serial.print(COLOR_START_POS); Serial.print(":\t");    \n'
-stc+='           Serial.print(" red:"); Serial.print(RGB_STORE_DATA[i].red, DEC); Serial.print(":");Serial.print(RGB_STORE_DATA[i].red_max, DEC); Serial.print(":");Serial.print(RGB_STORE_DATA[i].red_min, DEC);\n'
-stc+='           Serial.print(" green:");Serial.print(RGB_STORE_DATA[i].green, DEC);Serial.print(":"); Serial.print(RGB_STORE_DATA[i].green_max, DEC); Serial.print(":");Serial.print(RGB_STORE_DATA[i].green_min, DEC);\n'
-stc+='           Serial.print(" blue:"); Serial.print(RGB_STORE_DATA[i].blue, DEC);Serial.print(":");Serial.print(RGB_STORE_DATA[i].blue_max, DEC); Serial.print(":");Serial.print(RGB_STORE_DATA[i].blue_min, DEC);\n'
-stc+='           Serial.println("");\n'
+stc+='           Serial.print(F("Read Color ")); Serial.print(i);Serial.print(F(" data from EEPROM "));Serial.print(COLOR_START_POS); Serial.print(F(":\t"));    \n'
+stc+='           Serial.print(F(" red:")); Serial.print(RGB_STORE_DATA[i].red, DEC); Serial.print(F(":"));Serial.print(RGB_STORE_DATA[i].red_max, DEC); Serial.print(F(":"));Serial.print(RGB_STORE_DATA[i].red_min, DEC);\n'
+stc+='           Serial.print(F(" green:"));Serial.print(RGB_STORE_DATA[i].green, DEC);Serial.print(F(":")); Serial.print(RGB_STORE_DATA[i].green_max, DEC); Serial.print(F(":"));Serial.print(RGB_STORE_DATA[i].green_min, DEC);\n'
+stc+='           Serial.print(F(" blue:")); Serial.print(RGB_STORE_DATA[i].blue, DEC);Serial.print(F(":"));Serial.print(RGB_STORE_DATA[i].blue_max, DEC); Serial.print(F(":"));Serial.print(RGB_STORE_DATA[i].blue_min, DEC);\n'
+stc+='           Serial.println(F(""));\n'
 stc+='     }\n'
 stc+='     }\n'
 stc+='     \n'
 stc+='     \n'
 
 
-  Blockly.Arduino.definitions_['colorChoose'] = '#include "PS2.h"\n';   //added by Liang 20190912
-  Blockly.Arduino.definitions_['colorChoose'] += '#include <EasyButton.h>\n';
+  //Blockly.Arduino.definitions_['colorChoose'] = '#include "PS2.h"\n';   //added by Liang 20190912
+  Blockly.Arduino.definitions_['colorChoose'] = '#include <EasyButton.h>\n';
   Blockly.Arduino.definitions_['colorChoose'] += '#include "Adafruit_TCS34725.h"\n';
   Blockly.Arduino.definitions_['colorChoose'] += '#include "EEPROM.h"\n'; 
   Blockly.Arduino.definitions_['colorChoose'] += 'enum'+' '+'color_type'+'\n'+ '{NOTHING =0'+hasComma+ code.join(', ') + '};\n'+'#define  COLOR_NUM_MAX       '+max_num+'\n';
@@ -714,10 +714,10 @@ str+='     Serial.print(":\t");\n'
 str+='     \n'
 str+='     if( CALIBRATION_COLOR == true)\n'
 str+='     {\n'
-str+='         Serial.print(rgb.red, DEC); Serial.print("\t");Serial.print(rgb.green, DEC); Serial.print("\t");Serial.print(rgb.blue, DEC);\n'
-str+='         Serial.print(" R:"); Serial.print(rgb.red_max, DEC); Serial.print(":");Serial.print(rgb.red_min, DEC);\n'
-str+='         Serial.print(" G:");Serial.print(rgb.green_max, DEC); Serial.print(":");Serial.print(rgb.green_min, DEC);\n'
-str+='         Serial.print(" B:"); Serial.print(rgb.blue_max, DEC); Serial.print(":");Serial.print(rgb.blue_min, DEC);\n'
+str+='         Serial.print(rgb.red, DEC); Serial.print(F("\t"));Serial.print(rgb.green, DEC); Serial.print(F("\t"));Serial.print(rgb.blue, DEC);\n'
+str+='         Serial.print(F(" R:")); Serial.print(rgb.red_max, DEC); Serial.print(F(":"));Serial.print(rgb.red_min, DEC);\n'
+str+='         Serial.print(F(" G:")); Serial.print(rgb.green_max, DEC); Serial.print(F(":"));Serial.print(rgb.green_min, DEC);\n'
+str+='         Serial.print(F(" B:")); Serial.print(rgb.blue_max, DEC); Serial.print(F(":"));Serial.print(rgb.blue_min, DEC);\n'
 str+='     }\n'
 str+='     else\n'
 str+='     {\n'
@@ -811,11 +811,11 @@ str+='             RGB_STORE_DATA[ColorNum].blue_max = constrain(rgb.blue_max,0,
 str+='             RGB_STORE_DATA[ColorNum].blue_min = constrain(rgb.blue_min,0,255);\n'
 str+='         \n'
 str+='             EEPROM.put(COLOR_START_POS, RGB_STORE_DATA[ColorNum]); \n'
-str+='             Serial.print("Write Color "); Serial.print(ColorNum);Serial.print(" data to EEPROM ");Serial.print(COLOR_START_POS); Serial.println(":\t");    \n'
-str+='             Serial.print(" red:"); Serial.print(rgb.red, DEC); Serial.print(":");Serial.print(rgb.red_max, DEC); Serial.print(":");Serial.print(rgb.red_min, DEC);\n'
-str+='             Serial.print(" green:");Serial.print(rgb.green, DEC);Serial.print(":"); Serial.print(rgb.green_max, DEC); Serial.print(":");Serial.print(rgb.green_min, DEC);\n'
-str+='             Serial.print(" blue:"); Serial.print(rgb.blue, DEC);Serial.print(":");Serial.print(rgb.blue_max, DEC); Serial.print(":");Serial.print(rgb.blue_min, DEC);\n'
-str+='             Serial.println("");\n'
+str+='             Serial.print(F("Write Color ")); Serial.print(ColorNum);Serial.print(F(" data to EEPROM "));Serial.print(COLOR_START_POS); Serial.println(F(":\t"));    \n'
+str+='             Serial.print(F(" red:")); Serial.print(rgb.red, DEC); Serial.print(F(":"));Serial.print(rgb.red_max, DEC); Serial.print(F(":"));Serial.print(rgb.red_min, DEC);\n'
+str+='             Serial.print(F(" green:"));Serial.print(rgb.green, DEC);Serial.print(F(":")); Serial.print(rgb.green_max, DEC); Serial.print(F(":"));Serial.print(rgb.green_min, DEC);\n'
+str+='             Serial.print(F(" blue:")); Serial.print(rgb.blue, DEC);Serial.print(F(":"));Serial.print(rgb.blue_max, DEC); Serial.print(F(":"));Serial.print(rgb.blue_min, DEC);\n'
+str+='             Serial.println(F(""));\n'
 str+='           num = 0;\n'
 str+='           rgb.red = 0;\n'
 str+='           rgb.red_min = 255;\n'
@@ -830,14 +830,14 @@ str+='           ColorNum++;\n'
 str+='     \n'
 str+='           if((ColorNum > 0) && (ColorNum <COLOR_NUM_MAX)  ) \n'
 str+='           {\n'
-str+='               Serial.print("Step "); Serial.print(ColorNum+1); Serial.print(": Read the color of No.");Serial.print(ColorNum); Serial.println(" object");\n'
-str+='               Serial.print("\t  Please put No.");Serial.print(ColorNum); Serial.println(" object and try to adjust the position of the sensor, then press button A1.");\n'
-str+='               Serial.print("\t  Please do the same steps and try "); Serial.print(COLOR_CALIBRATION_TIMES); Serial.println(" times at least.");\n'
-str+='               Serial.print("\t  Please press button A2 when finished. it will save the color data of No.");Serial.print(ColorNum);Serial.println(" object to EEPROM.");\n'
+str+='               Serial.print(F("Step ")); Serial.print(ColorNum+1); Serial.print(F(": Read the color of No."));Serial.print(ColorNum); Serial.println(F(" object"));\n'
+str+='               Serial.print(F("\t  Please put No."));Serial.print(ColorNum); Serial.println(F(" object and try to adjust the position of the sensor, then press button A1."));\n'
+str+='               Serial.print(F("\t  Please do the same steps and try ")); Serial.print(COLOR_CALIBRATION_TIMES); Serial.println(F(" times at least."));\n'
+str+='               Serial.print(F("\t  Please press button A2 when finished. it will save the color data of No."));Serial.print(ColorNum);Serial.println(F(" object to EEPROM."));\n'
 str+='           } \n'
 str+='           if( ColorNum >= COLOR_NUM_MAX) {\n'
 str+='             CALIBRATION_COLOR = false;\n'
-str+='             Serial.println("Calibrantion finished.!!!");\n'
+str+='             Serial.println(F("Calibrantion finished.!!!"));\n'
 str+='             };\n'
 str+='           }\n'
 str+='         }\n'
@@ -849,7 +849,7 @@ str+='         color_type color;\n'
 str+='         sensorMode();\n'
 str+='     \n'
 str+='         color = CheckColor(rgb);\n'
-str+='         Serial.print(" The bollChose of this object is "); Serial.println(bollChoosed); Serial.print(" The color of this object is "); Serial.println(color);\n'
+str+='         Serial.print(F(" The bollChose of this object is ")); Serial.println(bollChoosed); Serial.print(F(" The color of this object is ")); Serial.println(color);\n'
 str+='         delay(1000);\n'
 str+='         \n'
 str+='        if(color == bollChoosed){\n'
@@ -5210,7 +5210,7 @@ followLineDefinitions +='#define PWM_R  5\n';
 followLineDefinitions +='#define DIR_L  12\n';
 followLineDefinitions +='#define DIR_R  13\n';
 followLineDefinitions +='*/\n';
-followLineDefinitions +='ZeroMotors motors(PWM_L,DIR_L,PWM_R,DIR_R);\n';
+followLineDefinitions +='ZeroMotors motors(PWM_L,DIR_L,PWM_R,DIR_R,BOARD_VERSION);\n';  //used to be 'ZeroMotors motors(PWM_L,DIR_L,PWM_R,DIR_R);\n'
 followLineDefinitions +='//ZeroMotors motors();\n';
 followLineDefinitions +='Pushbutton button(ZERO_BUTTON);\n';
 followLineDefinitions +='\n';
@@ -5351,7 +5351,7 @@ followLineDefinitions +='  NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_
 followLineDefinitions +='};\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='// note durations: 4 = quarter note, 8 = eighth note, etc.:\n';
-followLineDefinitions +='int noteDurations_[] = {\n';
+followLineDefinitions +='int noteDurations[] = {\n';
 followLineDefinitions +='  4, 8, 8, 4, 4, 4, 4, 4\n';
 followLineDefinitions +='};\n';
 followLineDefinitions +='\n';
@@ -5675,7 +5675,7 @@ followLineDefinitions +='  switch(dir)\n';
 followLineDefinitions +='  {\n';
 followLineDefinitions +="    case 'L':\n";
 followLineDefinitions +="    case 'B':\n";
-followLineDefinitions +='      motors.setSpeeds(-TURN_SPEED,TURN_SPEED);\n';
+followLineDefinitions +='      motors.setSpeeds(-TURN_SPEED,TURN_SPEED,BOARD_VERSION);\n'; //used to be motors.setSpeeds(-TURN_SPEED,TURN_SPEED);\n'
 followLineDefinitions +='      while(count<2)\n';
 followLineDefinitions +='      {\n';
 followLineDefinitions +='        getFinalData(0x9,sensors);\n';
@@ -5685,7 +5685,7 @@ followLineDefinitions +='        \n';
 followLineDefinitions +='      }  \n';
 followLineDefinitions +='    break;\n';
 followLineDefinitions +="    case 'R':\n";
-followLineDefinitions +='      motors.setSpeeds(TURN_SPEED,-TURN_SPEED);\n';
+followLineDefinitions +='      motors.setSpeeds(TURN_SPEED,-TURN_SPEED,BOARD_VERSION);\n';  //used to be motors.setSpeeds(TURN_SPEED,-TURN_SPEED);\n';
 followLineDefinitions +='      while(count<2)\n';
 followLineDefinitions +='      {\n';
 followLineDefinitions +='        getFinalData(0x9,sensors);\n';
@@ -5731,9 +5731,9 @@ followLineDefinitions +='        if(power_difference < -SPEED)\n';
 followLineDefinitions +='          power_difference = -SPEED;\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='        if(power_difference < 0)\n';
-followLineDefinitions +='            motors.setSpeeds(SPEED + power_difference, SPEED);\n';
+followLineDefinitions +='            motors.setSpeeds(SPEED + power_difference, SPEED,BOARD_VERSION);\n';  //used to be motors.setSpeeds(SPEED + power_difference, SPEED);\n'
 followLineDefinitions +='        else\n';
-followLineDefinitions +='            motors.setSpeeds(SPEED, SPEED - power_difference);\n';
+followLineDefinitions +='            motors.setSpeeds(SPEED, SPEED - power_difference,BOARD_VERSION);\n';  //used to be motors.setSpeeds(SPEED, SPEED - power_difference);\n'
 followLineDefinitions +='\n';
 followLineDefinitions +='        if(!ABOVE_LINE(sensors[0]) && !ABOVE_LINE(sensors[1]) && !ABOVE_LINE(sensors[2]) && !ABOVE_LINE(sensors[3]) && !ABOVE_LINE(sensors[4]) && !ABOVE_LINE(sensors[5])&& !ABOVE_LINE(sensors[6])&& !ABOVE_LINE(sensors[7]))\n';
 followLineDefinitions +='        {\n';
@@ -5767,7 +5767,7 @@ followLineDefinitions +='    found_left = 1;\n';
 followLineDefinitions +='    //if(ABOVE_LINE(sensors[6]) ||ABOVE_LINE(sensors[7]))\n';
 followLineDefinitions +='     if(ABOVE_LINE(sensors[7]))\n';
 followLineDefinitions +='    found_right = 1;\n';
-followLineDefinitions +='    motors.setSpeeds(SPEED,SPEED);\n';
+followLineDefinitions +='    motors.setSpeeds(SPEED,SPEED,BOARD_VERSION);\n';   //used to be motors.setSpeeds(SPEED,SPEED);\n';
 followLineDefinitions +='    delay(_OVERSHOOOT_);\n';
 followLineDefinitions +='    getFinalData(0x9,sensors);\n';
 followLineDefinitions +='    if(ABOVE_LINE(sensors[0])  )\n';
@@ -5788,7 +5788,7 @@ followLineDefinitions +='            found_straight = 1;\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='    if(ABOVE_LINE(sensors[1]) ||ABOVE_LINE(sensors[2]) && ABOVE_LINE(sensors[3]) && ABOVE_LINE(sensors[4]) && ABOVE_LINE(sensors[5])|| ABOVE_LINE(sensors[6]))\n';
 followLineDefinitions +='        {\n';
-followLineDefinitions +='          motors.setSpeeds(0,0);\n';
+followLineDefinitions +='          motors.setSpeeds(0,0,BOARD_VERSION);\n';   //used to be motors.setSpeeds(0,0);\n';  
 followLineDefinitions +='          break;\n';
 followLineDefinitions +='        }\n';
 followLineDefinitions +='\n';
@@ -5834,7 +5834,7 @@ followLineDefinitions +='\n';
 followLineDefinitions +='    followSegment();\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='    // Drive through the intersection.\n';
-followLineDefinitions +='    motors.setSpeeds(SPEED, SPEED);\n';
+followLineDefinitions +='    motors.setSpeeds(SPEED, SPEED,BOARD_VERSION);\n';    //used to be motors.setSpeeds(SPEED, SPEED);\n';
 followLineDefinitions +='    delay(_OVERSHOOOT_);\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='    // Make a turn according to the instruction stored in\n';
@@ -5850,7 +5850,7 @@ followLineDefinitions +='  // Return and wait for another button push to\n';
 followLineDefinitions +='  // restart the maze.\n';
 followLineDefinitions +='    \n';
 followLineDefinitions +='  getFinalData(0x9,sensors);\n';
-followLineDefinitions +='  motors.setSpeeds(0,0);\n';
+followLineDefinitions +='  motors.setSpeeds(0,0,BOARD_VERSION);\n';   //used to be motors.setSpeeds(0,0);\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='  return;\n';
 followLineDefinitions +='}\n';
@@ -5914,7 +5914,7 @@ followLineDefinitions +='  for (int thisNote = 0; thisNote < 8; thisNote++) {\n'
 followLineDefinitions +='\n';
 followLineDefinitions +='    // to calculate the note duration, take one second divided by the note type.\n';
 followLineDefinitions +='    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.\n';
-followLineDefinitions +='    int noteDuration = 1000 / noteDurations_[thisNote];\n';
+followLineDefinitions +='    int noteDuration = 1000 / noteDurations[thisNote];\n';
 followLineDefinitions +='    tone(8, melody[thisNote], noteDuration);\n';
 followLineDefinitions +='\n';
 followLineDefinitions +='    // to distinguish the notes, set a minimum time between them.\n';
@@ -5948,9 +5948,9 @@ followLineSetups +='     Serial.println("Calibration");\n';
 followLineSetups +="  for(int i = 0; i < 160; i++)\n";
 followLineSetups +="  {\n";
 followLineSetups +="    if ((i > 20 && i <= 60) || (i > 100 && i <= 140))\n";
-followLineSetups +="      motors.setSpeeds(-200, 200);\n";
+followLineSetups +="      motors.setSpeeds(-200, 200,BOARD_VERSION);\n";  //used to be motors.setSpeeds(-200, 200);\n";
 followLineSetups +="    else\n";
-followLineSetups +="      motors.setSpeeds(200, -200);   \n";
+followLineSetups +="      motors.setSpeeds(200, -200,BOARD_VERSION);   \n";   //used to be motors.setSpeeds(200, -200);   \n";
 followLineSetups +="      calibration();\n";
 followLineSetups +="    delay(8);\n";
 followLineSetups +="  }\n";

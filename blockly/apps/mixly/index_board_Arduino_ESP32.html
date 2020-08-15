@@ -54,6 +54,7 @@
   <script type="text/javascript" src="../../blockly_mixly/generators/arduino/esp32/procedures.js"></script>
   <script type="text/javascript" src="../../blockly_mixly/generators/arduino/esp32/serial.js"></script>
   <script type="text/javascript" src="../../blockly_mixly/generators/arduino/esp32/actuator.js"></script>
+  <script type="text/javascript" src="../../blockly_mixly/generators/arduino/esp32/zerobeatle_esp32.js"></script>
   <script type="text/javascript" src="../../blockly_mixly/generators/arduino/tools.js"></script>
   <script type="text/javascript" src="../../blockly_mixly/blocks/arduino/blynk.js"></script> 
   <script type="text/javascript" src="../../blockly_mixly/blocks/arduino/factory.js"></script>
@@ -89,6 +90,7 @@
   <script type="text/javascript" src="../../blockly_mixly/blocks/arduino/esp32/procedures.js"></script>
   <script type="text/javascript" src="../../blockly_mixly/blocks/arduino/esp32/serial.js"></script>
   <script type="text/javascript" src="../../blockly_mixly/blocks/arduino/esp32/display.js"></script>
+  <script type="text/javascript" src="../../blockly_mixly/blocks/arduino/esp32/zerobeatle_esp32.js"></script>
   <script type="text/javascript" src="../../blockly_mixly/blocks/arduino/tools.js"></script>
   <script src="../../blockly_mixly/apps/mixly/init.js"></script>
   <link rel="stylesheet" type="text/css" href="../../blockly_mixly/apps/mixly/css/color_esp32_arduino.css" />
@@ -206,6 +208,23 @@
 <div id="content_arduino" class="content" wrap="off"></div>
 <textarea id="content_xml" class="content" wrap="off" readonly></textarea>
 <xml id="toolbox" style="display: none">
+<category id="catBeatleAI" colour=#CC66CC>
+	  <block type="beatleColorFollower">
+    </block>
+    <block type="beatleObjectFollower">
+    </block>
+    <block type="beatleObjectClassifierFollower">
+    </block>
+    <block type="beatleLineTracking">
+    </block>
+    <block type="beatleFaceTracking">
+    </block>
+    <block type="beatleQRcodeRecog">
+    </block>
+    <block type="beatleCombo">
+    </block>
+    
+</category>
 <category name="" id="catArduinoESP32basic" colour="20">
   <category name="" id="catInOut" colour="20">
     <block type="inout_highlow">

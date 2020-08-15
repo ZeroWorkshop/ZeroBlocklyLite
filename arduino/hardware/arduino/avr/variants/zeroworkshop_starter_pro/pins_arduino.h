@@ -27,6 +27,9 @@
 /******  PIN DEFINITION FOR ROBOTCOM_REVA with I2C CPU BOARD ******/
 /****************************************************************/
 #ifdef  ROBOTCOM_REVA       //Pins below are for Kim level 1
+
+#define BOARD_VERSION 0
+
 #define ZW_A1 A0
 #define ZW_A2 A1
 #define ZW_A3 A4

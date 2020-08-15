@@ -24,7 +24,7 @@
 #define STARTERPROV11  
 
 /****************************************************************/
-/******  PIN DEFINITION FOR ROBOTCOM_REVA with I2C CPU BOARD ******/
+/******  PIN DEFINITION FOR STARTER_PRO_V1.1 with I2C CPU BOARD ******/
 /****************************************************************/
 #ifdef  STARTERPROV11       //Pins below are for Kim level 1
 #define ZW_A1 A0
@@ -70,7 +70,7 @@
 #define LED_9    0
 #endif
 /****************************************************************/
-/*****  END OF PIN DEFINITION FOR ROBOTCOM_REVA CPU BOARD *******/
+/*****  END OF PIN DEFINITION FOR STARTER_PRO_V1.1 CPU BOARD *******/
 /****************************************************************/
 
 

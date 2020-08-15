@@ -1,0 +1,9 @@
+const char str_0[]="目标丢失";
+const char str_1[]="目标跟随中";
+const char str_2[]="程序运行中";
+const char str_3[]="目标未学习";
+const char str_4[]="目标搜寻中";
+const char str_5[]="目标人脸丢失";
+const char str_6[]="人脸未学习";
+const char str_7[]="人脸搜寻中";
+const char str_8[]="人脸跟随中";  
