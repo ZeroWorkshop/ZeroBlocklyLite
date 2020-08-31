@@ -2714,3 +2714,4 @@ Blockly.No="否";
 Blockly.wheelSpeed="车轮转速";
 Blockly.turningTime="转动时间";
 Blockly.waitforButton="等待START键按下";
+Blockly.beatleKeepDirection="不忘初心";

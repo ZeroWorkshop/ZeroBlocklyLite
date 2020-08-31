@@ -12,7 +12,7 @@ menu.Revision=Board Revision
 ### DO NOT PUT BOARDS ABOVE THE OFFICIAL ESPRESSIF BOARDS! ###
 ##############################################################
 
-esp32.name=Arduino ESP32
+esp32.name=ZeroBeatle ESP32
 
 esp32.upload.tool=esptool_py
 esp32.upload.maximum_size=1310720

@@ -35,7 +35,7 @@ var MSG = {
 	catEthernet_clinet: "客户端",
 	tab_blocks: "模块",
 	tab_arduino: "代码",
-	copyright: "Copyright © 北京师范大学傅骞博士团队				http://mixly.org/",
+	copyright: "Copyright © 零号车间",
 	catGame: "游戏",
 	catSystem: "系统",
 	catTurtle: "海龟画图",
@@ -82,7 +82,10 @@ var MSG = {
 	catobject: "对象",
 	catEvents: "事件",
 	catArduinoESP32basic:"BeatleESP32通用模块",
-	catBeatleAI: "BeatleESP32预制AI模块"
+	catBeatleAI: "BeatleESP32预制AI模块",
+	catBeatleAICam:"BeatleAI摄像头",
+	catBeatleESP32Sensor: "BeatleESP32传感器",
+	catBeatleChasis: "Beatle多功能底盘"
 };
 Blockly.Msg.ADD_COMMENT = "添加注释";
 Blockly.Msg.AUTH = "请授权这个应用程序以保存您的作品并共享。";
@@ -2877,3 +2880,39 @@ Blockly.BeatleServoPID="舵机PID控制:";
 Blockly.beatleFaceTracking="人脸识别追踪";
 Blockly.beatleQRcodeRecog="二维码识别";
 Blockly.beatleCombo="追踪多合一";
+Blockly.beatleAIrequesting="成功获取所有";
+Blockly.beatleAIrequest="方框和箭头";
+Blockly.beatleAIrequestBlocks="方框";
+Blockly.beatleAIrequesArrows="箭头";
+Blockly.beatleAIrequesLearned="学习过的方框和箭头";
+Blockly.beatleAIrequesBlocksLearned="学习过的方框";
+Blockly.beatleAIrequesArrowsLearned="学习过的箭头";
+Blockly.beatleAIrequestingID="成功获取标签ID是:";
+Blockly.beatleAIrequestingDe="的";
+Blockly.beatleAIrequestCount="从结果中获取";
+Blockly.beatleAIrequestAllLearnedIDCount="已学ID总数";
+Blockly.beatleAIrequestCountNumber="总数";
+Blockly.beatleAIrequestInCam="是否在画面中";
+Blockly.beatleAIrequestCenter="从结果中获取靠近中心";
+Blockly.beatleAIrequestParamID="ID";
+Blockly.beatleAIrequestParamXcenter="X中心";
+Blockly.beatleAIrequestParamYcenter="Y中心";
+Blockly.beatleAIrequestParamWidth="宽度";
+Blockly.beatleAIrequestParamHeight="高度";
+Blockly.beatleAIrequestParamXStart="X起点";
+Blockly.beatleAIrequestParamYStart="Y起点";
+Blockly.beatleAIrequestParamXEnd="X终点";
+Blockly.beatleAIrequestParamYEnd="Y终点";
+Blockly.beatleAIrequestisLearned="是否已学习";
+Blockly.beatleAIrequestiParam="的参数";
+Blockly.beatleAIrequestTotal="总数";
+Blockly.beatleAIrequestNum="第";
+Blockly.beatleAIrequestGe="个";
+Blockly.beatleAIrequestiParam1="参数";
+Blockly.beatleAIswitchAlorithm="切换算法到";
+Blockly.beatleAIfaceRecog="人脸识别";
+Blockly.beatleAIobjTracking="物体追踪";
+Blockly.beatleAIobjRecog="物体识别";
+Blockly.beatleAIlineTracking="巡线";
+Blockly.beatleAIcolorRecog="颜色识别"; 
+Blockly.beatleAItagRecog="标签识别";

@@ -193,3 +193,480 @@ Blockly.Arduino.beatleCombo = function () {
                 
   return beatleSingleFunc;
 };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Blockly.Arduino.beatleAIRequest = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	if (requestType == "request")
+	    code = "huskylens.request()";
+	else if (requestType == "requestBlocks")
+	    code = "huskylens.requestBlocks()";
+	else if (requestType == "requestArrows")
+	    code = "huskylens.requestArrows()";    
+  else if (requestType == "requestLearned")
+	    code = "huskylens.requestLearned()";
+	else if (requestType == "requestBlocksLearned")
+	    code = "huskylens.requestBlocksLearned()";  
+	else if (requestType == "requestArrowsLearned")
+	    code = "huskylens.requestArrowsLearned()";      
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleAIRequestID = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	var requestID = this.getFieldValue('ID');
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	if (requestType == "request")
+	    code = 'huskylens.request(' + requestID + ')';
+	else if (requestType == "requestBlocks")
+	    code = 'huskylens.requestBlocks(' + requestID + ')';
+	else if (requestType == "requestArrows")
+	    code = 'huskylens.requestArrows(' + requestID + ')';    
+  else if (requestType == "requestLearned")
+	    code = 'huskylens.requestLearned(' + requestID + ')';
+	else if (requestType == "requestBlocksLearned")
+	    code = 'huskylens.requestBlocksLearned(' + requestID + ')';  
+	else if (requestType == "requestArrowsLearned")
+	    code = 'huskylens.requestArrowsLearned(' + requestID + ')';      
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleAIRequestLearnedIDCount = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readLearnedIDCount()';    
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleAIRequestCount = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	if (requestType == "requestBlocks")
+	    code = 'huskylens.countBlocks()';
+	else if (requestType == "requestArrows")
+	    code = 'huskylens.countArrows()';    
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino.beatleAICheckBlocksArrows = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	if (requestType == "requestBlocks")
+	    code = 'huskylens.isAppearDirect(HUSKYLENSResultBlock)';
+	else if (requestType == "requestArrows")
+	    code = 'huskylens.isAppearDirect(HUSKYLENSResultArrow)';    
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+
+Blockly.Arduino.beatleAIgetBlockParam = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	var requestParam = this.getFieldValue('AIResultPara');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readBlockCenterParameterDirect().' + requestParam;
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino.beatleAIgetArrowParam = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	var requestParam = this.getFieldValue('AIResultPara');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readArrowCenterParameterDirect().' + requestParam;
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino.beatleAIisLearned = function () {
+	var requestID = this.getFieldValue('ID');
+		
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.isLearned(' + requestID + ')';
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino.beatleAIisInCam = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	var requestID = this.getFieldValue('ID');
+		
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.isAppear(' + requestID + ')';
+	
+  if (requestType == "requestBlocks")
+	    code = 'huskylens.isAppear(' + requestID + ',HUSKYLENSResultBlock)';
+	else if (requestType == "requestArrows")
+	    code = 'huskylens.isAppear(' + requestID + ',HUSKYLENSResultArrow)';
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino.beatleAIgetBlockInfowithID = function () {
+	var requestID = this.getFieldValue('ID');
+	var requestParam = this.getFieldValue('AIResultPara');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readBlockParameter(' + requestID + ').' + requestParam;
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleAIgetArrowInfowithID = function () {
+	var requestID = this.getFieldValue('ID');
+	var requestParam = this.getFieldValue('AIResultPara');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readArrowParameter(' + requestID + ').' + requestParam;
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleAIgetBlockArrowCount = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	var requestID = this.getFieldValue('ID');
+		
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.isAppear(' + requestID + ')';
+	
+  if (requestType == "requestBlocks")
+	    code = 'huskylens.readCount(HUSKYLENSResultBlock)';
+	else if (requestType == "requestArrows")
+	    code = 'huskylens.readCount(HUSKYLENSResultArrow)';
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleAIgetBlockCountwithID = function () {
+	var requestNum = this.getFieldValue('Num');
+	var requestParam = this.getFieldValue('AIResultPara');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readBlockParameterDirect(' + requestNum + ').' + requestParam;
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino.beatleAIgetArrowCountwithID = function () {
+	var requestNum = this.getFieldValue('Num');
+	var requestParam = this.getFieldValue('AIResultPara');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readArrowParameterDirect(' + requestNum + ').' + requestParam;
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino.beatleAIgetBlockArrowCountwitID = function () {
+	var requestType = this.getFieldValue('AICamRequest');
+	var requestID = this.getFieldValue('ID');
+		
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.isAppear(' + requestID + ')';
+	
+  if (requestType == "requestBlocks")
+	    code = 'huskylens.readCount(' + requestID + ',HUSKYLENSResultBlock)';
+	else if (requestType == "requestArrows")
+	    code = 'huskylens.readCount(' + requestID + ',HUSKYLENSResultArrow)';
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleAIgetBlockNumCountwithID = function () {
+	var requestNum = this.getFieldValue('Num');
+	var requestID = this.getFieldValue('ID');
+	var requestParam = this.getFieldValue('AIResultPara');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readBlockParameter(' + requestID + ',' + requestNum + ').' + requestParam;
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
+Blockly.Arduino.beatleAIgetArrowNumCountwithID = function () {
+	var requestNum = this.getFieldValue('Num');
+	var requestID = this.getFieldValue('ID');
+	var requestParam = this.getFieldValue('AIResultPara');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	
+	
+	code = 'huskylens.readArrowParameter(' + requestID + ',' + requestNum + ').' + requestParam;
+	
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleAISwitchAlrorithm = function () {
+	var Algorithm = this.getFieldValue('AIAlgorithm');
+	var code;
+	
+  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+
+
+
+  if (Algorithm == "faceRecog")
+	    code = "huskylens.writeAlgorithm(ALGORITHM_FACE_RECOGNITION);";
+	else if (Algorithm == "objTracking")
+	    code = "huskylens.writeAlgorithm(ALGORITHM_OBJECT_TRACKING);";
+	else if (Algorithm == "objRecog")
+	    code = "huskylens.writeAlgorithm(ALGORITHM_OBJECT_RECOGNITION);";
+  else if (Algorithm == "lineTracking")
+	    code = "huskylens.writeAlgorithm(ALGORITHM_LINE_TRACKING);"; 
+  else if (Algorithm == "colorRecog")
+	    code = "huskylens.writeAlgorithm(ALGORITHM_COLOR_RECOGNITION);";
+	else if (Algorithm == "tagRecog")
+	    code = "huskylens.writeAlgorithm(ALGORITHM_TAG_RECOGNITION);";
+	
+
+	Blockly.Arduino.setups_['beatleAISwitchAlgorithmSetup'] = code;
+	
+	
+    
+                
+  //return [code, Blockly.Arduino.ORDER_ATOMIC];
+};

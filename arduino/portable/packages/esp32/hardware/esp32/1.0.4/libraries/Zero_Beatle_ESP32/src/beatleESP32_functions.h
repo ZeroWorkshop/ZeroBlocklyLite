@@ -47,7 +47,7 @@ extern int32_t speedP, speedI, speedD;
 extern int32_t servoP, servoI, servoD;
 
 #define nextion Serial2
-NextionSimple myNextion(nextion, 115200); 
+NextionSimple myNextion(nextion, 9600); 
 String message;
 char* cmd;
 char str1[50];
@@ -330,7 +330,15 @@ void follower(HUSKYLENS huskylens, int ID1, bool followLargTarget=false) {
     FollowTarget_TargetInCenter();
   }
 
-
+  /*if (sel == 0) {  //color follower
+  	if (bSerial.lineSensors() == (beatleCMD::ALLBLACK)) {  //find a horizontal black line
+  		sprintf(str1, "%s", str_9);
+      myNextion.setComponentText("t0", str1);
+  		left = 0;
+      right = 0;
+  	}
+  }*/
+  	
 
   bSerial.setSpeeds(left, right);
 }
@@ -455,11 +463,27 @@ void servoTrackingOnly(HUSKYLENS huskylens, int ID1, bool facerecog=true) {
 }
 
 void combo_setup() {
+  //ioexpander.begin();
+  //ioexpander.servoWrite(90);
+  //Serial.begin(115200);
+  //bSerial.begin(Serial);
+  //bSerial.setSpeeds(0, 0);
+  
   ioexpander.begin();
   ioexpander.servoWrite(90);
   Serial.begin(115200);
   bSerial.begin(Serial);
   bSerial.setSpeeds(0, 0);
+  /*
+  Wire.begin();
+  while (!huskylens.begin(Wire))
+  {
+    delay(100);
+  }
+  huskylens.writeAlgorithm(algorithmType); //Switch the algorithm to line tracking.
+  */
+  myNextion.init(); // send the initialization commands for Page 0
+  
   cmd = "page 2";
   myNextion.sendCommand(cmd);
   char *cmp_str = "65 2";

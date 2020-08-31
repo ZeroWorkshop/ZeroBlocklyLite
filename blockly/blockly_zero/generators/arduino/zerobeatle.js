@@ -774,3 +774,14 @@ Blockly.Arduino.PS2_button = function () {
 };
 
 
+Blockly.Arduino.beatleKeepDirection = function () {
+    Blockly.Arduino.definitions_['include_beatleKeepDirection'] = '#include <ZeroBeatle_functions.h>';
+	  
+    
+    
+    Blockly.Arduino.setups_['beatleKeepDirection_basicSetup'] = 'beatleKeepDirection_setup();\n';
+
+    var code = 'beatleKeepDirection();\n';
+    
+    return code;
+};

@@ -7,3 +7,4 @@ const char str_5[]="目标人脸丢失";
 const char str_6[]="人脸未学习";
 const char str_7[]="人脸搜寻中";
 const char str_8[]="人脸跟随中";  
+const char str_9[]="终点线停止";

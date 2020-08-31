@@ -742,3 +742,19 @@ Blockly.Blocks.PS2_button = {
 		
 	}
 };
+
+
+Blockly.Blocks.beatleKeepDirection = {
+  init: function() {
+		
+		
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleKeepDirection);
+		
+		this.setColour("#CC66CC");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);		
+		this.setTooltip('');
+	}
+
+};

@@ -573,8 +573,7 @@ Blockly.Arduino.beatleIRsensor = function () {
     Blockly.Arduino.definitions_['include_ZumoShield'] = '#include <Beatle.h>';
     
     Blockly.Arduino.definitions_['declare_Beatle_beatle'] = 'Beatle beatle;\n';
-    
-    
+        
     Blockly.Arduino.setups_['beatleIRsensor'] = 'beatle.Setup_RemoteControl();\n';
     
     Blockly.Arduino.setups_['beatle_basicSetup'] = 'beatle.StartProgram();\n';

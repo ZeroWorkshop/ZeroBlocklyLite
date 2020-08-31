@@ -689,12 +689,12 @@ Blockly.Blocks.beatlewaitforButton = {
 		
 		
 		this.appendDummyInput()
-		    .appendField(Blockly.waitforButton)
-		    ;
-		this.setOutput(true,null);
+		    .appendField(Blockly.waitforButton);
+		
 		
 		this.setColour("#F4436D");
-				
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);		
 		this.setTooltip('');
 	}
 
@@ -741,4 +741,20 @@ Blockly.Blocks.PS2_button = {
 			
 		
 	}
+};
+
+
+Blockly.Blocks.beatleKeepDirection = {
+  init: function() {
+		
+		
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleKeepDirection);
+		
+		this.setColour("#F4436D");
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);		
+		this.setTooltip('');
+	}
+
 };

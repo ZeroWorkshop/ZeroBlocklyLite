@@ -2715,3 +2715,4 @@ Blockly.No="No";
 Blockly.wheelSpeed="Wheel speed";
 Blockly.turningTime="Turning time";
 Blockly.waitforButton="Wait for START button to be pressed";
+Blockly.beatleKeepDirection="Keep Beatle's Direction";

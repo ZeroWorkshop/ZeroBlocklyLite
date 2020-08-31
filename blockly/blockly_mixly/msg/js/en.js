@@ -35,7 +35,7 @@ var MSG = {
 	catEthernet_clinet:"Client",
 	tab_blocks: "Blocks",
 	tab_arduino: "Code",
-	copyright:"Copyright © Mixly Team				 http://mixly.org/",
+	copyright:"Copyright © ZeroWorkshop",
 	catGame:"Game",
 	catSystem:"System",
 	catTurtle:"Turtle",
@@ -82,7 +82,10 @@ var MSG = {
 	catobject: "Object",
 	catEvents: "Events",
 	catArduinoESP32basic: "BeatleESP32 Basic Blocks",
-	catBeatleAI: "BeatleESP32 Built-in AI"
+	catBeatleAI: "BeatleESP32 Built-in AI",
+	catBeatleAICam: "Beatle AI Camera",
+	catBeatleESP32Sensor: "BeatleESP32 Sensors",
+	catBeatleChasis: "Beatle Multi-function Chasis"
 };
 Blockly.Msg.ADD_COMMENT= "Add Comment";
 Blockly.Msg.AUTH= "Please authorize this app to enable your work to be saved and to allow it to be shared by you.";
@@ -2867,3 +2870,47 @@ Blockly.BeatleServoPID="Servo PID Control:";
 Blockly.beatleFaceRecog="Face Recogniton & Tracking";
 Blockly.beatleQRcodeRecog="QR code recognition";
 Blockly.beatleCombo="Combo";
+Blockly.beatleAIrequest="Successfully get all blocks and arrows result";
+Blockly.beatleAIrequestBlocks="Successfully get all blocks result";
+Blockly.beatleAIrequesArrows="Successfully get all arrows result";
+Blockly.beatleAIrequesLearned="Successfully get all blocks and arrows learned result";
+Blockly.beatleAIrequesBlocksLearned="Successfully get all blocks learned result";
+Blockly.beatleAIrequesArrowsLearned="Successfully get all arrows learned result";
+Blockly.beatleAIrequestingID="成功获取标签ID是:";
+Blockly.beatleAIrequestingDe="的";
+Blockly.beatleAIrequesting="Successfully get result of all";
+Blockly.beatleAIrequest="blocks and arrows";
+Blockly.beatleAIrequestBlocks="blocks";
+Blockly.beatleAIrequesArrows="arrows";
+Blockly.beatleAIrequesLearned="blocks and arrows learned";
+Blockly.beatleAIrequesBlocksLearned="blocks learned";
+Blockly.beatleAIrequesArrowsLearned="arrows learned";
+Blockly.beatleAIrequestingID="Successfully get result of ID:";
+Blockly.beatleAIrequestingDe="'s";
+Blockly.beatleAIrequestCount="Get the results of ";
+Blockly.beatleAIrequestAllLearnedIDCount="counts of all ID learned";
+Blockly.beatleAIrequestCountNumber="总数";
+Blockly.beatleAIrequestInCam=",whether in the frame or not";
+Blockly.beatleAIrequestCenter="Get the result of ";
+Blockly.beatleAIrequestParamID="ID";
+Blockly.beatleAIrequestParamXcenter="X Center";
+Blockly.beatleAIrequestParamYcenter="Y Center";
+Blockly.beatleAIrequestParamWidth="width";
+Blockly.beatleAIrequestParamHeight="height";
+Blockly.beatleAIrequestParamXStart="X Origin";
+Blockly.beatleAIrequestParamYStart="Y Origin";
+Blockly.beatleAIrequestParamXEnd="X Target";
+Blockly.beatleAIrequestParamYEnd="Y Target";
+Blockly.beatleAIrequestisLearned=",whether learned or not";
+Blockly.beatleAIrequestiParam="'s parameter of ";
+Blockly.beatleAIrequestTotal="total counts";
+Blockly.beatleAIrequestNum="No.";
+Blockly.beatleAIrequestGe="";
+Blockly.beatleAIrequestiParam1="parameter";
+Blockly.beatleAIswitchAlorithm="Switch Algorithm to";
+Blockly.beatleAIfaceRecog="Face Recognition";
+Blockly.beatleAIobjTracking="Object Tracking";
+Blockly.beatleAIobjRecog="Object Recognition";
+Blockly.beatleAIlineTracking="Line Tracking";
+Blockly.beatleAIcolorRecog="Color Recognition"; 
+Blockly.beatleAItagRecog="Tag Recognition";
