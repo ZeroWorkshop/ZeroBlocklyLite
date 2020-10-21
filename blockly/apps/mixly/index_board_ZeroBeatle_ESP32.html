@@ -266,13 +266,435 @@
 </category>
 
 <category id="catBeatleESP32Sensor" colour=#006633>
-
-    
+  <block type="beatleESP32TempSensor">
+  </block>
+  <block type="beatleESP32HumSensor">
+  </block>
+  <block type="beatleESP32PressureSensor">
+  </block>
+  <block type="beatleESP32GestureSensor">
+  </block> 
+  <block type="beatleESP32IRRecorder">
+  </block> 
+  <block type="beatleESP32MPU9250">
+  </block> 
+  <block type="beatleESP32MPU9250Acc">
+  </block> 
+  <block type="beatleESP32MPU9250Gyro">
+  </block> 
+  <block type="beatleESP32MicDB">
+  </block>
 </category>
 
-<category id="catBeatleChasis" colour=#FF168B>
-
+<category id="catBeatleESP32Actuator" colour=#FF168B>
+	
+	<block type="beatlePS4padMAC">
+  </block>
+	<block type="beatleESP32PS4pad">
+  </block>
+  <block type="beatleESP32LRWheels">
+    <field name="LRunningStatus">FORWARD</field>
+    <field name="RRunningStatus">FORWARD</field>
+    <value name="LspeedValue">
+      <block type="math_number">
+        <field name="NUM">255</field>
+      </block>
+    </value>
+    <value name="RspeedValue">
+      <block type="math_number">
+        <field name="NUM">255</field>
+      </block>
+    </value>
+  </block>
+  
+  
+  <block type="beatleESP32Wheel">
+    <field name="MotorName">M1</field>
+    <field name="RunningStatus">FORWARD</field>
+    <value name="speedValue">
+      <block type="math_number">
+        <field name="NUM">255</field>
+      </block>
+    </value>
+  </block>  
+  <block type="beatleESP32Servo">
+  	<value name="speedValue">
+      <block type="math_number">
+        <field name="NUM">90</field>
+      </block>
+    </value>
+  </block>
+  <block type="beatleESP32IRSend">
+    <field name="encodingType">NEC</field>
+    <value name="keyValue">
+      <block type="math_number">
+        <field name="NUM">0xFFFFFF</field>
+      </block>
+    </value>
+  </block>
+  <block type="beatleESP32getIRbuttonKey">
+  </block>
+  <block type="beatleESP32compareIRbuttonKey">
+    <value name="A">
+      <block type="text">
+        <field name="TEXT">chup</field>
+      </block>
+    </value>
+  </block>
+  <block type="BeatleESP32PlayMP3fromSD">
+  </block>
+  <block type="RGBLED_functions">
+    <field name="OPTION">option_1</field>
+    <value name="PIN">
+      <block type="math_number">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+    <value name="LEDN">
+      <block type="math_number">
+        <field name="NUM">12</field>
+      </block>
+    </value>
+    <value name="WAIT">
+      <shadow type="math_number">
+        <field name="NUM">15</field>
+      </shadow>
+    </value>
+    </block>
+    <block type="beatle_display_rgb">
+      	<value name="PIN">
+      <block type="math_number">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+        <value name="_LED_">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="COLOR">
+          <shadow type="math_number">
+           <field name="NUM">
+           </field>
+         </shadow>
+      <block type="beatle_RGB_color_rgb">
+        <value name="R">
+         <shadow type="math_number">
+          <field name="NUM">0</field>
+         </shadow>
+        </value>
+        <value name="G">
+         <shadow type="math_number">
+          <field name="NUM">0</field>
+         </shadow>
+        </value>
+        <value name="B">
+         <shadow type="math_number">
+          <field name="NUM">0</field>
+         </shadow>
+        </value>
+      </block>
+      </value>
+     </block>
+     <block type="beatle_display_rgb_show">
+    <value name="PIN">
+      <block type="math_number">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+  </block>
+     <block type="controls_for">
+    <field name="VAR">i</field>
+    <value name="FROM">
+      <shadow type="math_number">
+        <field name="NUM">1</field>
+      </shadow>
+    </value>
+    <value name="TO">
+      <shadow type="math_number">
+        <field name="NUM">12</field>
+      </shadow>
+    </value>
+    <value name="STEP">
+      <shadow type="math_number">
+        <field name="NUM">1</field>
+      </shadow>
+    </value>
+    <statement name="DO">
+      <block type="beatle_display_rgb">
+      	<value name="PIN">
+      <block type="math_number">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+        <value name="_LED_">
+          <shadow type="math_number">
+            <field name="NUM">i</field>
+          </shadow>
+        </value>
+        <value name="COLOR">
+          <shadow type="math_number">
+            <field name="NUM">
+           
+            </field>
+          </shadow>
+          <block type="beatle_RGB_color_rgb">
+            <value name="R">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="G">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="beatle_display_rgb_show">
+      	<value name="PIN">
+      <block type="math_number">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+      </block>
+    </next>
+  </block>
+  <block type="RGBLED_policelight">
+  </block>
+  <block type="beatleESP32KeepDirection">
+  </block> 
+</category>
+<category id="catBeatleESP32LCD" colour=#FFAA00>
+	<block type="beatleESP32CleanScreen">
+		<value name="color">
+      <shadow type="math_number">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    <value name="G">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    <value name="B">
+      <shadow type="math_number" id="bBWrT,!4gd{/d*~%3Ko^">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="beatleESP32ShowPic">
+		<value name="X">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    <value name="Y">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    <value name="ID">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="beatleESP32ShowString">
+  	<value name="X">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">50</field>
+      </shadow>
+    </value>
+    <value name="Y">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">50</field>
+      </shadow>
+    </value>
+    <value name="W">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+    <value name="H">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+    <value name="ID">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    <value name="fontcolor">
+      <shadow type="math_number">
+        <field name="NUM">65535</field>
+      </shadow>
+    </value>
+    <value name="color">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    <value name="G">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    <value name="B">
+      <shadow type="math_number" id="bBWrT,!4gd{/d*~%3Ko^">
+        <field name="NUM">0</field>
+      </shadow>
+    </value>
+    </block>
     
+    <block type="beatleESP32Fill">
+  	<value name="X">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">30</field>
+      </shadow>
+    </value>
+    <value name="Y">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">20</field>
+      </shadow>
+    </value>
+    <value name="W">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+    <value name="H">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+   
+    <value name="color">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">1234</field>
+      </shadow>
+    </value>
+    
+    </block>
+    
+    <block type="beatleESP32Line">
+  	<value name="X">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">10</field>
+      </shadow>
+    </value>
+    <value name="Y">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">10</field>
+      </shadow>
+    </value>
+    <value name="X2">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+    <value name="Y2">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+   
+    <value name="color">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">65535</field>
+      </shadow>
+    </value>
+    
+    </block>
+    
+    <block type="beatleESP32Rectangle">
+  	<value name="X">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">20</field>
+      </shadow>
+    </value>
+    <value name="Y">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">30</field>
+      </shadow>
+    </value>
+    <value name="X2">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+    <value name="Y2">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+   
+    <value name="color">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">65535</field>
+      </shadow>
+    </value>
+    
+    </block>
+    
+    <block type="beatleESP32Circle">
+  	<value name="X">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">160</field>
+      </shadow>
+    </value>
+    <value name="Y">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">120</field>
+      </shadow>
+    </value>
+    <value name="R">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">50</field>
+      </shadow>
+    </value>
+       
+    <value name="color">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">65535</field>
+      </shadow>
+    </value>
+    
+    </block>
+    
+    <block type="beatleESP32Circle2">
+  	<value name="X">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">160</field>
+      </shadow>
+    </value>
+    <value name="Y">
+      <shadow type="math_number" id="`@Fe%]B|N|/_oNk+OhJF">
+        <field name="NUM">120</field>
+      </shadow>
+    </value>
+    <value name="R">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">50</field>
+      </shadow>
+    </value>
+       
+    <value name="color">
+      <shadow type="math_number" id="UOIeP|f/jCl[Rvg?nJF*">
+        <field name="NUM">65535</field>
+      </shadow>
+    </value>
+    
+    </block>
 </category>
 <category name="" id="catArduinoESP32basic" colour="20">
   <category name="" id="catInOut" colour="20">

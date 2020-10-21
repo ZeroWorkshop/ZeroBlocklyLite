@@ -35,7 +35,7 @@ var MSG = {
 	catEthernet_clinet:"Client",
 	tab_blocks: "Blocks",
 	tab_arduino: "Code",
-	copyright:"Copyright © Mixly Team				 http://mixly.org/",
+	copyright:"Copyright © ZeroWorkshop",
 	catGame:"Game",
 	catSystem:"System",
 	catTurtle:"Turtle",
@@ -83,8 +83,10 @@ var MSG = {
 	catEvents: "Events",
 	catArduinoESP32basic: "BeatleESP32 Basic Blocks",
 	catBeatleAI: "BeatleESP32 Built-in AI",
-	catBeatleAICam: "Beatle AI Camera",
+	catBeatleAICam: "BeatleESP32 AI Camera",
 	catBeatleESP32Sensor: "BeatleESP32 Sensors",
+	catBeatleESP32Actuator: "BeatleESP32 Actuators",
+	catBeatleESP32LCD: "BeatleESP32 LCD Screen",
 	catBeatleChasis: "Beatle Multi-function Chasis"
 };
 Blockly.Msg.ADD_COMMENT= "Add Comment";
@@ -2914,3 +2916,123 @@ Blockly.beatleAIobjRecog="Object Recognition";
 Blockly.beatleAIlineTracking="Line Tracking";
 Blockly.beatleAIcolorRecog="Color Recognition"; 
 Blockly.beatleAItagRecog="Tag Recognition";
+Blockly.beatleESP32ReadTempvalue="Return temprature of BealteESP32";
+Blockly.beatleESP32ReadHumvalue="Return humidity of BealteESP32";
+Blockly.beatleESP32ReadPressurevalue="Return air pressure of BealteESP32";
+Blockly.beatleESP32ReadGesturevalue="Return gesture value of BeatleESP32 gesture sensor";
+Blockly.beatleESP32ReadIRRecordervalue="Learn and record the button value of IR controller";
+Blockly.beatleESP32SendIRvalue="Send IR data";
+Blockly.beatleESP32IRencoding="IR encoding type";
+Blockly.beatleESP32IRsendUNKNOWN="UNKNOWN";
+Blockly.beatleESP32IRsendNEC="NEC";
+Blockly.beatleESP32IRsendSONY="SONY";
+Blockly.beatleESP32IRsendRC5="RC5";
+Blockly.beatleESP32IRsendRC6="RC6";
+Blockly.beatleESP32IRsendDISH="DISH";
+Blockly.beatleESP32IRsendSHARP="SHARP";
+Blockly.beatleESP32IRsendJVC="JVC";
+Blockly.beatleESP32IRsendSANYO="Sanyo";
+Blockly.beatleESP32IRsendSAMSUNG="Samsung";
+Blockly.beatleESP32IRsendMITSUBISHI="Mitsubishi";
+Blockly.beatleESP32IRsendPANASONIC="Panasonic";
+Blockly.beatleESP32IRsendDENON="DENON";
+Blockly.beatleESP32IRsendBOSEWAVE="BoseWave";
+Blockly.beatleESP32IRsendLG="LG"; 
+Blockly.beatleESP32IRkeyValue="Key value";
+Blockly.beatleESP32getIRbuttonKey="Get IR button key value";
+Blockly.beatleESP32compareIRbuttonKey="IR button key value is";
+Blockly.beatleESP32ReadGyroAllValue="Return all values of Gyro sensor";
+Blockly.beatleESP32ReadSoundDBValue="Return the DB value of the Mic";
+Blockly.beatleESP32ReadAccValue="Return Accelerator value of";
+Blockly.beatlePitch="Pitch";
+Blockly.beatleRoll="Roll";
+Blockly.beatleYaw="Yaw"
+Blockly.beatleIMUX="X";
+Blockly.beatleIMUY="Y";
+Blockly.beatleIMUZ="Z";
+Blockly.beatleESP32IMUAxis="Axis";
+Blockly.beatleESP32IMUAccValue="";
+Blockly.beatleESP32ReadGyroValue="Return Gyroscope value of";
+Blockly.beatleESP32IMUGyroValue="";
+Blockly.beatleWheelLeft="LEFT";
+Blockly.beatleWheelRight="RIGHT";
+Blockly.beatleWheelForward="Forward";
+Blockly.beatleWheelBackward="Backward";
+Blockly.beatleWheelStop="Stop";
+Blockly.beatleWheelSpeed="Speed(0~255):";
+Blockly.beatleWheel="Wheel";
+Blockly.beatleLWheel="Left Wheel";
+Blockly.beatleRWheel="Right Wheel";
+Blockly.BeatleESP32PlayMP3="Play the MP3 file in the SD card:";
+Blockly.BeatleESP32PlayMP3fromSD="Select a mp3 to play from SD card on the screen";
+Blockly.beatleESP32Servo="Set Servo angle to ";
+Blockly.beatleESP32ServoAngle="Angle(0~180):";
+Blockly.beatleESP32Cls="Clear screen and set the background color:";
+Blockly.beatleESP32Pic="Show picture";
+Blockly.beatleESP32PicXY="Starting coordination";
+Blockly.beatleESP32PicX="X=";
+Blockly.beatleESP32PicY="Y=";
+Blockly.beatleESP32PicID="Pic ID=";
+Blockly.beatleESP32String="Write string";
+Blockly.beatleESP32PicW="Width=";
+Blockly.beatleESP32PicH="Height=";
+Blockly.beatleESP32FontID="Font ID=";
+Blockly.beatleESP32backcolor="Background color";
+Blockly.beatleESP32XAlign="Horizontal alignment";
+Blockly.beatleESP32YAlign="Vertical alignment";
+Blockly.beatleESP32LeftAlign="Align left";
+Blockly.beatleESP32RightAlign="Align right";
+Blockly.beatleESP32MiddleAlign="Align center";
+Blockly.beatleESP32BackgroundStatus="Background filling";
+Blockly.beatleESP32backstatus0="cut pic";
+Blockly.beatleESP32backstatus1="single color";
+Blockly.beatleESP32backstatus2="pic";
+Blockly.beatleESP32backstatus3="no background";
+Blockly.beatleESP32Fill="Fill area";
+Blockly.beatleESP32FillColor="fill color";
+Blockly.beatleESP32Fill="Draw line";
+Blockly.beatleESP32PicX2Y2="End coordination";
+Blockly.beatleESP32PicX="X2=";
+Blockly.beatleESP32PicY="Y2=";
+Blockly.beatleESP32Rectangle="Draw rectangle";
+Blockly.beatleESP32Circle="Draw circle";
+Blockly.beatleESP32CircleXY="Center coordination";
+Blockly.beatleESP32PicRadius="radius";
+Blockly.beatleESP32PicR="r=";
+Blockly.beatleESP32Circle2="Draw filled circle";
+Blockly.beatleESP32LineColor="line color";
+Blockly.HMIColor="HMI Color";
+Blockly.beatleESP32fontcolor="Font Color";
+Blockly.beatleESP32PS4padPressed="Button";
+Blockly.beatleESP32PS4padButton="is pressed";
+Blockly.beatleESP32PS4buttonUP="UP";
+Blockly.beatleESP32PS4buttonDOWN="DOWN";
+Blockly.beatleESP32PS4buttonLEFT="LEFT";
+Blockly.beatleESP32PS4buttonRIGHT="RIGHT";
+Blockly.beatleESP32PS4buttonTRIANGLE="TRIANGLE";
+Blockly.beatleESP32PS4buttonCROSS="CROSS";
+Blockly.beatleESP32PS4buttonSQUARE="SQUARE";
+Blockly.beatleESP32PS4buttonCIRCLE="CIRCLE";
+Blockly.beatleESP32PS4buttonL1="L1";
+Blockly.beatleESP32PS4buttonL2="L2";
+Blockly.beatleESP32PS4buttonR1="R1";
+Blockly.beatleESP32PS4buttonR2="R2";
+Blockly.beatleESP32PS4buttonL3="L3";
+Blockly.beatleESP32PS4buttonR3="R3";
+Blockly.beatleESP32PS4buttonUPLEFT="UPLEFT";
+Blockly.beatleESP32PS4buttonUPRIGHT="UPRIGHT";
+Blockly.beatleESP32PS4buttonDOWNLEFT="DOWNLEFT";
+Blockly.beatleESP32PS4buttonDOWNRIGHT="DOWNRIGHT";
+Blockly.beatleESP32PS4buttonTOUCHPAD="TOUCHPAD";
+Blockly.beatleESP32PS4buttonSHARE="SHARE";
+Blockly.beatleESP32PS4buttonOPTIONS="OPTIONS";
+Blockly.beatleESP32PS4buttonPS="PS";
+Blockly.beatlePS4padMAC="PS4 gamepad MAC address";
+Blockly.beatleLEDnumber="LED count";
+Blockly.beatleMS="ms";
+Blockly.beatleRainbow="Rainbow effect";
+Blockly.beatleTheaterRainbow="Theatre rainbow effect";
+Blockly.beatleLEDfunc="LED effect";
+Blockly.beatleInterval="interval";
+Blockly.beatleSetRGB="Set RGB";
+Blockly.beatleESP32Policelight="Police Light effect";

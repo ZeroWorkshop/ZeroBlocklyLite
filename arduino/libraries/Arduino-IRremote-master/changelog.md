@@ -1,3 +1,36 @@
+## 2.5.0 2020/06
+- corrected keywords.txt.
+- BoseWave protocol added PR #690.
+- Formatting comply to the new stylesheet.
+- Renamed "boarddefs.h" [ISSUE #375](https://github.com/z3t0/Arduino-IRremote/issues/375).
+- Renamed SEND_PIN to IR_SEND_PIN.
+- Renamed state macros.
+- Enabled DUTY_CYCLE for send signal.
+- Added sending for ESP32.
+- Changed rawlen from uint8_t to unsigned int allowing bigger receive buffer and renamed RAWBUF to RAW_BUFFER_LENGTH.
+- Introduced USE_NO_CARRIER for simulating an IR receiver.
+Changes from #283 by bengtmartensson
+- Added function sendRaw_P() for sending data from flash.
+Changes from #268 by adamlhumphreys
+- Optimized by reducing floating point operations as suggested by @madmalkav (#193)
+- Optimized with macros when using default MICROS_PER_TICK and TOLERANCE
+- Made decodeHash as a settable protocol defined by DECODE_HASH
+
+## 2.5.0 ???
+- Added Philips Extended RC-5 protocol support [PR #522] (https://github.com/z3t0/Arduino-IRremote/pull/522)
+
+## 2.4.0 - 2017/08/10
+ - Cleanup of hardware dependencies. Merge in SAM support [PR #437](https://github.com/z3t0/Arduino-IRremote/pull/437)
+
+## 2.3.3 - 2017/03/31
+- Added ESP32 IR receive support [PR #427](https://github.com/z3t0/Arduino-IRremote/pull/425)
+
+## 2.2.3 - 2017/03/27
+- Fix calculation of pause length in LEGO PF protocol [PR #427](https://github.com/z3t0/Arduino-IRremote/pull/427)
+
+## 2.2.2 - 2017/01/20
+- Fixed naming bug [PR #398](https://github.com/z3t0/Arduino-IRremote/pull/398)
+
 ## 2.2.1 - 2016/07/27
 - Added tests for Lego Power Functions Protocol [PR #336](https://github.com/z3t0/Arduino-IRremote/pull/336)
 
