@@ -2621,6 +2621,7 @@ Blockly.MIXLY_U8G2_SETCONTRAST_HELP="OLED背光亮度范围（0-255）";
 
 
 Blockly.BeatleAll="Beatle多合一程序";
+Blockly.BeatleSlave="BeatleSlave底盘";
 Blockly.BeatleCruise="自由巡航";
 Blockly.BeatleFollowline="巡线";
 Blockly.BeatleMaze="解迷宫";

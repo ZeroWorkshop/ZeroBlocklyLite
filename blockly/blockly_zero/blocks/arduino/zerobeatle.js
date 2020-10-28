@@ -15,6 +15,16 @@ Blockly.Blocks.allfunc = {
 	}
 };
 
+Blockly.Blocks.beatleSlave = {
+  init: function() {
+		this.appendDummyInput().appendField('  ' + Blockly.BeatleSlave);
+		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatle.png',200,200));
+		this.setColour(Blockly.Blocks.beatle.HUE);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setTooltip('');
+	}
+};
 /*************************************************************************************************************/
 /*************************************************************************************************************/
 Blockly.Blocks.beatleCruise = {

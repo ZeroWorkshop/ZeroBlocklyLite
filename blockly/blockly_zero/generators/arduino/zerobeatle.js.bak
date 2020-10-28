@@ -22,6 +22,26 @@ Blockly.Arduino.allfunc = function() {
   return beatleSingleFunc;
 };
 
+Blockly.Arduino.beatleSlave = function() {
+  Blockly.Arduino.definitions_['include_beatleSlave'] = '#include "ZeroBeatle_beatleSlave.h"\n';
+
+
+	var setup_code = '';
+	setup_code = 'beatle.SetupAll(0);\n';
+
+
+	Blockly.Arduino.setups_['setup_beatleSlave'] = 'beatleSlavesetup();\n';
+
+	
+
+	Blockly.Arduino.setups_['beatle_basicSetup'] = 'beatle.StartProgram();\n';
+	
+	Blockly.Arduino.setups_['beatle_wandering'] = setup_code;
+  beatleSingleFunc = "beatle.LoopAll(0);\n"
+  return beatleSingleFunc;
+};
+
+
 var beatleSingleFunc = "";
 Blockly.Arduino.beatleCruise = function () {
   Blockly.Arduino.definitions_['include_ZumoShield'] = '#include <Beatle.h>';
@@ -774,3 +794,14 @@ Blockly.Arduino.PS2_button = function () {
 };
 
 
+Blockly.Arduino.beatleKeepDirection = function () {
+    Blockly.Arduino.definitions_['include_beatleKeepDirection'] = '#include <ZeroBeatle_functions.h>';
+	  
+    
+    
+    Blockly.Arduino.setups_['beatleKeepDirection_basicSetup'] = 'beatleKeepDirection_setup();\n';
+
+    var code = 'beatleKeepDirection();\n';
+    
+    return code;
+};

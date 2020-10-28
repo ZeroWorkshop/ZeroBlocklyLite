@@ -674,19 +674,19 @@ Blockly.Arduino.beatleAISwitchAlrorithm = function () {
 //////////////////////////////////////////////////////////////////////////////////////////
 Blockly.Arduino.beatleESP32TempSensor = function () {
 	var code;
-  Blockly.Arduino.definitions_['include_beatleBME280'] = '#include "Adafruit_BME280.h"\n';
+  Blockly.Arduino.definitions_['include_beatleBMP280'] = '#include "Adafruit_BMP280.h"\n';
   
   
-	Blockly.Arduino.definitions_['declare_beatleBME280'] = 'Adafruit_BME280 bme;' + '\n';
+	Blockly.Arduino.definitions_['declare_beatleBMP280'] = 'Adafruit_BMP280 bmp;' + '\n';
 
 
 
 	
 
-	Blockly.Arduino.setups_['beatleBME280Setup'] = 'bme.begin();\n';
+	Blockly.Arduino.setups_['beatleBMP280Setup'] = 'bmp.begin();\n';
 	
 	
-	code = 'bme.readTemperature()';    
+	code = 'bmp.readTemperature()';    
   
                 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -694,19 +694,19 @@ Blockly.Arduino.beatleESP32TempSensor = function () {
 
 Blockly.Arduino.beatleESP32HumSensor = function () {
 	var code;
-  Blockly.Arduino.definitions_['include_beatleBME280'] = '#include "Adafruit_BME280.h"\n';
+  Blockly.Arduino.definitions_['include_beatleBMP280'] = '#include "Adafruit_BMP280.h"\n';
   
   
-	Blockly.Arduino.definitions_['declare_beatleBME280'] = 'Adafruit_BME280 bme;' + '\n';
+	Blockly.Arduino.definitions_['declare_beatleBMP280'] = 'Adafruit_BMP280 bmp;' + '\n';
 
 
 
 	
 
-	Blockly.Arduino.setups_['beatleBME280Setup'] = 'bme.begin();\n';
+	Blockly.Arduino.setups_['beatleBMP280Setup'] = 'bmp.begin();\n';
 	
 	
-	code = 'bme.readHumidity()';    
+	code = 'bmp.readHumidity()';    
   
                 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -714,20 +714,20 @@ Blockly.Arduino.beatleESP32HumSensor = function () {
 
 Blockly.Arduino.beatleESP32PressureSensor = function () {
 	var code;
-  Blockly.Arduino.definitions_['include_beatleBME280'] = '#include "Adafruit_BME280.h"\n' +
+  Blockly.Arduino.definitions_['include_beatleBMP280'] = '#include "Adafruit_BMP280.h"\n' +
                                                          '#define ALTITUDE 216.0 // Altitude in Sparta, Greece';
   
   
-	Blockly.Arduino.definitions_['declare_beatleBME280'] = 'Adafruit_BME280 bme;' + '\n';
+	Blockly.Arduino.definitions_['declare_beatleBMP280'] = 'Adafruit_BMP280 bmp;' + '\n';
 
 
 
 	
 
-	Blockly.Arduino.setups_['beatleBME280Setup'] = 'bme.begin();\n';
+	Blockly.Arduino.setups_['beatleBMP280Setup'] = 'bmp.begin();\n';
 	
 	
-	code = 'bme.seaLevelForAltitude(ALTITUDE,bme.readPressure()) / 100.0F';    
+	code = 'bmp.seaLevelForAltitude(ALTITUDE,bmp.readPressure()) / 100.0F';    
   
                 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -738,19 +738,61 @@ Blockly.Arduino.beatleESP32GestureSensor = function () {
 	var requestType = this.getFieldValue('AICamRequest');
 	
 	var code;
-  Blockly.Arduino.definitions_['include_beatleAICam'] = '#include "ZWHuskyLens.h"\n';
+  Blockly.Arduino.definitions_['include_beatleESP32GestureSensor'] ='#include "Adafruit_APDS9960.h"\n';
   
   
-	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
+	Blockly.Arduino.definitions_['declare_beatleESP32GestureSensor'] = 'Adafruit_APDS9960 apds;\n';
 
 
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleESP32GestureSensor'] = 'Serial.begin(115200);\n' + 
+	                                                             '  if(!apds.begin()){\n' +
+	                                                             '    Serial.println("failed to initialize device! Please check your wiring.");\n' + 
+	                                                             '  }\n' + 
+	                                                             '  else Serial.println("Device initialized!");\n\n' + 
+	                                                             '  apds.enableProximity(true);\n' + 
+	                                                             '  apds.enableGesture(true);\n';
 	
 	
-	code = 'huskylens.readLearnedIDCount()';    
+	code = 'uint8_t gesture = apds.readGesture();\n';    
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleESP32GestureSensored = function () {
+	var gesture = this.getFieldValue('gesture');
+	
+	var code;
+  Blockly.Arduino.definitions_['include_beatleESP32GestureSensor'] ='#include "Adafruit_APDS9960.h"\n';
+  
+  
+	Blockly.Arduino.definitions_['declare_beatleESP32GestureSensor'] = 'Adafruit_APDS9960 apds;\n';
+
+
+
+	
+
+	Blockly.Arduino.setups_['setup_beatleESP32GestureSensor'] = 'Serial.begin(115200);\n' + 
+	                                                             '  if(!apds.begin()){\n' +
+	                                                             '    Serial.println("failed to initialize device! Please check your wiring.");\n' + 
+	                                                             '  }\n' + 
+	                                                             '  else Serial.println("Device initialized!");\n\n' + 
+	                                                             '  apds.enableProximity(true);\n' + 
+	                                                             '  apds.enableGesture(true);\n';
+	
+	if (gesture == "UP") 
+	   code = 'gesture == APDS9960_UP';
+	else if (gesture == "DOWN") 
+	   code = 'gesture == APDS9960_DOWN';
+	else if (gesture == "LEFT") 
+	   code = 'gesture == APDS9960_LEFT';
+	else if (gesture == "RIGHT") 
+	   code = 'gesture == APDS9960_RIGHT';   
+
+
   
                 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -892,13 +934,13 @@ Blockly.Arduino.beatleESP32MPU9250Gyro = function () {
 };
 
 Blockly.Arduino.beatleESP32KeepDirection = function () {
-    Blockly.Arduino.definitions_['include_beatleESP32KeepDirection'] = '#include "beatleESP32_MPU6050.h"';
+    Blockly.Arduino.definitions_['include_beatleESP32KeepDirection'] = '#include "beatleESP32_MPU9250.h"';
 	  
     
     
-    Blockly.Arduino.setups_['setup_beatleESP32KeepDirection'] = 'MPU6050setup();\n';
+    Blockly.Arduino.setups_['setup_beatleESP32KeepDirection'] = 'MPU9250setup();\n';
 
-    var code = 'MPU6050loop();\n';
+    var code = 'MPU9250loop();\n';
     
     return code;
 };
@@ -926,6 +968,21 @@ Blockly.Arduino.beatleESP32MicDB = function () {
 };
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+Blockly.Arduino.beatleESP32Weatherstation = function() {
+  var SSID = Blockly.Arduino.valueToCode(this, 'SSID', Blockly.Arduino.ORDER_ATOMIC);
+  var PWD = Blockly.Arduino.valueToCode(this, 'PWD', Blockly.Arduino.ORDER_ATOMIC);
+  Blockly.Arduino.definitions_['include_beatleESP32Weatherstation'] ='#include "beatleESP32_weatherStation.h"\n';
+  Blockly.Arduino.definitions_['declare_beatleESP32Weatherstation'] = 'const char* ssid = ' + SSID + ';\n' +
+                                                                      'const char* password = ' + PWD + ';\n';
+  Blockly.Arduino.setups_['setup_beatleESP32Weatherstation'] = 'weathersation_setup(ssid, password);\n'
+  
+  var code = 'weathersation_loop();\n';    
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+ 
+};
+
 Blockly.Arduino.beatlePS4padMAC = function() {
   var add0 = this.getFieldValue('add0');
 	var add1 = this.getFieldValue('add1');
@@ -1108,7 +1165,7 @@ Blockly.Arduino.beatleESP32IRSend = function () {
 	Blockly.Arduino.definitions_['include_beatleESP32IRsend'] = '#include <IRremoteESP8266.h>\n' + '#include <IRsend.h>\n';
   
   
-	Blockly.Arduino.definitions_['declare_beatleESP32IRsend'] = 'const uint16_t kIrLed = 14;  // ESP8266 GPIO pin to use. Recommended: 4 (D2).\n' + 'IRsend irsend(kIrLed);\n';
+	Blockly.Arduino.definitions_['declare_beatleESP32IRsend'] = 'const uint16_t kIrLed = 4;  // ESP8266 GPIO pin to use. Recommended: 4 (D2).\n' + 'IRsend irsend(kIrLed);\n';
 
 
 

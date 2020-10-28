@@ -22,6 +22,22 @@ Blockly.Arduino.allfunc = function() {
   return beatleSingleFunc;
 };
 
+Blockly.Arduino.beatleSlave = function() {
+  Blockly.Arduino.definitions_['include_beatleSlave'] = '#include "ZeroBeatle_beatleSlave.h"\n';
+
+
+	var setup_code = '';
+	setup_code = 'beatle.SetupAll(0);\n';
+
+
+	Blockly.Arduino.setups_['setup_beatleSlave'] = 'beatleSlavesetup();\n';
+
+
+  beatleSingleFunc = "beatleSlaveloop();\n"
+  return beatleSingleFunc;
+};
+
+
 var beatleSingleFunc = "";
 Blockly.Arduino.beatleCruise = function () {
   Blockly.Arduino.definitions_['include_ZumoShield'] = '#include <Beatle.h>';

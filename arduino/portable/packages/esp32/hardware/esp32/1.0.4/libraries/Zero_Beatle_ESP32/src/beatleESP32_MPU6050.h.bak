@@ -1,10 +1,9 @@
 #include <Wire.h>
 #include <MPU6050.h>
-#include "Beatle.h"
-
-Beatle beatle;
+#include <BeatleSerial.h>
 
 
+BeatleSerial bSerial;
 MPU6050 mpu;
 
 // Timers
@@ -17,7 +16,7 @@ float roll = 0;
 float yaw = 0;
 
 
-void setup() 
+void MPU6050setup() 
 {
   Serial.begin(115200);
 
@@ -40,7 +39,7 @@ void setup()
 
 }
 
-void loop()
+void MPU6050loop()
 {
   timer = millis();
 
@@ -64,15 +63,15 @@ void loop()
   delay((timeStep*1000) - (millis() - timer));
 
   if ( yaw <= 3 && yaw >= -3 ) {   // you can increse the range to suit your sensor's accuracy
-       beatle.motors.setSpeeds(0, 0);
+       bSerial.setSpeeds(0, 0);
   }
   else {
     if ( yaw < -3 ) {
-        beatle.motors.setSpeeds(-100, 100);
+        bSerial.setSpeeds(-100, 100);
   }
 
   else {
-        beatle.motors.setSpeeds(100, -100);
+        bSerial.setSpeeds(100, -100);
   }
     
   }

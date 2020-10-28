@@ -2622,6 +2622,7 @@ Blockly.MIXLY_U8G2_SETCONTRAST_HELP = "OLED backlight brightness range (0-255)";
 
 
 Blockly.BeatleAll="BeatleCombo";
+Blockly.BeatleSlave="BeatleSlaveChasis";
 Blockly.BeatleCruise="FreeCruise";
 Blockly.BeatleFollowline="LineFollow";
 Blockly.BeatleMaze="MazeSolve";

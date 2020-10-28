@@ -612,11 +612,35 @@ Blockly.Blocks.beatleESP32GestureSensor = {
 		  	.appendField(Blockly.beatleESP32ReadGesturevalue);
 		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
 		this.setColour('#006633');
-		this.setOutput(true, null);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
 		this.setTooltip('');
 	}
 };
 
+Blockly.Blocks.beatleESP32GestureSensored = {
+  init: function() {
+		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
+		this.appendDummyInput()
+		  	.appendField(Blockly.beatleESP32GestureSensored)
+		  	.appendField(new Blockly.FieldDropdown([
+			  	[Blockly.beatleESP32GestureUP, "UP"],
+			  	[Blockly.beatleESP32GestureDOWN, "DOWN"],
+			  	[Blockly.beatleESP32GestureLEFT, "LEFT"],
+			  	[Blockly.beatleESP32GestureRIGHT, "RIGHT"],
+			  	]), "gesture");
+
+		
+		//this.appendDummyInput()
+		//    .appendField(Blockly.beatleESP32IRkeyValue)
+		//    .appendField(new Blockly.FieldTextInput('100'),'keyValue');	    
+		
+		this.setColour('#006633');
+		this.setOutput(true, null);
+		
+		this.setTooltip('');
+	}
+};
 Blockly.Blocks.beatleESP32IRRecorder = {
   init: function() {
 		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
@@ -698,6 +722,25 @@ Blockly.Blocks.beatleESP32MicDB = {
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+Blockly.Blocks.beatleESP32Weatherstation = {
+  init: function() {
+    this.setColour('#FF168B');
+    
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleESP32Weatherstation);
+    this.appendDummyInput("")
+        .appendField(Blockly.MIXLY_NETWORK_INIT);
+    this.appendValueInput("SSID")
+    .appendField(Blockly.Msg.HTML_NAME);
+    this.appendValueInput("PWD")
+    .appendField(Blockly.Msg.HTML_PASSWORD);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setInputsInline(true);
+    this.setTooltip(" ");
+    this.setHelpUrl();
+  }
+};
 Blockly.Blocks.beatlePS4padMAC = {
   init: function() {
 		

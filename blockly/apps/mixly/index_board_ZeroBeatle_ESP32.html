@@ -268,26 +268,39 @@
 <category id="catBeatleESP32Sensor" colour=#006633>
   <block type="beatleESP32TempSensor">
   </block>
-  <block type="beatleESP32HumSensor">
-  </block>
+  <!-- <block type="beatleESP32HumSensor">
+  </block> -->
   <block type="beatleESP32PressureSensor">
   </block>
   <block type="beatleESP32GestureSensor">
   </block> 
+  <block type="beatleESP32GestureSensored">
+  </block>
   <block type="beatleESP32IRRecorder">
   </block> 
-  <block type="beatleESP32MPU9250">
+  <!-- <block type="beatleESP32MPU9250">
   </block> 
   <block type="beatleESP32MPU9250Acc">
   </block> 
   <block type="beatleESP32MPU9250Gyro">
-  </block> 
-  <block type="beatleESP32MicDB">
   </block>
+  <block type="beatleESP32MicDB">
+  </block> -->
 </category>
 
 <category id="catBeatleESP32Actuator" colour=#FF168B>
-	
+	<block type="beatleESP32Weatherstation">
+		  <value name="SSID">
+      <shadow type="text" >
+        <field name="TEXT">ssid</field>
+      </shadow>
+    </value>
+    <value name="PWD">
+      <shadow type="text" >
+        <field name="TEXT">password</field>
+      </shadow>
+    </value>
+  </block>
 	<block type="beatlePS4padMAC">
   </block>
 	<block type="beatleESP32PS4pad">

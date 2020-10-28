@@ -20,8 +20,8 @@ void MPU6050setup()
 {
   Serial.begin(115200);
 
-  pinMode(DSL,INPUT);
-  pinMode(DSR,INPUT);
+  //pinMode(DSL,INPUT);
+  //pinMode(DSR,INPUT);
   // Initialize MPU6050
   while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G))
   {
