@@ -207,7 +207,11 @@ Blockly.Arduino.beatleAIRequest = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	if (requestType == "request")
@@ -239,7 +243,11 @@ Blockly.Arduino.beatleAIRequestID = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	if (requestType == "request")
@@ -271,7 +279,11 @@ Blockly.Arduino.beatleAIRequestLearnedIDCount = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readLearnedIDCount()';    
@@ -293,7 +305,11 @@ Blockly.Arduino.beatleAIRequestCount = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	if (requestType == "requestBlocks")
@@ -319,7 +335,11 @@ Blockly.Arduino.beatleAICheckBlocksArrows = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	if (requestType == "requestBlocks")
@@ -347,7 +367,11 @@ Blockly.Arduino.beatleAIgetBlockParam = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readBlockCenterParameterDirect().' + requestParam;
@@ -372,7 +396,11 @@ Blockly.Arduino.beatleAIgetArrowParam = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readArrowCenterParameterDirect().' + requestParam;
@@ -396,7 +424,11 @@ Blockly.Arduino.beatleAIisLearned = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.isLearned(' + requestID + ')';
@@ -421,7 +453,11 @@ Blockly.Arduino.beatleAIisInCam = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.isAppear(' + requestID + ')';
@@ -449,7 +485,11 @@ Blockly.Arduino.beatleAIgetBlockInfowithID = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readBlockParameter(' + requestID + ').' + requestParam;
@@ -473,7 +513,11 @@ Blockly.Arduino.beatleAIgetArrowInfowithID = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readArrowParameter(' + requestID + ').' + requestParam;
@@ -497,7 +541,11 @@ Blockly.Arduino.beatleAIgetBlockArrowCount = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.isAppear(' + requestID + ')';
@@ -524,7 +572,11 @@ Blockly.Arduino.beatleAIgetBlockCountwithID = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readBlockParameterDirect(' + requestNum + ').' + requestParam;
@@ -549,7 +601,11 @@ Blockly.Arduino.beatleAIgetArrowCountwithID = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readArrowParameterDirect(' + requestNum + ').' + requestParam;
@@ -574,7 +630,11 @@ Blockly.Arduino.beatleAIgetBlockArrowCountwitID = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.isAppear(' + requestID + ')';
@@ -602,7 +662,11 @@ Blockly.Arduino.beatleAIgetBlockNumCountwithID = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readBlockParameter(' + requestID + ',' + requestNum + ').' + requestParam;
@@ -628,7 +692,11 @@ Blockly.Arduino.beatleAIgetArrowNumCountwithID = function () {
 
 	
 
-	Blockly.Arduino.setups_['beatleAICamSetup'] = '//combo_setup();\n';
+	Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 	
 	
 	code = 'huskylens.readArrowParameter(' + requestID + ',' + requestNum + ').' + requestParam;
@@ -647,7 +715,11 @@ Blockly.Arduino.beatleAISwitchAlrorithm = function () {
   
 	Blockly.Arduino.definitions_['declare_beatleAICam'] = 'ZWHuskyLens huskylens;' + '\n';
 
-
+  Blockly.Arduino.setups_['setup_beatleAICam'] = 'Wire.begin();' + '\n' +
+                                                 '  while (!huskylens.begin(Wire))' + '\n' +
+                                                 '  {' + '\n' + 
+                                                 '    delay(100);' + '\n' +
+                                                 '  }' + '\n';
 
   if (Algorithm == "faceRecog")
 	    code = "huskylens.writeAlgorithm(ALGORITHM_FACE_RECOGNITION);";
@@ -938,9 +1010,9 @@ Blockly.Arduino.beatleESP32KeepDirection = function () {
 	  
     
     
-    Blockly.Arduino.setups_['setup_beatleESP32KeepDirection'] = 'MPU6050setup();\n';
+    Blockly.Arduino.setups_['setup_beatleESP32KeepDirection'] = 'MPU9250setup();\n';
 
-    var code = 'MPU6050loop();\n';
+    var code = 'MPU9250loop();\n';
     
     return code;
 };
@@ -1152,8 +1224,16 @@ Blockly.Arduino.beatleESP32PlayMP3 = function () {
 };
 
 Blockly.Arduino.beatleESP32Servo = function() {
+	var angle = Blockly.Arduino.valueToCode(this, 'speedValue', Blockly.Arduino.ORDER_ATOMIC);//this.getFieldValue('speedValue');
+  Blockly.Arduino.definitions_['include_beatleESP32Servo'] = '#include "io_expander.h"\n';
+	Blockly.Arduino.definitions_['declare_beatleESP32Servo'] = 'IOExpander  ioexpander(0x18);\n' +
+	                                                           'int pos = 90;\n';
 
-	var code = '\n';
+	Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+
+	Blockly.Arduino.setups_['beatle_beatleESP32Servo'] = 'ioexpander.begin();\n' + '  ioexpander.servoWrite(pos);\n';
+
+	var code = 'myservo.write(' + angle + ');\n';
 	return code;
 };
 
@@ -1673,4 +1753,89 @@ Blockly.Arduino.beatleESP32Circle2 = function() {
 	
 	return code;
 
+};
+
+//////////////////////////////////////////////////////////////////////////
+Blockly.Arduino.beatleESP32WebRadioList = function() {
+  var station = this.getFieldValue('radiostation');
+
+	Blockly.Arduino.definitions_['include_beatleESP32WebRadio'] = '#include "beatleESP32_webRadio.h"';
+	Blockly.Arduino.definitions_['declare_beatleESP32WebRadio'] = '';
+
+	
+
+	Blockly.Arduino.setups_['beatle_beatleESP32WebRadioList'] = '';
+  
+  var code;
+  if (station == "station1")
+      code = 'http://lhttp.qingting.fm/live/1206/64k.mp3';
+  else if (station == "station2")
+      code = 'http://lhttp.qingting.fm/live/5021641/64k.mp3';
+  else if (station == "station3")
+      code = 'http://lhttp.qingting.fm/live/1209/64k.mp3';
+  else if (station == "station4")
+      code = 'http://lhttp.qingting.fm/live/1208/64k.mp3';        
+  
+
+	return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.beatleESP32WebRadio = function() {
+  var SSID = Blockly.Arduino.valueToCode(this, 'SSID', Blockly.Arduino.ORDER_ATOMIC);
+  var PWD = Blockly.Arduino.valueToCode(this, 'PWD', Blockly.Arduino.ORDER_ATOMIC);
+  var station = Blockly.Arduino.valueToCode(this, 'station', Blockly.Arduino.ORDER_ATOMIC);
+  Blockly.Arduino.definitions_['include_beatleESP32WebRadio'] = '#include "beatleESP32_webRadio.h"';
+  
+	Blockly.Arduino.definitions_['declare_beatleESP32WebRadio'] = 'const char* ssid = ' + SSID + ';\n' +
+                                                                'const char* password = ' + PWD + ';\n' +
+                                                                'String host = "' + station + '";\n';
+                                                                
+  Blockly.Arduino.setups_['setup_beatleESP32WebRadio'] = 'webradiosetup(ssid, password,host);\n'
+  
+  var code = 'webradioloop();\n';    
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+ 
+};
+
+Blockly.Arduino.beatleESP32speechSynthesis = function() {
+  var SSID = Blockly.Arduino.valueToCode(this, 'SSID', Blockly.Arduino.ORDER_ATOMIC);
+  var PWD = Blockly.Arduino.valueToCode(this, 'PWD', Blockly.Arduino.ORDER_ATOMIC);
+  var token = Blockly.Arduino.valueToCode(this, 'token', Blockly.Arduino.ORDER_ATOMIC);
+  var speechtext = this.getFieldValue('speechTXT');
+  var vol = Blockly.Arduino.valueToCode(this, 'speechVol', Blockly.Arduino.ORDER_ATOMIC);
+  var spd = Blockly.Arduino.valueToCode(this, 'speechSpd', Blockly.Arduino.ORDER_ATOMIC);
+  var pit = Blockly.Arduino.valueToCode(this, 'speechPit', Blockly.Arduino.ORDER_ATOMIC);
+  
+  var person = this.getFieldValue('person');
+  var perID;
+  if (person == "person1")
+      perID = 1;
+  else if (person == "person2")
+      perID = 0;
+  else if (person == "person3")
+      perID = 3;
+  else if (person == "person4")
+      perID = 4;
+      
+  Blockly.Arduino.definitions_['include_beatleESP32speechSynthesis'] = '#include "beatleESP32_speechSynthesis.h"';
+  
+	Blockly.Arduino.definitions_['declare_beatleESP32speechSynthesis'] = 'const char* ssid = ' + SSID + ';\n' +
+                                                                       'const char* password = ' + PWD + ';\n' +
+                                                                       'const char* token = ' + token + ';\n' +
+                                                                       'const char* speechtext = "' + speechtext + '";\n' +
+                                                                       'int volID = ' + vol + ';\n' +
+                                                                       'int spdID = ' + spd + ';\n' +
+                                                                       'int pitID = ' + pit + ';\n' +
+                                                                       'int perID = ' + perID + ';\n';
+                                                                
+  Blockly.Arduino.setups_['setup_beatleESP32speechSynthesis'] = 'speechSynsetup(ssid, password, token, speechtext, volID, perID, spdID, pitID);\n'
+  
+  
+  var code = 'speechSynloop();\n';    
+  
+                
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+ 
 };

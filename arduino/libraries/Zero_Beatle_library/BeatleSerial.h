@@ -16,6 +16,7 @@ namespace beatleCMD
 	const uint8_t NO_FEEDBACK     = 0;    //no feedback requested
 	const uint8_t EB              = 0xEF; //end byte
 
+
 	//-------------------------------------------------------------------------------------//
 	// Control Command Values
 	//-------------------------------------------------------------------------------------//
@@ -36,7 +37,8 @@ namespace beatleCMD
 	const uint8_t WRITE_EEPROM    = 0x41;
 	const uint8_t SET_PRODDATE    = 0x51;
 	
-	
+	const uint8_t SEND_MAZESTR    = 0x91;
+	const uint8_t STOP_MAZESTR    = 0x92;
   //-------------------------------------------------------------------------------------//
   // Run Wheel Parameter values
   //-------------------------------------------------------------------------------------//
@@ -44,6 +46,13 @@ namespace beatleCMD
   const uint8_t RUNBACKWARD     = 0x01;
   const uint8_t WHEELSPEED      = 0x02;
   
+  //-------------------------------------------------------------------------------------//
+  // Maze road Parameter values
+  //-------------------------------------------------------------------------------------//
+  const uint8_t GOSTRAIGHT = 83;  //ascii S
+  const uint8_t GOBACK     = 66;  //ascii B
+  const uint8_t GORIGHT    = 82;  //ascii R
+  const uint8_t GOLEFT     = 76;  //ascii L 
   
   //-------------------------------------------------------------------------------------//
   // LED color Parameter values
@@ -163,6 +172,7 @@ public:
 	void runWheel(uint8_t direct, uint8_t speed);
 	void playBuzzer();
 	void setLED(uint8_t on_off, uint8_t color);
+	void sendMaseCMDString(const char* command_str);
 	void setSpeeds(int speedL,int speedR);
 	void setLeftSpeed(uint8_t direct, uint8_t speed);
 	void setRightSpeed(uint8_t direct, uint8_t speed);

@@ -485,6 +485,57 @@
   </block>
   <block type="beatleESP32KeepDirection">
   </block> 
+  <block type="beatleESP32WebRadioList">
+  </block> 
+  <block type="beatleESP32WebRadio">
+  	<value name="SSID">
+      <shadow type="text" >
+        <field name="TEXT">ssid</field>
+      </shadow>
+    </value>
+    <value name="PWD">
+      <shadow type="text" >
+        <field name="TEXT">password</field>
+      </shadow>
+    </value>
+    <value name="station">
+      <block type="beatleESP32WebRadioList">
+        <field name="radiostation">station1</field>
+      </block>
+    </value>
+  </block> 
+  <block type="beatleESP32speechSynthesis">
+  	<value name="SSID">
+      <shadow type="text" >
+        <field name="TEXT">ssid</field>
+      </shadow>
+    </value>
+    <value name="PWD">
+      <shadow type="text" >
+        <field name="TEXT">password</field>
+      </shadow>
+    </value>
+    <value name="token">
+      <shadow type="text" >
+        <field name="TEXT">25.9ee292b3a326087e9b2f4bbf083fbd44.315360000.1919593231.282335-17872447</field>
+      </shadow>
+    </value>
+    <value name="speechVol">
+      <block type="math_number">
+        <field name="NUM">9</field>
+      </block>
+    </value>
+    <value name="speechSpd">
+      <block type="math_number">
+        <field name="NUM">6</field>
+      </block>
+    </value>
+    <value name="speechPit">
+      <block type="math_number">
+        <field name="NUM">5</field>
+      </block>
+    </value>
+  </block>
 </category>
 <category id="catBeatleESP32LCD" colour=#FFAA00>
 	<block type="beatleESP32CleanScreen">

@@ -1544,3 +1544,82 @@ Blockly.Blocks.beatleESP32Circle2 = {
     }
 };
 
+//////////////////////////////////////////////////////////////////////////////
+Blockly.Blocks.beatleESP32WebRadio = {
+  init: function() {
+    this.setColour('#FF168B');
+    
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleESP32WebRadio);
+    this.appendValueInput("SSID")
+    .appendField(Blockly.WifiSSID);
+    this.appendValueInput("PWD")
+    .appendField(Blockly.WifiPASSWORD);
+    this.appendValueInput("station")
+    .appendField(Blockly.beatleESP32Radiostation);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    //this.setInputsInline(true);
+    this.setTooltip(" ");
+    this.setHelpUrl();
+  }
+};
+
+Blockly.Blocks.beatleESP32WebRadioList = {
+  init: function() {
+    
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleESP32WebRadioList);
+	  this.appendDummyInput()	  
+    		.appendField(new Blockly.FieldDropdown([
+			  	[Blockly.beatleESP32Radio1, "station1"],
+			  	[Blockly.beatleESP32Radio2, "station2"],
+			  	[Blockly.beatleESP32Radio3, "station3"],
+			  	[Blockly.beatleESP32Radio4, "station4"],
+		  	]), "radiostation");
+		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
+		this.setColour('#FF168B');
+		this.setOutput(true, null);
+		this.setTooltip('');
+  }
+   
+};
+
+Blockly.Blocks.beatleESP32speechSynthesis = {
+  init: function() {
+    this.setColour('#FF168B');
+    
+    this.appendDummyInput()
+        .appendField(Blockly.beatleESP32speechSynthesis);
+		this.appendDummyInput()
+		    .appendField("");
+    this.appendValueInput("SSID")
+        .appendField(Blockly.WifiSSID);
+    this.appendValueInput("PWD")
+        .appendField(Blockly.WifiPASSWORD);
+    this.appendValueInput("token")
+        .appendField(Blockly.beatleESP32BaiduToken);
+    this.appendDummyInput()
+		    .appendField(Blockly.BeatleESP32Text)
+		  	.appendField(new Blockly.FieldTextInput('你好，欢迎使用文字转语音功能'),'speechTXT');
+		this.appendValueInput('speechVol')
+		    .appendField(Blockly.beatleESP32speechVol);
+		this.appendDummyInput()	  
+		    .appendField(Blockly.beatleESP32speechPer)
+    		.appendField(new Blockly.FieldDropdown([
+			  	[Blockly.beatleESP32person1, "person1"],
+			  	[Blockly.beatleESP32person2, "person2"],
+			  	[Blockly.beatleESP32person3, "person3"],
+			  	[Blockly.beatleESP32person4, "person4"],
+		  	]), "person");
+		this.appendValueInput('speechSpd')
+		    .appendField(Blockly.beatleESP32speechSpd);
+		this.appendValueInput('speechPit')
+		    .appendField(Blockly.beatleESP32speechPit);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    //this.setInputsInline(true);
+    this.setTooltip(" ");
+    this.setHelpUrl();
+  }
+};

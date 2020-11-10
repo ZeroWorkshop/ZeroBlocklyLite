@@ -6935,6 +6935,61 @@
           ]
         },
         {
+          "name": "fwupdater",
+          "version": "0.1.2",
+          "systems": [
+            {
+              "host": "i686-linux-gnu",
+              "url": "http://downloads.arduino.cc/tools/FirmwareUploader_0.1.2_Linux_32bit.tar.bz2",
+              "archiveFileName": "FirmwareUploader_0.1.2_Linux_32bit.tar.bz2",
+              "checksum": "SHA-256:973ce3cd2d604f8750c9b62dabccdf8689013f0380d62eee29f8d6427dd37e8e",
+              "size": "13222221"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "http://downloads.arduino.cc/tools/FirmwareUploader_0.1.2_Linux_64bit.tar.bz2",
+              "archiveFileName": "FirmwareUploader_0.1.2_Linux_64bit.tar.bz2",
+              "checksum": "SHA-256:9303c50f051b459ba89a4b218bcb39c3348f469c55feb2c63ac53f7f12eb5048",
+              "size": "13255805"
+            },
+            {
+              "host": "i686-mingw32",
+              "url": "http://downloads.arduino.cc/tools/FirmwareUploader_0.1.2_Windows_32bit.zip",
+              "archiveFileName": "FirmwareUploader_0.1.2_Windows_32bit.zip",
+              "checksum": "SHA-256:e3986ae565b658a4bcaf50c0592c5801166ade30255571154ad5729f9b8649eb",
+              "size": "13589237"
+            },
+            {
+              "host": "x86_64-mingw32",
+              "url": "http://downloads.arduino.cc/tools/FirmwareUploader_0.1.2_Windows_64bit.zip",
+              "archiveFileName": "FirmwareUploader_0.1.2_Windows_64bit.zip",
+              "checksum": "SHA-256:a3094a4c9589812e2c9751ce324315de9011481575c53a772b3c4950cb0310d0",
+              "size": "13657381"
+            },
+            {
+              "host": "i386-apple-darwin11",
+              "url": "http://downloads.arduino.cc/tools/FirmwareUploader_0.1.2_macOS_64bit.tar.bz2",
+              "archiveFileName": "FirmwareUploader_0.1.2_macOS_64bit.tar.bz2",
+              "checksum": "SHA-256:01f952aa365ddbf2072e3181f95f1b0a82d9c85bd1707a4b913e7500f833ff5f",
+              "size": "13201523"
+            },
+            {
+              "host": "arm-linux-gnueabihf",
+              "url": "http://downloads.arduino.cc/tools/FirmwareUploader_0.1.2_Linux_ARM.tar.bz2",
+              "archiveFileName": "FirmwareUploader_0.1.2_Linux_ARM.tar.bz2",
+              "checksum": "SHA-256:824dec1d62c1a8b835e2692991b017ce21cd0c95287c9282ff9621620157b3d6",
+              "size": "13063327"
+            },
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "http://downloads.arduino.cc/tools/FirmwareUploader_0.1.2_Linux_ARM64.tar.bz2",
+              "archiveFileName": "FirmwareUploader_0.1.2_Linux_ARM64.tar.bz2",
+              "checksum": "SHA-256:057243d5ee65b14772035a2402ac48cefb208e59102f75928b4004530227cd47",
+              "size": "13015184"
+            }
+          ]
+        },
+        {
           "name": "nrf5x-cl-tools",
           "version": "9.3.1",
           "systems": [

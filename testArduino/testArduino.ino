@@ -1,32 +1,25 @@
 
-#include "Adafruit_APDS9960.h"
+#include "io_expander.h"
 
-Adafruit_APDS9960 apds;
+IOExpander  ioexpander(0x18);
+int pos = 90;
 
 void setup(){
   Serial.begin(115200);
-  Serial.begin(115200);
-  if(!apds.begin()){
-    Serial.println("failed to initialize device! Please check your wiring.");
-  }
-  else Serial.println("Device initialized!");
 
-  apds.enableProximity(true);
-  apds.enableGesture(true);
+  ioexpander.begin();
+  ioexpander.servoWrite(pos);
 
 }
 
 void loop(){
-  uint8_t gesture = apds.readGesture();
-  if (gesture == APDS9960_UP) {
-    Serial.println("UP");
-
-  } else if (gesture == APDS9960_DOWN) {
-    Serial.println("DOWN");
-  } else if (gesture == APDS9960_LEFT) {
-    Serial.println("LEFT");
-  } else if (gesture == APDS9960_RIGHT) {
-    Serial.println("RIGHT");
+  for (int i = 0; i <= 180; i = i + (1)) {
+    ioexpander.servoWrite(i);
+    delay(0.1);
+  }
+  for (int j = 180; j >= 0; j = j + (-1)) {
+    ioexpander.servoWrite(j);
+    delay(0.1);
   }
 
 }
