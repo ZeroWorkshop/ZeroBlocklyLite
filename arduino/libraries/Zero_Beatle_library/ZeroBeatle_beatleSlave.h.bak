@@ -163,7 +163,7 @@ void beatleSlavesetup() {
 
 }
 
-void loop() {
+void beatleSlaveloop() {
   uint8_t tempBuffer;
   uint8_t cmdBuffer[beatleCMD::STACK_SIZE];
   uint8_t tmp[beatleCMD::STACK_SIZE];

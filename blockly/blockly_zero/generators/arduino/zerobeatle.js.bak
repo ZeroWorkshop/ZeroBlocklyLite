@@ -32,12 +32,8 @@ Blockly.Arduino.beatleSlave = function() {
 
 	Blockly.Arduino.setups_['setup_beatleSlave'] = 'beatleSlavesetup();\n';
 
-	
 
-	Blockly.Arduino.setups_['beatle_basicSetup'] = 'beatle.StartProgram();\n';
-	
-	Blockly.Arduino.setups_['beatle_wandering'] = setup_code;
-  beatleSingleFunc = "beatle.LoopAll(0);\n"
+  beatleSingleFunc = "beatleSlaveloop();\n"
   return beatleSingleFunc;
 };
 

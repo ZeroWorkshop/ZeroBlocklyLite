@@ -202,13 +202,13 @@ void beatleSlaveloop() {
   bSerial.recStack.checksumMSB   = tmp[7];
   bSerial.recStack.checksumLSB   = tmp[8];
   bSerial.recStack.end_byte      = tmp[9];
-  Serial.print("CMD:");Serial.println(bSerial.recStack.commandValue);
+  Serial.print("CMD:"); Serial.println(bSerial.recStack.commandValue);
   switch (bSerial.recStack.commandValue) {
     //////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     case beatleCMD::RUNWHEELS:
 
-      Serial.print(bSerial.recStack.paramMSB);Serial.print("\t");Serial.println(bSerial.recStack.paramLSB);
+      Serial.print(bSerial.recStack.paramMSB); Serial.print("\t"); Serial.println(bSerial.recStack.paramLSB);
       if (bSerial.recStack.paramMSB == beatleCMD::RUNFORWARD) {
         beatle.motors.setSpeeds(bSerial.recStack.paramLSB, bSerial.recStack.paramLSB);
       }
@@ -216,19 +216,19 @@ void beatleSlaveloop() {
         beatle.motors.setSpeeds((-1) * bSerial.recStack.paramLSB, (-1) * bSerial.recStack.paramLSB);
       }
       break;
-      
+
     case beatleCMD::RUNLEFT:
-    Serial.print(bSerial.recStack.paramMSB);Serial.print("\t");Serial.println(bSerial.recStack.paramLSB);
-       if (bSerial.recStack.paramMSB == beatleCMD::RUNFORWARD) {
+      Serial.print(bSerial.recStack.paramMSB); Serial.print("\t"); Serial.println(bSerial.recStack.paramLSB);
+      if (bSerial.recStack.paramMSB == beatleCMD::RUNFORWARD) {
         beatle.motors.setLeftSpeed(bSerial.recStack.paramLSB);
       }
       else if (bSerial.recStack.paramMSB == beatleCMD::RUNBACKWARD) {
         beatle.motors.setLeftSpeed((-1) * bSerial.recStack.paramLSB);
       }
       break;
-      
+
     case beatleCMD::RUNRIGHT:
-    Serial.print(bSerial.recStack.paramMSB);Serial.print("\t");Serial.println(bSerial.recStack.paramLSB);
+      Serial.print(bSerial.recStack.paramMSB); Serial.print("\t"); Serial.println(bSerial.recStack.paramLSB);
       if (bSerial.recStack.paramMSB == beatleCMD::RUNFORWARD) {
         beatle.motors.setRightSpeed(bSerial.recStack.paramLSB);
       }
@@ -252,42 +252,42 @@ void beatleSlaveloop() {
       uint8_t current_blue;
       if (bSerial.recStack.paramMSB == beatleCMD::SETLED_ID)
       {
-          current_id  = bSerial.recStack.paramLSB ;
+        current_id  = bSerial.recStack.paramLSB ;
       }
-      else if(bSerial.recStack.paramMSB == beatleCMD::SETLED_RED)
+      else if (bSerial.recStack.paramMSB == beatleCMD::SETLED_RED)
       {
-          current_red = bSerial.recStack.paramLSB ;
+        current_red = bSerial.recStack.paramLSB ;
       }
-      else if(bSerial.recStack.paramMSB == beatleCMD::SETLED_GREEN)
+      else if (bSerial.recStack.paramMSB == beatleCMD::SETLED_GREEN)
       {
-          current_green = bSerial.recStack.paramLSB ;
+        current_green = bSerial.recStack.paramLSB ;
       }
-      else if(bSerial.recStack.paramMSB == beatleCMD::SETLED_BLUE)
+      else if (bSerial.recStack.paramMSB == beatleCMD::SETLED_BLUE)
       {
-          current_blue = bSerial.recStack.paramLSB ;
+        current_blue = bSerial.recStack.paramLSB ;
       }
 
-      if(current_id == beatleCMD::ALL_LED)
+      if (current_id == beatleCMD::ALL_LED)
       {
-         for (int i = 0; i < 12; i = i + (1)) {
+        for (int i = 0; i < 12; i = i + (1)) {
           bSerial.rgb_data[i].red = current_red;
           bSerial.rgb_data[i].green = current_green;
           bSerial.rgb_data[i].blue = current_blue;
-        }       
+        }
       }
       else
       {
-          bSerial.rgb_data[current_id].red = current_red;
-          bSerial.rgb_data[current_id].green = current_green;
-          bSerial.rgb_data[current_id].blue = current_blue;  
+        bSerial.rgb_data[current_id].red = current_red;
+        bSerial.rgb_data[current_id].green = current_green;
+        bSerial.rgb_data[current_id].blue = current_blue;
       }
       /*if (bSerial.recStack.paramMSB == beatleCMD::LEDOFF) {
         for (int i = 1; i <= 12; i = i + (1)) {
           LEDStrip_2.strip.setPixelColor((i) - 1, LEDStrip_2.strip.Color(0, 0, 0));
         }
         LEDStrip_2.strip.show();
-      }
-      else if (bSerial.recStack.paramMSB == beatleCMD::LEDON) {
+        }
+        else if (bSerial.recStack.paramMSB == beatleCMD::LEDON) {
         for (int i = 1; i <= 12; i = i + (1)) {
           if (bSerial.recStack.paramLSB == beatleCMD::LEDWHITE) {
             LEDStrip_2.strip.setPixelColor((i) - 1, LEDStrip_2.strip.Color(255, 255, 255));
@@ -303,11 +303,11 @@ void beatleSlaveloop() {
           }
         }
         LEDStrip_2.strip.show();
-      }*/
+        }*/
       break;
     case beatleCMD::EXELED:
       for (int i = 1; i <= 12; i = i + (1)) {
-          LEDStrip_2.strip.setPixelColor((i) - 1, LEDStrip_2.strip.Color(bSerial.rgb_data[i].red, bSerial.rgb_data[i].green, bSerial.rgb_data[i].blue));
+        LEDStrip_2.strip.setPixelColor((i) - 1, LEDStrip_2.strip.Color(bSerial.rgb_data[i].red, bSerial.rgb_data[i].green, bSerial.rgb_data[i].blue));
       }
       LEDStrip_2.strip.show();
       break;
@@ -325,7 +325,7 @@ void beatleSlaveloop() {
         bSerial.sendData();
       }
       break;
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////
     case beatleCMD::GET_BUTTON_STATE:
       {
@@ -419,16 +419,16 @@ void beatleSlaveloop() {
       expire_year = deliver_year;
       expire_month = deliver_month + 3;
       expire_day = deliver_day - 1;
-//      Serial.print("Deliver YEAR : "); Serial.println(deliver_year);
-//      Serial.print("Deliver MON  : "); Serial.println(deliver_month);
-//      Serial.print("Deliver DAY  : "); Serial.println(deliver_day);
+      //      Serial.print("Deliver YEAR : "); Serial.println(deliver_year);
+      //      Serial.print("Deliver MON  : "); Serial.println(deliver_month);
+      //      Serial.print("Deliver DAY  : "); Serial.println(deliver_day);
 
       if (expire_month > 12) {
         expire_month -= 12;
         expire_year = deliver_year + 1;
       }
       sprintf(eeprom_str, "***ZeroWorkshop PD:20%d-%d-%d DOD:20%d-%d-%d EXP: 20%d-%d-%d***", prod_year, prod_month, prod_day, deliver_year, deliver_month, deliver_day, expire_year, expire_month, expire_day);
-//      Serial.println(eeprom_str);
+      //      Serial.println(eeprom_str);
       des.init("ZeroWorkshop-Shanghai-2018\0", (unsigned long long int)0);
       Encryption(eeprom_str);
 
@@ -439,9 +439,9 @@ void beatleSlaveloop() {
       prod_year = (bSerial.recStack.paramMSB >> 3) & 0x1F;  //bit7~bit3 of paraMSB represent YEAR, totaly 5 bits
       prod_month = ((bSerial.recStack.paramMSB & 0x7) << 1) | ((bSerial.recStack.paramLSB >> 7) & 0x1) ;  //bit2~bit0 of paramMSB and bit7 of paramLSB combines the MONTH, totally 4 bits
       prod_day = (bSerial.recStack.paramLSB >> 2) & 0x1F; //bit6~bit2 of paramLSB represent DAY, totally 5 bits
-//      Serial.print("Prod YEAR : "); Serial.println(prod_year);
-//      Serial.print("Prod MON  : "); Serial.println(prod_month);
-//      Serial.print("Prod DAY  : "); Serial.println(prod_day);
+      //      Serial.print("Prod YEAR : "); Serial.println(prod_year);
+      //      Serial.print("Prod MON  : "); Serial.println(prod_month);
+      //      Serial.print("Prod DAY  : "); Serial.println(prod_day);
       break;
   }
 

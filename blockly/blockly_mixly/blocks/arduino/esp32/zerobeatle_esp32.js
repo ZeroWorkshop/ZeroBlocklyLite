@@ -1623,3 +1623,22 @@ Blockly.Blocks.beatleESP32speechSynthesis = {
     this.setHelpUrl();
   }
 };
+
+Blockly.Blocks.beatleESP32MazeSolver = {
+  
+	init: function() {
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32MazeSolver);
+		this.appendValueInput('CMD')
+    .setCheck([String,Number]);
+		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
+
+		
+		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
+		this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour('#FF168B');
+		this.setTooltip('');
+	}
+};

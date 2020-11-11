@@ -23,7 +23,7 @@ Blockly.Arduino.allfunc = function() {
 };
 
 Blockly.Arduino.beatleSlave = function() {
-  Blockly.Arduino.definitions_['include_beatleSlave'] = '#include "ZeroBeatle_beatleSlave.h"\n';
+  Blockly.Arduino.definitions_['include_beatleSlave'] = '#include "ZeroBeatle_beatleMazesolverSlave.h"\n';
 
 
 	var setup_code = '';

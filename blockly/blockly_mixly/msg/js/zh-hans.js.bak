@@ -3058,6 +3058,7 @@ Blockly.WifiPASSWORD="WIFI 密码";
 Blockly.beatleESP32speechSynthesis="语音合成";
 Blockly.beatleESP32speechVol="语音音量(0~15)";
 Blockly.beatleESP32speechSpd="语音语速(0~15)";
+Blockly.beatleESP32speechPit="语音音调(0~15)";
 Blockly.beatleESP32BaiduToken="百度AI token";
 Blockly.beatleESP32speechPer="语音人物";
 Blockly.beatleESP32person1="度小宇";

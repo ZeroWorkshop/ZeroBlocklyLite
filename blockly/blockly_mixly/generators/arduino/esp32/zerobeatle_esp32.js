@@ -735,11 +735,11 @@ Blockly.Arduino.beatleAISwitchAlrorithm = function () {
 	    code = "huskylens.writeAlgorithm(ALGORITHM_TAG_RECOGNITION);";
 	
 
-	Blockly.Arduino.setups_['beatleAISwitchAlgorithmSetup'] = code;
+	//Blockly.Arduino.setups_['beatleAISwitchAlgorithmSetup'] = code;
 	
 	
     
-                
+  return code;          
   //return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -1784,7 +1784,7 @@ Blockly.Arduino.beatleESP32WebRadio = function() {
   var SSID = Blockly.Arduino.valueToCode(this, 'SSID', Blockly.Arduino.ORDER_ATOMIC);
   var PWD = Blockly.Arduino.valueToCode(this, 'PWD', Blockly.Arduino.ORDER_ATOMIC);
   var station = Blockly.Arduino.valueToCode(this, 'station', Blockly.Arduino.ORDER_ATOMIC);
-  Blockly.Arduino.definitions_['include_beatleESP32WebRadio'] = '#include "beatleESP32_webRadio.h"';
+  Blockly.Arduino.definitions_['include_beatleESP32WebRadio'] = '#include "beatleESP32_webRadio.h"\n';
   
 	Blockly.Arduino.definitions_['declare_beatleESP32WebRadio'] = 'const char* ssid = ' + SSID + ';\n' +
                                                                 'const char* password = ' + PWD + ';\n' +
@@ -1838,4 +1838,24 @@ Blockly.Arduino.beatleESP32speechSynthesis = function() {
                 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
  
+};
+
+Blockly.Arduino.beatleESP32MazeSolver = function() {
+  var command = Blockly.Arduino.valueToCode(this, 'CMD', Blockly.Arduino.ORDER_ATOMIC);
+
+	Blockly.Arduino.definitions_['include_beatleESP32MazeSolver'] = '#include <BeatleSerial.h>\n';
+	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolver'] = 'BeatleSerial bSerial;\n' +
+	                                                                'const char* cmdStr = ' + command + ';\n';
+
+	
+
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'Serial.begin(115200);\n' + 
+                                                            '  bSerial.begin(Serial);\n' + 
+                                                            '  bSerial.sendMaseCMDString(cmdStr);\n';
+  
+  var code="";
+    
+  
+
+	return [code, Blockly.Arduino.ORDER_ATOMIC];
 };

@@ -3065,3 +3065,4 @@ Blockly.beatleESP32person1="度小宇";
 Blockly.beatleESP32person2="度小美";
 Blockly.beatleESP32person3="度逍遥";
 Blockly.beatleESP32person4="度丫丫";
+Blockly.beatleESP32MazeSolver="迷宫路口指令";

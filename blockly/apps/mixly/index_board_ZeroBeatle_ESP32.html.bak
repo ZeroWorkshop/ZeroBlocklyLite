@@ -290,11 +290,6 @@
 
 <category id="catBeatleESP32Actuator" colour=#FF168B>
 	<block type="beatleESP32MazeSolver">
-		<value name="CMD">
-      <block type="text">
-        <field name="TEXT">SBLR</field>
-      </block>
-    </value>
   </block>
 	<block type="beatleESP32Weatherstation">
 		  <value name="SSID">
