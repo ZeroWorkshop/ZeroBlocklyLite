@@ -520,7 +520,7 @@ void beatleSlaveloop() {
         }
       }
       MZString_END = true;
-      Serial.println(cmd_str);
+      //Serial.println(cmd_str);
       strcpy(beatle.maze_path, cmd_str.c_str());
       beatle.maze_path_length = cmd_str.length();
       beatle.goToFinishLine();
