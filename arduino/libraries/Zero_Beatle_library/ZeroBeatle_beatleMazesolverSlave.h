@@ -163,10 +163,11 @@ void beatleSlavesetup() {
   beatle.LineSensors.init();
 
   for (int i = 1; i <= 12; i = i + (1)) {
-    LEDStrip_2.strip.setPixelColor((i) - 1, LEDStrip_2.strip.Color(0, 255, 0));
+    LEDStrip_2.strip.setPixelColor((i) - 1, LEDStrip_2.strip.Color(0, 0, 0));
   }
   LEDStrip_2.strip.show();
 
+  beatle.Setup_MazeSolver();
 }
 
 void beatleSlaveloop() {
