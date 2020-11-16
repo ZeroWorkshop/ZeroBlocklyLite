@@ -458,7 +458,7 @@ void beatleSlaveloop() {
 
     ///////////////////////////////////////////////////////////////////////////
     case beatleCMD::SEND_MZSTR_P1:
-      Serial.print(bSerial.recStack.paramMSB); Serial.print("\t"); Serial.println(bSerial.recStack.paramLSB);
+      //Serial.print(bSerial.recStack.paramMSB); Serial.print("\t"); Serial.println(bSerial.recStack.paramLSB);
       if (!MZString_END) {   //If the command is end already, no character will be added
         if (bSerial.recStack.paramMSB == beatleCMD::GOSTRAIGHT) {
           cmd_str += "S";
@@ -486,7 +486,7 @@ void beatleSlaveloop() {
           cmd_str += "L";
         }
       }
-      Serial.print("cmd_str = "); Serial.println(cmd_str);
+      //Serial.print("cmd_str = "); Serial.println(cmd_str);
 
       break;
     

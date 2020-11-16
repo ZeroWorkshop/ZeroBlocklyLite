@@ -490,7 +490,7 @@ void beatleSlaveloop() {
 
       break;
     
-    case beatleCMD::SEND_MZSTR_FP2:    //goto FinishLine command
+    case beatleCMD::SEND_MZSTR_FP2:    //go to FinishLine command
 
       if (!MZString_END) {   //The last 1 or 2 command character will be added to the command string, then no command character will be recieved
         if (bSerial.recStack.paramMSB == beatleCMD::GOSTRAIGHT) {
@@ -526,7 +526,7 @@ void beatleSlaveloop() {
       beatle.goToFinishLine();
       
       
-    case beatleCMD::SEND_MZSTR_TP2:
+    case beatleCMD::SEND_MZSTR_TP2:    //go to target intersection command
 
       if (!MZString_END) {   //The last 1 or 2 command character will be added to the command string, then no command character will be recieved
         if (bSerial.recStack.paramMSB == beatleCMD::GOSTRAIGHT) {
