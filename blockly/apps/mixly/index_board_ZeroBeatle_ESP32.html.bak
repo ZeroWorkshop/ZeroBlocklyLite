@@ -305,8 +305,6 @@
   </block>
   <block type="beatleESP32MazeSolverTargetReached">
   </block>
-  <block type="beatleESP32MazeSolverWaitUntillTargetReached">
-  </block>
 	<block type="beatleESP32Weatherstation">
 		  <value name="SSID">
       <shadow type="text" >

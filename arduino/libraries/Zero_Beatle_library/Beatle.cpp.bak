@@ -1197,6 +1197,8 @@ void Beatle::goToTarget()
    
   }
 
+  // Follow the last segment up to the finish.
+  followSegment();
 
   // The finish line has been reached.
   // Return and wait for another button push to

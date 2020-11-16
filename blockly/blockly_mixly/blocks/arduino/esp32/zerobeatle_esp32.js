@@ -1624,11 +1624,11 @@ Blockly.Blocks.beatleESP32speechSynthesis = {
   }
 };
 
-Blockly.Blocks.beatleESP32MazeSolver = {
+Blockly.Blocks.beatleESP32MazeSolvergotoFinish = {
   
 	init: function() {
 		this.appendDummyInput()
-		    .appendField(Blockly.beatleESP32MazeSolver);
+		    .appendField(Blockly.beatleESP32MazeSolvergotoFinish);
 		this.appendValueInput('CMD')
     .setCheck([String,Number]);
 		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
@@ -1636,6 +1636,59 @@ Blockly.Blocks.beatleESP32MazeSolver = {
 		
 		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
 		this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour('#FF168B');
+		this.setTooltip('');
+	}
+};
+
+Blockly.Blocks.beatleESP32MazeSolvergotoTarget = {
+  
+	init: function() {
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32MazeSolvergotoTarget);
+		this.appendValueInput('CMD')
+    .setCheck([String,Number]);
+		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
+
+		
+		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
+		this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour('#FF168B');
+		this.setTooltip('');
+	}
+};
+
+Blockly.Blocks.beatleESP32MazeSolverTargetReached = {
+  init: function() {
+		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
+		
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleESP32MazeSolverTargetReached);
+		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
+		this.setColour('#FF168B');
+		this.setOutput(true, null);
+		this.setTooltip('');
+	}
+};
+
+Blockly.Blocks.beatleESP32MazeSolverWaitUntillTargetReached = {
+  
+	init: function() {
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32MazeSolverWaitUntillTargetReached);
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32MazeSolveTimeout)
+		    .appendField(new Blockly.FieldTextInput('10000'),'timeout')
+		    .appendField(Blockly.MIXLY_MILLIS);
+		
+
+		
+		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
+		//this.setInputsInline(true);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour('#FF168B');

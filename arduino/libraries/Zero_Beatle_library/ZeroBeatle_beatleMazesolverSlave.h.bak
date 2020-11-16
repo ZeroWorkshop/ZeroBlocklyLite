@@ -457,7 +457,7 @@ void beatleSlaveloop() {
       break;
 
     ///////////////////////////////////////////////////////////////////////////
-    case beatleCMD::SEND_MAZESTR:
+    case beatleCMD::SEND_MZSTR_P1:
       Serial.print(bSerial.recStack.paramMSB); Serial.print("\t"); Serial.println(bSerial.recStack.paramLSB);
       if (!MZString_END) {   //If the command is end already, no character will be added
         if (bSerial.recStack.paramMSB == beatleCMD::GOSTRAIGHT) {
@@ -489,8 +489,8 @@ void beatleSlaveloop() {
       Serial.print("cmd_str = "); Serial.println(cmd_str);
 
       break;
-
-    case beatleCMD::STOP_MAZESTR:
+    
+    case beatleCMD::SEND_MZSTR_FP2:    //goto FinishLine command
 
       if (!MZString_END) {   //The last 1 or 2 command character will be added to the command string, then no command character will be recieved
         if (bSerial.recStack.paramMSB == beatleCMD::GOSTRAIGHT) {
@@ -520,10 +520,57 @@ void beatleSlaveloop() {
         }
       }
       MZString_END = true;
-      Serial.println(cmd_str);
+      //Serial.println(cmd_str);
       strcpy(beatle.maze_path, cmd_str.c_str());
       beatle.maze_path_length = cmd_str.length();
       beatle.goToFinishLine();
+      
+      
+    case beatleCMD::SEND_MZSTR_TP2:
+
+      if (!MZString_END) {   //The last 1 or 2 command character will be added to the command string, then no command character will be recieved
+        if (bSerial.recStack.paramMSB == beatleCMD::GOSTRAIGHT) {
+          cmd_str += "S";
+        }
+        else if (bSerial.recStack.paramMSB == beatleCMD::GOBACK) {
+          cmd_str += "B";
+        }
+        else if (bSerial.recStack.paramMSB == beatleCMD::GORIGHT) {
+          cmd_str += "R";
+        }
+        else if (bSerial.recStack.paramMSB == beatleCMD::GOLEFT) {
+          cmd_str += "L";
+        }
+
+        if (bSerial.recStack.paramLSB == beatleCMD::GOSTRAIGHT) {
+          cmd_str += "S";
+        }
+        else if (bSerial.recStack.paramLSB == beatleCMD::GOBACK) {
+          cmd_str += "B";
+        }
+        else if (bSerial.recStack.paramLSB == beatleCMD::GORIGHT) {
+          cmd_str += "R";
+        }
+        else if (bSerial.recStack.paramLSB == beatleCMD::GOLEFT) {
+          cmd_str += "L";
+        }
+      }
+      MZString_END = true;
+      //Serial.println(cmd_str);
+      strcpy(beatle.maze_path, cmd_str.c_str());
+      beatle.maze_path_length = cmd_str.length();
+      beatle.goToTarget();
+      
+      //After the beatle reach the target intersection, beatle chasis send a status indicating target reached.
+      //Reuse the code of GET_STATUS
+      delay(10);
+      bSerial.sendStack.commandValue = beatleCMD::GET_STATUS_;
+      bSerial.sendStack.feedbackValue = beatleCMD::FEEDBACK;
+      bSerial.sendStack.paramMSB = 0xCC;
+      bSerial.sendStack.paramLSB = 0xDD;
+
+      bSerial.findChecksum(&bSerial.sendStack);
+      bSerial.sendData();
       break;
   }
 
