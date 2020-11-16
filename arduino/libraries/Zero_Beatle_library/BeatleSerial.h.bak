@@ -172,7 +172,7 @@ public:
 	void runWheel(uint8_t direct, uint8_t speed);
 	void playBuzzer();
 	void setLED(uint8_t on_off, uint8_t color);
-	void BeatleSerial::sendMaseCMDString(const char* command_str);
+	void sendMaseCMDString(const char* command_str);
 	void setSpeeds(int speedL,int speedR);
 	void setLeftSpeed(uint8_t direct, uint8_t speed);
 	void setRightSpeed(uint8_t direct, uint8_t speed);

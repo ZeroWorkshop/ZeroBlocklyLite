@@ -183,7 +183,7 @@ void BeatleSerial::setLED(uint8_t ID, uint8_t value) {
   sendData();
 }
 
-void BeatleSerial::sendMaseCMDString(const char* command_str) {
+void BeatleSerial::sendMazeGotoTargetCMD(const char* command_str) {
 	uint8_t i;
 	uint8_t cmdStr_length = strlen(command_str);
 	
@@ -198,7 +198,7 @@ void BeatleSerial::sendMaseCMDString(const char* command_str) {
 	if (command_part2_count == 0)  {
 		//1st part
 		for (i = 0; i < command_part1_count - 1; i++) {  
-			sendStack.commandValue  = beatleCMD::SEND_MAZESTR;
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_P1;
       sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
 
       sendStack.paramMSB = command_str[i * 2 + 0];
@@ -210,7 +210,7 @@ void BeatleSerial::sendMaseCMDString(const char* command_str) {
 		}
 		//2nd part
 		{
-			sendStack.commandValue  = beatleCMD::STOP_MAZESTR;
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_TP2;
       sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
 
       sendStack.paramMSB = command_str[(command_part1_count - 1) * 2 + 0];
@@ -225,7 +225,7 @@ void BeatleSerial::sendMaseCMDString(const char* command_str) {
 	else {
 		//1st part
 		for (i = 0; i < command_part1_count; i++) {  
-			sendStack.commandValue  = beatleCMD::SEND_MAZESTR;
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_P1;
       sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
 
       sendStack.paramMSB = command_str[i * 2 + 0];
@@ -237,7 +237,75 @@ void BeatleSerial::sendMaseCMDString(const char* command_str) {
 		}
 		//2nd part
 		{
-			sendStack.commandValue  = beatleCMD::STOP_MAZESTR;
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_TP2;
+      sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
+
+      sendStack.paramMSB = command_str[command_part1_count * 2 + 0];
+      sendStack.paramLSB = 0xFF;
+
+      findChecksum(&sendStack);
+      sendData();
+      delay(10);
+		}
+	}
+  
+}
+
+void BeatleSerial::sendMazeGotoFinishCMD(const char* command_str) {
+	uint8_t i;
+	uint8_t cmdStr_length = strlen(command_str);
+	
+	//The command string need to be processed to fit BeatleSerial command format.
+	//The command string should be divided into paraMSB and paraLSB into a command.
+	//That means a command string will fit into several commands.
+	//The commands can be seperated into 2 parts: normal part and end part.
+	//The end part may consist 1 or 2 string character.
+	uint8_t command_part1_count = cmdStr_length / 2;  
+	uint8_t command_part2_count = cmdStr_length % 2;
+	
+	if (command_part2_count == 0)  {
+		//1st part
+		for (i = 0; i < command_part1_count - 1; i++) {  
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_P1;
+      sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
+
+      sendStack.paramMSB = command_str[i * 2 + 0];
+      sendStack.paramLSB = command_str[i * 2 + 1];
+
+      findChecksum(&sendStack);
+      sendData();
+      delay(10);
+		}
+		//2nd part
+		{
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_FP2;
+      sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
+
+      sendStack.paramMSB = command_str[(command_part1_count - 1) * 2 + 0];
+      sendStack.paramLSB = command_str[(command_part1_count - 1) * 2 + 1];
+
+      findChecksum(&sendStack);
+      sendData();
+      delay(10);
+		}
+		
+	}
+	else {
+		//1st part
+		for (i = 0; i < command_part1_count; i++) {  
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_P1;
+      sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
+
+      sendStack.paramMSB = command_str[i * 2 + 0];
+      sendStack.paramLSB = command_str[i * 2 + 1];
+
+      findChecksum(&sendStack);
+      sendData();
+      delay(10);
+		}
+		//2nd part
+		{
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_FP2;
       sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
 
       sendStack.paramMSB = command_str[command_part1_count * 2 + 0];
