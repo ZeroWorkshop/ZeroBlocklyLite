@@ -1,0 +1,22 @@
+﻿bool targetReached(int timeout) {
+  uint8_t tempBuffer;
+  uint8_t cmdBuffer[beatleCMD::STACK_SIZE];
+  uint8_t tmp[beatleCMD::STACK_SIZE];
+  uint8_t index = 0;
+  uint8_t offset;
+	int timer = millis();
+  while (!Serial.available()) {
+    if (millis() - timer > timeout) return false;
+  }
+  while (Serial.available()) {
+    tempBuffer = Serial.read();
+    Serial.println(tempBuffer, HEX);
+    if (tempBuffer == 0xCC) {
+      tempBuffer = Serial.read();
+      if (tempBuffer == 0xDD) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

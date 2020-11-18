@@ -1667,6 +1667,8 @@ Blockly.Blocks.beatleESP32MazeSolverTargetReached = {
 		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
 		
     this.appendDummyInput()
+        .appendField(Blockly.beatleESP32MazeSolveTimeout)
+		    .appendField(new Blockly.FieldTextInput('10000'),'timeout')
 		  	.appendField(Blockly.beatleESP32MazeSolverTargetReached);
 		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
 		this.setColour('#FF168B');
@@ -1682,7 +1684,7 @@ Blockly.Blocks.beatleESP32MazeSolverWaitUntillTargetReached = {
 		    .appendField(Blockly.beatleESP32MazeSolverWaitUntillTargetReached);
 		this.appendDummyInput()
 		    .appendField(Blockly.beatleESP32MazeSolveTimeout)
-		    .appendField(new Blockly.FieldTextInput('10000'),'servoP')
+		    .appendField(new Blockly.FieldTextInput('10000'),'timeout')
 		    .appendField(Blockly.MIXLY_MILLIS);
 		
 

@@ -1879,8 +1879,9 @@ Blockly.Arduino.beatleESP32MazeSolvergotoFinish = function() {
 };
 
 Blockly.Arduino.beatleESP32MazeSolverTargetReached = function() {
-  
-	Blockly.Arduino.definitions_['include_beatleESP32MazeSolver'] = '#include <BeatleSerial.h>\n';
+  var timeout = this.getFieldValue('timeout');
+	Blockly.Arduino.definitions_['include_beatleESP32MazeSolver'] = '#include <BeatleSerial.h>\n' +
+	                                                                '#include "beatleESP32_general.h"\n';
 	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolver'] = 'BeatleSerial bSerial;\n';
 	
 
@@ -1889,7 +1890,7 @@ Blockly.Arduino.beatleESP32MazeSolverTargetReached = function() {
 	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'Serial.begin(115200);\n' + 
                                                             '  bSerial.begin(Serial);\n';
   
-  var code='bSerial.isDocked()';
+  var code='targetReached(' + timeout + ')';
     
   
   //return code;

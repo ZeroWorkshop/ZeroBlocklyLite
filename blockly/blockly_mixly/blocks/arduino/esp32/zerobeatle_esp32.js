@@ -1667,6 +1667,9 @@ Blockly.Blocks.beatleESP32MazeSolverTargetReached = {
 		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
 		
     this.appendDummyInput()
+        .appendField(Blockly.beatleESP32reachTargetIn)
+		    .appendField(new Blockly.FieldTextInput('10000'),'timeout')
+		    .appendField(Blockly.MIXLY_MILLIS)
 		  	.appendField(Blockly.beatleESP32MazeSolverTargetReached);
 		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
 		this.setColour('#FF168B');
