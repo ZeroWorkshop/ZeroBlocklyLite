@@ -27,8 +27,7 @@ String cmd_str = "";
 bool MZString_END = false;
 void beatleSlavesetup() {
   // put your setup code here, to run once:
-  pinMode(DSL, INPUT);
-  pinMode(DSR, INPUT);
+  
   Serial.begin(115200);
   bSerial.begin(Serial);
   LEDStrip_2.init();
@@ -40,6 +39,9 @@ void beatleSlavesetup() {
   LEDStrip_2.strip.show();
 
   beatle.Setup_MazeSolver();
+  while (Serial.available()) Serial.read();
+  pinMode(DSL, INPUT);
+  pinMode(DSR, INPUT);
 }
 
 void beatleSlaveloop() {
@@ -374,7 +376,7 @@ void beatleSlaveloop() {
       //Serial.println(cmd_str);
       strcpy(beatle.maze_path, cmd_str.c_str());
       beatle.maze_path_length = cmd_str.length();
-      //      beatle.goToTarget();
+      //beatle.goToTarget();
 
       //After the beatle reach the target intersection, beatle chasis send a status indicating target reached.
       //Reuse the code of GET_STATUS

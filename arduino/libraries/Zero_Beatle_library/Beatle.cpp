@@ -753,11 +753,11 @@ void Beatle::Setup_MazeSolver()
 	 digitalWrite(DSR,HIGH);
    LineSensorCalibration(true,128, 22);
    SetPID(1.0/6.0,0,6.0);
-   button.waitForButton(); 
+   button.waitForButton();
    // Play music and wait for it to finish before we start driving.
    buzzer.play("L16 cdegreg4");
    while(buzzer.isPlaying());  
-  
+   
 }
 
 // Main function for maze solver
