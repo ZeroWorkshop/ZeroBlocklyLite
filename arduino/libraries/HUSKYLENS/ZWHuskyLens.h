@@ -48,7 +48,7 @@ class ZWHuskyLens : public HUSKYLENS
 private:
     bool isWire = false;
 public:    
-/*
+
     void beginI2CUntilSuccess(){
         Wire.begin();
         Wire.setClock(100000);
@@ -58,7 +58,7 @@ public:
         }
         isWire = true;
     }
-
+/*
     void beginSoftwareSerialUntilSuccess(int RXPin, int TXPin){
         static SoftwareSerial mySerial(RXPin, TXPin);
         mySerial.begin(9600);
@@ -74,12 +74,12 @@ public:
         Wire.setClock(100000);
         HUSKYLENS::writeAlgorithm(algorithmType);
     }
-/*
+
     bool request(){
         Wire.setClock(100000);
         HUSKYLENS::request();
     }
-*/
+
     bool isAppearDirect(HUSKYLENSResultType type){
         switch (type)
         {

@@ -66,8 +66,8 @@
 #define ESP32_Servo_h
 
 // Values for TowerPro MG995 large servos (and many other hobbyist servos)
-#define DEFAULT_uS_LOW 500        // original value is 1000us, by QX
-#define DEFAULT_uS_HIGH 2500      // original value is 2000us, by QX
+#define DEFAULT_uS_LOW 500        // 1000us
+#define DEFAULT_uS_HIGH 2500      // 2000us
 
 // Values for TowerPro SG90 small servos
 //#define DEFAULT_uS_LOW 400

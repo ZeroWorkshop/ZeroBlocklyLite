@@ -48,7 +48,7 @@ class ZWHuskyLens : public HUSKYLENS
 private:
     bool isWire = false;
 public:    
-/*
+
     void beginI2CUntilSuccess(){
         Wire.begin();
         Wire.setClock(100000);
@@ -68,7 +68,7 @@ public:
         }
         isWire = false;
     }
-*/
+
 
     bool writeAlgorithm(protocolAlgorithm algorithmType){
         Wire.setClock(100000);

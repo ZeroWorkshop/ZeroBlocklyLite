@@ -334,6 +334,61 @@ Blockly.Blocks.beatleAIisLearned = {
 	}
 };
 
+Blockly.Blocks.beatleAIisLearnedAny = {
+  init: function() {
+		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
+		
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleAICamera)
+			  .appendField(Blockly.beatleAIrequestisLearned);
+		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
+		this.setColour('#3366CC');
+		this.setOutput(true, Boolean);
+		this.setTooltip('');
+	}
+};
+
+Blockly.Blocks.beatleAIisAvailable = {
+  init: function() {
+		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
+		
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleAIisAvailable);
+		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
+		this.setColour('#3366CC');
+		this.setOutput(true, Boolean);
+		this.setTooltip('');
+	}
+};
+
+Blockly.Blocks.beatleAIRead = {
+  init: function() {
+		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
+		
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleAIRead);
+		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
+		this.setColour('#3366CC');
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setTooltip('');
+	}
+};
+
+Blockly.Blocks.beatleAItrackTarget = {
+  init: function() {
+		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
+		
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleAItrackTarget);
+		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
+		this.setColour('#3366CC');
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setTooltip('');
+	}
+};
+
 Blockly.Blocks.beatleAIisInCam = {
   init: function() {
 		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
@@ -916,6 +971,19 @@ Blockly.Blocks.beatleESP32Servo = {
 	}
 };
 
+Blockly.Blocks.beatleESP32ServoScan = {
+  	init: function() {
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32ServoScan);
+			
+
+		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour('#FF168B');
+		this.setTooltip('');
+	}
+};
 Blockly.Blocks.beatleESP32getIRbuttonKey = {
   	init: function() {
 		this.appendDummyInput()

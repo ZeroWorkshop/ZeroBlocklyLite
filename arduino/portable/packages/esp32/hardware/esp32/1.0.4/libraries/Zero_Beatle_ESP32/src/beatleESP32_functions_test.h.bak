@@ -1,8 +1,16 @@
-#include "ZWHuskyLens.h"
-
+//#include "ZWHuskyLens.h"
+#include "HUSKYLENS.h"
 
 #include "PIDLoop.h"
 #include "io_expander.h"
+#include <ESP32_Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+                // 16 servo objects can be created on the ESP32
+
+int pos = 0;    // variable to store the servo position
+// Recommended PWM GPIO pins on the ESP32 include 2,4,12-19,21-23,25-27,32-33 
+extern int servoPin = 2;
 
 
 
@@ -28,7 +36,7 @@ uint32_t lastMove = 0;
 int scanIncrement = (PAN_SEARCH_RANGE) / 50;
 
 extern int32_t size;
-extern ZWHuskyLens huskylens;
+HUSKYLENS huskylens;
 extern int ID1;
 int32_t lastXOrigin = 0;
 int32_t lastXTarget = 0;
@@ -51,10 +59,10 @@ void printResult(HUSKYLENSResult result) {
 void ScanForTargetServoOnly()
 {
 
-  
 
 
-  if (millis() - lastMove > 100)
+
+  if (millis() - lastMove > 50)
   {
 
 
@@ -71,21 +79,48 @@ void ScanForTargetServoOnly()
     }
 
     angle = map(panLoop.m_command, 0, 1000, 5, 175);
-    Serial.print("Servo angle = ");Serial.println(angle);
+    //Serial.print("Servo angle = ");Serial.println(angle);
     ioexpander.servoWrite(angle);
-    
+    myservo.write(angle);
+
   }
 }
-
-
-
+/*
 void servoTrackingOnly(HUSKYLENS huskylens, int ID1, bool facerecog=true) {
   int32_t error;
   int32_t panOffset;
 
+   if (huskylens.request()) {
+    if (huskylens.isAppear(1,HUSKYLENSResultBlock)) {
+      Serial.println("444444");
+      HUSKYLENSResult result = huskylens.read();
+      printResult(result);
 
+
+    // calculate pan "errors" with respect to ID1,
+      panOffset = (int32_t)160 - (int32_t)result.xCenter;
+
+
+    // update loops
+      panLoop.update(panOffset);
+      angle = map(panLoop.m_command, 0, 1000, 0, 180);
+      ioexpander.servoWrite(angle);
+      myservo.write(angle);
+
+    } else {
+      
+      ScanForTargetServoOnly();
+
+    }
+
+  }
+  else {
+ 
+    ScanForTargetServoOnly();
+  }
   
-  /*if (!huskylens.request(ID1)) {
+  Serial.println(huskylens.request());
+  if (!huskylens.request(ID1)) {
   	Serial.println("111111");
     ScanForTargetServoOnly();
 
@@ -96,14 +131,9 @@ void servoTrackingOnly(HUSKYLENS huskylens, int ID1, bool facerecog=true) {
 
   }
   else if (!huskylens.available()) {
-  
+
   //if (!huskylens.request(ID1)) {
   	Serial.println("333333");
-    ScanForTargetServoOnly();
-
-  }*/
-  if (!huskylens.request(ID1) || !huskylens.isLearned() || !huskylens.available()) {
-  	Serial.println("111111");
     ScanForTargetServoOnly();
 
   }
@@ -122,9 +152,44 @@ void servoTrackingOnly(HUSKYLENS huskylens, int ID1, bool facerecog=true) {
     panLoop.update(panOffset);
     angle = map(panLoop.m_command, 0, 1000, 0, 180);
     ioexpander.servoWrite(angle);
-    
+    myservo.write(angle);
+
     left = 0;
     right = 0;
   }
+ 
+}
+*/
+void servoTrackingOnly(int ID1, bool facerecog=true) {
+  int32_t error;
+  int32_t panOffset;
+  if (!huskylens.request()) {
+    Serial.println(F("Fail to request data from HUSKYLENS, recheck the connection!"));
+    //    ScanForTargetServoOnly();
+  }
+  else if (!huskylens.isLearned()) {
+    Serial.println(F("Nothing learned, press learn button on HUSKYLENS to learn one!"));
+    ScanForTargetServoOnly();
+  }
+  else if (!huskylens.available()) {
+    Serial.println(F("No block or arrow appears on the screen!"));
+    ScanForTargetServoOnly();
+  }
+  else
+  {
+    Serial.println(F("###########"));
+    //    while (huskylens.available())
+    {
+      HUSKYLENSResult result = huskylens.read();
+      printResult(result);
+      panOffset = (int32_t)160 - (int32_t)result.xCenter;
 
+
+      // update loops
+      panLoop.update(panOffset);
+      angle = map(panLoop.m_command, 0, 1000, 0, 180);
+      ioexpander.servoWrite(angle);
+      myservo.write(angle);
+    }
+  }
 }

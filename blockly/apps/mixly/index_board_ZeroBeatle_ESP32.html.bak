@@ -253,8 +253,6 @@
  </block> 
  <block type="beatleAIRead">
  </block> 
- <block type="beatleAItrackTarget">
- </block> 
  <!-- block type="beatleAIgetBlockInfowithID">
  </block>
  <block type="beatleAIgetArrowInfowithID">
