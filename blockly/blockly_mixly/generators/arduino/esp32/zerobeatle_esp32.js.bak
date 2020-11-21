@@ -1627,7 +1627,7 @@ Blockly.Arduino.beatleESP32CleanScreen = function() {
                                                               'NextionSimple myNextion(nextion, 115200);\n' +
                                                               'String message;\n' + 
                                                               'char* cmd;\n' + 
-                                                              'char str1[50]\n;' +
+                                                              'char str1[50];\n' +
                                                               'char str2[50];\n';
 
 	Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';

@@ -68,7 +68,7 @@ void speechSynsetup(const char* ssid, const char* password, const char* token, c
   Serial.begin(115200);
   delay(1000);
   Serial.println("Connecting to WiFi");
-  sprintf(URL,"http://tsn.baidu.com/text2audio?lan=zh&ctp=1&cuid=abcdxxx&tok=%s&tex=%s&vol=%d&per=%d&spd=%d&pit=%d",token,speechtext,volID,perID,spdID,pitID);
+  //sprintf(URL,"http://tsn.baidu.com/text2audio?lan=zh&ctp=1&cuid=abcdxxx&tok=%s&tex=%s&vol=%d&per=%d&spd=%d&pit=%d",token,speechtext,volID,perID,spdID,pitID);
   urlstr += "http://tsn.baidu.com/text2audio?lan=zh&ctp=1&cuid=abcdxxx&tok=";
   urlstr += token;
   urlstr += "&tex=";
@@ -81,6 +81,8 @@ void speechSynsetup(const char* ssid, const char* password, const char* token, c
   urlstr += spdID;
   urlstr += "&pit=";
   urlstr += pitID;
+  URL = urlstr.c_str();
+  Serial.println(URL);
   WiFi.disconnect();
   WiFi.softAPdisconnect(true);
   WiFi.mode(WIFI_STA);

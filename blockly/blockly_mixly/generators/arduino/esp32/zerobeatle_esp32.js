@@ -1348,7 +1348,7 @@ Blockly.Arduino.beatleESP32Servo = function() {
 
 Blockly.Arduino.beatleESP32ServoScan = function() {
 	var angle = Blockly.Arduino.valueToCode(this, 'speedValue', Blockly.Arduino.ORDER_ATOMIC);//this.getFieldValue('speedValue');
-  Blockly.Arduino.definitions_['include_beatleESP32ServoScan'] = '#include "beatleESP32_general.h"\n';
+  Blockly.Arduino.definitions_['include_beatleESP32general'] = '#include "beatleESP32_general.h"\n';
 	Blockly.Arduino.definitions_['declare_beatleESP32ServoScan'] = '';
 
 	Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
@@ -2002,8 +2002,8 @@ Blockly.Arduino.beatleESP32MazeSolvergotoFinish = function() {
 
 Blockly.Arduino.beatleESP32MazeSolverTargetReached = function() {
   var timeout = this.getFieldValue('timeout');
-	Blockly.Arduino.definitions_['include_beatleESP32MazeSolver'] = '#include <BeatleSerial.h>\n' +
-	                                                                '#include "beatleESP32_general.h"\n';
+	Blockly.Arduino.definitions_['include_beatleESP32MazeSolver'] = '#include <BeatleSerial.h>\n';
+	Blockly.Arduino.definitions_['include_beatleESP32general'] = '#include "beatleESP32_general.h"\n';
 	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolver'] = 'BeatleSerial bSerial;\n';
 	
 
