@@ -77,5 +77,4 @@ void trackTarget(HUSKYLENSResult result) {
    panLoop.update(panOffset);
    angle = map(panLoop.m_command, 0, 1000, 0, 180);
    ioexpander.servoWrite(angle);
-   myservo.write(angle);
 }

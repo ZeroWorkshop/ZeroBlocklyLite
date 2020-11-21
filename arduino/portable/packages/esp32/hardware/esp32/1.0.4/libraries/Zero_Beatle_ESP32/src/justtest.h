@@ -11,7 +11,7 @@ void speechSynsetup(const char* ssid, const char* password, const char* token, c
   //sprintf(URL,"http://tsn.baidu.com/text2audio?lan=zh&ctp=1&cuid=abcdxxx&tok=%s&tex=%s&vol=%d&per=%d&spd=%d&pit=%d",token,newstr.c_str(),volID,perID,spdID,pitID);
   urlstr += "http://tsn.baidu.com/text2audio?lan=zh&ctp=1&cuid=abcdxxx&tok=";
   urlstr += token;
-  urlstr += "&tex=";
+  //urlstr += "&tex=";
   urlstr += speechtext;
   urlstr += "&vol=";
   urlstr += volID;
