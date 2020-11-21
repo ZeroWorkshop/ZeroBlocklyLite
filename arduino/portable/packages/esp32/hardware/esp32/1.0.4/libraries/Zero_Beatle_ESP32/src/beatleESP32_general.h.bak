@@ -26,9 +26,9 @@ bool targetReached(int timeout) {
   
 	int timer = millis();
 	
-  while (!Serial.available()) {
-    if (millis() - timer > timeout) return false;
-  }
+  //while (!Serial.available()) {
+  //  if (millis() - timer > timeout) return false;
+  //}
   while (Serial.available()) {
     tempBuffer = Serial.read();
     Serial.println(tempBuffer, HEX);

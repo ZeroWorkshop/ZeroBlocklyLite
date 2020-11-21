@@ -21,12 +21,12 @@ char str2[50];
 
 BeatleSerial bSerial;
 
-const char* cmd2TargetStr = "SBLR";
+const char* cmd2TargetStr = "SSRSL";
 
 void setup(){
   state = 0;
   Serial.begin(115200);
-  PS4.begin("f0:d5:bf:c6:d6:25");
+  PS4.begin("0c:fc:83:a2:dd:7e");
 
   Wire.begin();
   while (!huskylens.begin(Wire))
@@ -51,7 +51,7 @@ void setup(){
 void loop(){
   switch (state) {
    case 0:
-    if (PS4.data.button.ps) {
+    if (PS4.data.button.l2) {
       bSerial.sendMazeGotoTargetCMD(cmd2TargetStr);
       state = 1;
 
