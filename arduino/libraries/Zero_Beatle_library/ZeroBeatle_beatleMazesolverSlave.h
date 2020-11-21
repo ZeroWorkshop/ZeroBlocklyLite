@@ -390,6 +390,7 @@ void beatleSlaveloop() {
       //      bSerial.findChecksum(&bSerial.sendStack);
       //      bSerial.sendData();
       runOnceAlready = false;
+      cmd_str = "";
       break;
   }
   if (!runOnceAlready)
