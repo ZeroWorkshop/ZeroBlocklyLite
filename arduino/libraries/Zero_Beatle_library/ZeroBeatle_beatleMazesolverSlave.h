@@ -378,7 +378,7 @@ void beatleSlaveloop() {
       strcpy(beatle.maze_path, cmd_str.c_str());
       beatle.maze_path_length = cmd_str.length();
       beatle.goToTarget();
-
+      //delay(3000);
       //After the beatle reach the target intersection, beatle chasis send a status indicating target reached.
       //Reuse the code of GET_STATUS
       //      delay(10);

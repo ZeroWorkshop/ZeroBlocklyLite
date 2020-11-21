@@ -28,7 +28,7 @@ bool MZString_END = false;
 bool runOnceAlready = true;
 void beatleSlavesetup() {
   // put your setup code here, to run once:
-  
+  runOnceAlready = true;
   Serial.begin(115200);
   bSerial.begin(Serial);
   LEDStrip_2.init();
@@ -377,8 +377,8 @@ void beatleSlaveloop() {
       //Serial.println(cmd_str);
       strcpy(beatle.maze_path, cmd_str.c_str());
       beatle.maze_path_length = cmd_str.length();
-      beatle.goToTarget();
-
+      //beatle.goToTarget();
+delay(3000);
       //After the beatle reach the target intersection, beatle chasis send a status indicating target reached.
       //Reuse the code of GET_STATUS
       //      delay(10);

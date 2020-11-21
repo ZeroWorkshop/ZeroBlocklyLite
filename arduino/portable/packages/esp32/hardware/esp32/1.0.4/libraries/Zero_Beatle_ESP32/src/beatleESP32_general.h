@@ -23,12 +23,42 @@ int32_t lastXTarget = 0;
 int sel;
 bool targetReached(int timeout) {
   uint8_t tempBuffer;
-  
+  uint8_t cmdBuffer[beatleCMD::STACK_SIZE];
+  uint8_t tmp[beatleCMD::STACK_SIZE];
+  uint8_t index = 0;
+  uint8_t offset;
 	int timer = millis();
-	
-  while (!Serial.available()) {
-    if (millis() - timer > timeout) return false;
+	while (1) 
+	{
+		if (millis() - timer > timeout) return false;
+	  while (Serial.available() < beatleCMD::STACK_SIZE);
+
+
+
+  while (Serial.available()) {
+    tempBuffer = Serial.read();
+    cmdBuffer[index++] = tempBuffer;
   }
+
+  for (uint8_t i = 0; i < beatleCMD::STACK_SIZE; i++) {
+    if (cmdBuffer[i] == beatleCMD::SB &&
+        cmdBuffer[(i + 1) > 9 ? (i - 9) : (i + 1)] == beatleCMD::VER &&
+        cmdBuffer[(i + 2) > 9 ? (i - 8) : (i + 2)] == beatleCMD::LEN) {
+      offset = i;
+    }
+  }
+
+  for (uint8_t j = 0; j < beatleCMD::STACK_SIZE; j++) {
+    tmp[j] = cmdBuffer[offset + j > 9 ? (offset + j - 10) : (offset + j)];
+  }
+  
+  if (tmp[5] == 0xCC && tmp[6] == 0xDD) return true;
+/*
+  //while (!Serial.available()) {
+  //  if (millis() - timer > timeout) return false;
+  //}
+  while (1) {
+  	if (millis() - timer > timeout) return false;
   while (Serial.available()) {
     tempBuffer = Serial.read();
     Serial.println(tempBuffer, HEX);
@@ -39,7 +69,10 @@ bool targetReached(int timeout) {
       }
     }
   }
-  return false;
+  //return false;
+}
+*/
+}
 }
 
 void ServoScan()
