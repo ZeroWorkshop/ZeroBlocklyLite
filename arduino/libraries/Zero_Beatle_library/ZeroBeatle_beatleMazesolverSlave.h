@@ -25,9 +25,10 @@ static void (*reset_this_CPU)(void) = 0x0000;
 
 String cmd_str = "";
 bool MZString_END = false;
+bool runOnceAlready = true;
 void beatleSlavesetup() {
   // put your setup code here, to run once:
-  
+  runOnceAlready = true;
   Serial.begin(115200);
   bSerial.begin(Serial);
   LEDStrip_2.init();
@@ -56,7 +57,7 @@ void beatleSlaveloop() {
   uint8_t MZcommandValue;
   uint8_t MZend_byte;
   uint8_t MZString[MZlength];
-  bool runOnceAlready;
+  
 
   while (Serial.available() < beatleCMD::STACK_SIZE);
 
