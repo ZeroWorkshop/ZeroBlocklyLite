@@ -375,6 +375,20 @@ Blockly.Blocks.beatleAIRead = {
 	}
 };
 
+Blockly.Blocks.beatleAItrackTarget = {
+  init: function() {
+		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
+		
+    this.appendDummyInput()
+		  	.appendField(Blockly.beatleAItrackTarget);
+		//this.appendDummyInput().appendField(new Blockly.FieldImage('../../media/ZeroWorkshop/beatlefollowline.gif',150,150));
+		this.setColour('#3366CC');
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setTooltip('');
+	}
+};
+
 Blockly.Blocks.beatleAIisInCam = {
   init: function() {
 		//this.appendDummyInput().appendField('  ' + Blockly.beatleAIReuest);
@@ -1701,12 +1715,15 @@ Blockly.Blocks.beatleESP32MazeSolvergotoTarget = {
   
 	init: function() {
 		this.appendDummyInput()
-		    .appendField(Blockly.beatleESP32MazeSolvergotoTarget);
+		    .appendField(Blockly.beatleESP32MazeSolvergotoTarget)
+		    .appendField(Blockly.beatleESP32MazeSolvergotoTargetCmd)
+		  	.appendField(new Blockly.FieldTextInput('1'),'servoP');
 		this.appendValueInput('CMD')
     .setCheck([String,Number]);
 		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
 
 		
+		    
 		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
 		this.setInputsInline(true);
 		this.setPreviousStatement(true, null);

@@ -266,7 +266,7 @@ void BeatleSerial::sendMazeGotoFinishCMD(const char* command_str) {
 	if (command_part2_count == 0)  {
 		//1st part
 		for (i = 0; i < command_part1_count - 1; i++) {  
-			sendStack.commandValue  = beatleCMD::SEND_MAZESTR;
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_P1;
       sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
 
       sendStack.paramMSB = command_str[i * 2 + 0];
@@ -293,7 +293,7 @@ void BeatleSerial::sendMazeGotoFinishCMD(const char* command_str) {
 	else {
 		//1st part
 		for (i = 0; i < command_part1_count; i++) {  
-			sendStack.commandValue  = beatleCMD::SEND_MAZESTR;
+			sendStack.commandValue  = beatleCMD::SEND_MZSTR_P1;
       sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
 
       sendStack.paramMSB = command_str[i * 2 + 0];

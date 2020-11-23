@@ -1715,12 +1715,15 @@ Blockly.Blocks.beatleESP32MazeSolvergotoTarget = {
   
 	init: function() {
 		this.appendDummyInput()
-		    .appendField(Blockly.beatleESP32MazeSolvergotoTarget);
+		    .appendField(Blockly.beatleESP32MazeSolvergotoTarget)
+		    .appendField(Blockly.beatleESP32MazeSolvergotoTargetCmd)
+		  	.appendField(new Blockly.FieldTextInput('1'),'cmdNO');
 		this.appendValueInput('CMD')
     .setCheck([String,Number]);
 		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
 
 		
+		    
 		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
 		this.setInputsInline(true);
 		this.setPreviousStatement(true, null);

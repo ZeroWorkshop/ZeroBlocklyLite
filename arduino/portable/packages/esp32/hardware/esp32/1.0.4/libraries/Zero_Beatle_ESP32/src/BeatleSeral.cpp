@@ -248,6 +248,8 @@ void BeatleSerial::sendMazeGotoTargetCMD(const char* command_str) {
       delay(10);
 		}
 	}
+ 
+  while (Serial.available()) Serial.read(); 
   
 }
 

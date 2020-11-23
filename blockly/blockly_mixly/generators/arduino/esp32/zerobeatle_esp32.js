@@ -1963,18 +1963,19 @@ Blockly.Arduino.beatleESP32speechSynthesis = function() {
 };
 
 Blockly.Arduino.beatleESP32MazeSolvergotoTarget = function() {
+	var cmdNO = this.getFieldValue('cmdNO');
   var command = Blockly.Arduino.valueToCode(this, 'CMD', Blockly.Arduino.ORDER_ATOMIC);
-
+  
 	Blockly.Arduino.definitions_['include_beatleESP32MazeSolver'] = '#include <BeatleSerial.h>\n';
 	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolver'] = 'BeatleSerial bSerial;\n';
-	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolvergotoTarget'] = 'const char* cmd2TargetStr = ' + command + ';\n';
+	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolvergotoTarget' + cmdNO] = 'const char* cmd2TargetStr' + cmdNO + ' = ' + command + ';\n';
 
 	
 
 	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'Serial.begin(115200);\n' + 
                                                             '  bSerial.begin(Serial);\n';
   
-  var code='bSerial.sendMazeGotoTargetCMD(cmd2TargetStr);\n';
+  var code='bSerial.sendMazeGotoTargetCMD(cmd2TargetStr' + cmdNO + ');\n';
     
   
   return code;
