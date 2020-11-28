@@ -1711,6 +1711,25 @@ Blockly.Blocks.beatleESP32MazeSolvergotoFinish = {
 	}
 };
 
+Blockly.Blocks.beatleESP32WaitforStart = {
+  
+	init: function() {
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32WaitforStart);
+		
+		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
+
+		
+		    
+		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
+		this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour('#FF168B');
+		this.setTooltip('');
+	}
+};
+
 Blockly.Blocks.beatleESP32MazeSolvergotoTarget = {
   
 	init: function() {

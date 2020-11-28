@@ -927,9 +927,8 @@ Blockly.Arduino.beatleESP32GestureSensor = function () {
 
 
 	
-
-	Blockly.Arduino.setups_['setup_beatleESP32GestureSensor'] = 'Serial.begin(115200);\n' + 
-	                                                             '  if(!apds.begin()){\n' +
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+	Blockly.Arduino.setups_['setup_beatleESP32GestureSensor'] = '  if(!apds.begin()){\n' +
 	                                                             '    Serial.println("failed to initialize device! Please check your wiring.");\n' + 
 	                                                             '  }\n' + 
 	                                                             '  else Serial.println("Device initialized!");\n\n' + 
@@ -955,9 +954,8 @@ Blockly.Arduino.beatleESP32GestureSensored = function () {
 
 
 	
-
-	Blockly.Arduino.setups_['setup_beatleESP32GestureSensor'] = 'Serial.begin(115200);\n' + 
-	                                                             '  if(!apds.begin()){\n' +
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+	Blockly.Arduino.setups_['setup_beatleESP32GestureSensor'] = '  if(!apds.begin()){\n' +
 	                                                             '    Serial.println("failed to initialize device! Please check your wiring.");\n' + 
 	                                                             '  }\n' + 
 	                                                             '  else Serial.println("Device initialized!");\n\n' + 
@@ -1015,9 +1013,8 @@ Blockly.Arduino.beatleESP32MPU9250 = function () {
 	                                                             'float pitch = 0;\n' + 
 	                                                             'float roll = 0;\n' +
 	                                                             'float yaw = 0;\n';
-
-  Blockly.Arduino.setups_['setup_beatleESP32MPU9250'] = 'Serial.begin(115200);\n' +
-                                                           '  Serial.println("Initialize MPU6050");\n' + 
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+  Blockly.Arduino.setups_['setup_beatleESP32MPU9250'] = '  Serial.println("Initialize MPU6050");\n' + 
                                                            '  while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G))\n' + 
                                                            '  {\n' +
                                                            '      Serial.println("Could not find a valid MPU6050 sensor, check wiring!");\n' +
@@ -1050,9 +1047,8 @@ Blockly.Arduino.beatleESP32MPU9250Acc = function () {
 	                                                             'float pitch = 0;\n' + 
 	                                                             'float roll = 0;\n' +
 	                                                             'float yaw = 0;\n';
-
-  Blockly.Arduino.setups_['setup_beatleESP32MPU9250'] = 'Serial.begin(115200);\n' +
-                                                           '  Serial.println("Initialize MPU6050");\n' + 
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+  Blockly.Arduino.setups_['setup_beatleESP32MPU9250'] ='  Serial.println("Initialize MPU6050");\n' + 
                                                            '  while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G))\n' + 
                                                            '  {\n' +
                                                            '      Serial.println("Could not find a valid MPU6050 sensor, check wiring!");\n' +
@@ -1089,9 +1085,8 @@ Blockly.Arduino.beatleESP32MPU9250Gyro = function () {
 	                                                             'float roll = 0;\n' +
 	                                                             'float yaw = 0;\n';
 	
-
-  Blockly.Arduino.setups_['setup_beatleESP32MPU9250'] = 'Serial.begin(115200);\n' +
-                                                           '  Serial.println("Initialize MPU6050");\n' + 
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+  Blockly.Arduino.setups_['setup_beatleESP32MPU9250'] = '  Serial.println("Initialize MPU6050");\n' + 
                                                            '  while(!mpu.begin(MPU6050_SCALE_2000DPS, MPU6050_RANGE_2G))\n' + 
                                                            '  {\n' +
                                                            '      Serial.println("Could not find a valid MPU6050 sensor, check wiring!");\n' +
@@ -1485,8 +1480,8 @@ Blockly.Arduino.RGBLED_functions = function () {
 
   Blockly.Arduino.definitions_['include_beatleESP32LED'] = '#include "ZeroRGBLED_ESP32.h"\n';
 
-  Blockly.Arduino.setups_['setup_beatleESP32LED'] = 'Serial.begin(115200);\n  ' +
-                                                    LEDstrip + '.init();\n';
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+  Blockly.Arduino.setups_['setup_beatleESP32LED'] = LEDstrip + '.init();\n';
 
 
   if (Blockly.Arduino.definitions_["RGBLED_function_def1"] == null) Blockly.Arduino.definitions_["RGBLED_function_def1"] = "";
@@ -1538,9 +1533,9 @@ Blockly.Arduino.beatle_display_rgb = function () {
   var code1 = 'ZeroRGBLED_ESP32 ' + LEDstrip + '(' + dropdown_rgbpin + ',12);\n';
 
   Blockly.Arduino.definitions_['include_beatleESP32LED'] = '#include "ZeroRGBLED_ESP32.h"\n';
-
-  Blockly.Arduino.setups_['setup_beatleESP32LED'] = 'Serial.begin(115200);\n  ' +
-                                                    LEDstrip + '.init();\n';
+  
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+  Blockly.Arduino.setups_['setup_beatleESP32LED'] = LEDstrip + '.init();\n';
 
   if (Blockly.Arduino.definitions_["RGBLED_function_def1"] == null) Blockly.Arduino.definitions_["RGBLED_function_def1"] = "";
   if (Blockly.Arduino.definitions_["RGBLED_function_def2"] == null) Blockly.Arduino.definitions_["RGBLED_function_def2"] = "";
@@ -1575,8 +1570,8 @@ Blockly.Arduino.beatle_display_rgb_show = function () {
 
   Blockly.Arduino.definitions_['include_beatleESP32LED'] = '#include "ZeroRGBLED_ESP32.h"\n';
 
-  Blockly.Arduino.setups_['setup_beatleESP32LED'] = 'Serial.begin(115200);\n  ' +
-                                                    LEDstrip + '.init();\n';
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+  Blockly.Arduino.setups_['setup_beatleESP32LED'] = LEDstrip + '.init();\n';
   var code = LEDstrip + '.strip.show();\n';
   return code;
 };
@@ -1600,8 +1595,8 @@ Blockly.Arduino.RGBLED_policelight = function() {
 
   Blockly.Arduino.definitions_['include_beatleESP32LED'] = '#include "ZeroRGBLED_ESP32.h"\n';
 
-  Blockly.Arduino.setups_['setup_beatleESP32LED'] = 'Serial.begin(115200);\n  ' +
-                                                    LEDstrip + '.init();\n';
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+  Blockly.Arduino.setups_['setup_beatleESP32LED'] = LEDstrip + '.init();\n';
 
   if (Blockly.Arduino.definitions_["RGBLED_function_def1"] == null) Blockly.Arduino.definitions_["RGBLED_function_def1"] = "";
   if (Blockly.Arduino.definitions_["RGBLED_function_def2"] == null) Blockly.Arduino.definitions_["RGBLED_function_def2"] = "";
@@ -1632,7 +1627,7 @@ Blockly.Arduino.beatleESP32CleanScreen = function() {
 
 	Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
 
-	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init(); ;\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init();\n';
 
 	var color = Blockly.Arduino.valueToCode(this, 'color', Blockly.Arduino.ORDER_ATOMIC);
 
@@ -1658,7 +1653,7 @@ Blockly.Arduino.beatleESP32ShowString = function() {
 
 	
 
-	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init(); ;\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init();\n';
   
   var x = Blockly.Arduino.valueToCode(this, 'X', Blockly.Arduino.ORDER_ATOMIC);
   var y = Blockly.Arduino.valueToCode(this, 'Y', Blockly.Arduino.ORDER_ATOMIC);
@@ -1722,7 +1717,7 @@ Blockly.Arduino.beatleESP32Fill = function() {
 
 	
 
-	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init(); ;\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init();\n';
   
   var x = Blockly.Arduino.valueToCode(this, 'X', Blockly.Arduino.ORDER_ATOMIC);
   var y = Blockly.Arduino.valueToCode(this, 'Y', Blockly.Arduino.ORDER_ATOMIC);
@@ -1756,7 +1751,7 @@ Blockly.Arduino.beatleESP32Line = function() {
 
 	
 
-	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init(); ;\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init();\n';
   
   var x = Blockly.Arduino.valueToCode(this, 'X', Blockly.Arduino.ORDER_ATOMIC);
   var y = Blockly.Arduino.valueToCode(this, 'Y', Blockly.Arduino.ORDER_ATOMIC);
@@ -1790,7 +1785,7 @@ Blockly.Arduino.beatleESP32Rectangle = function() {
 
 	
 
-	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init(); ;\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init();\n';
   
   var x = Blockly.Arduino.valueToCode(this, 'X', Blockly.Arduino.ORDER_ATOMIC);
   var y = Blockly.Arduino.valueToCode(this, 'Y', Blockly.Arduino.ORDER_ATOMIC);
@@ -1824,7 +1819,7 @@ Blockly.Arduino.beatleESP32Circle = function() {
 
 	
 
-	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init(); ;\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init();\n';
   
   var x = Blockly.Arduino.valueToCode(this, 'X', Blockly.Arduino.ORDER_ATOMIC);
   var y = Blockly.Arduino.valueToCode(this, 'Y', Blockly.Arduino.ORDER_ATOMIC);
@@ -1857,7 +1852,7 @@ Blockly.Arduino.beatleESP32Circle2 = function() {
 
 	
 
-	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init(); ;\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init();\n';
   
   var x = Blockly.Arduino.valueToCode(this, 'X', Blockly.Arduino.ORDER_ATOMIC);
   var y = Blockly.Arduino.valueToCode(this, 'Y', Blockly.Arduino.ORDER_ATOMIC);
@@ -1962,6 +1957,36 @@ Blockly.Arduino.beatleESP32speechSynthesis = function() {
  
 };
 
+Blockly.Arduino.beatleESP32WaitforStart = function() {
+	
+  Blockly.Arduino.definitions_['include_beatleESP32Screen'] = '#include "NextionSimple.h"';
+	Blockly.Arduino.definitions_['declare_beatleESP32Screen'] = '#define nextion Serial2\n' + 
+                                                              'NextionSimple myNextion(nextion, 115200);\n' +
+                                                              'String message;\n' + 
+                                                              'char* cmd;\n' + 
+                                                              'char str1[50];\n' +
+                                                              'char str2[50];\n';
+
+	
+
+	Blockly.Arduino.setups_['beatle_beatleESP32Screen'] = 'myNextion.init();\n';
+  
+  var code ='';
+      code = 'cmd = "page 0";\n' +
+             'myNextion.sendCommand(cmd);\n' +
+             'while (message != "65 0 1 0 ff ff ff") {\n' + 
+             '  message = myNextion.listen();\n' +
+             '  if (message != "") { // if a message is received...\n' + 
+             '  }\n' +
+             '}\n' +
+             'cmd = "page 1";\n' +
+             'myNextion.sendCommand(cmd);\n';
+    
+  
+  return code;
+	//return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
 Blockly.Arduino.beatleESP32MazeSolvergotoTarget = function() {
 	var cmdNO = this.getFieldValue('cmdNO');
   var command = Blockly.Arduino.valueToCode(this, 'CMD', Blockly.Arduino.ORDER_ATOMIC);
@@ -1971,9 +1996,8 @@ Blockly.Arduino.beatleESP32MazeSolvergotoTarget = function() {
 	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolvergotoTarget' + cmdNO] = 'const char* cmd2TargetStr' + cmdNO + ' = ' + command + ';\n';
 
 	
-
-	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'Serial.begin(115200);\n' + 
-                                                            '  bSerial.begin(Serial);\n';
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'bSerial.begin(Serial);\n';
   
   var code='bSerial.sendMazeGotoTargetCMD(cmd2TargetStr' + cmdNO + ');\n';
     
@@ -1990,9 +2014,8 @@ Blockly.Arduino.beatleESP32MazeSolvergotoFinish = function() {
 	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolvergotoFinish'] = 'const char* cmd2FinishStr = ' + command + ';\n';
 
 	
-
-	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'Serial.begin(115200);\n' + 
-                                                            '  bSerial.begin(Serial);\n';
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'bSerial.begin(Serial);\n';
   
   var code='bSerial.sendMazeGotoFinishCMD(cmd2FinishStr);\n';
     
@@ -2009,9 +2032,8 @@ Blockly.Arduino.beatleESP32MazeSolverTargetReached = function() {
 	
 
 	
-
-	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'Serial.begin(115200);\n' + 
-                                                            '  bSerial.begin(Serial);\n';
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'bSerial.begin(Serial);\n';
   
   var code='targetReached(' + timeout + ')';
     
@@ -2027,9 +2049,8 @@ Blockly.Arduino.beatleESP32MazeSolverWaitUntillTargetReached = function() {
 	Blockly.Arduino.definitions_['beatleESP32MazeSolverWaitUntillTargetReached'] = 'double timer = 0;\n';
 
 	
-
-	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'Serial.begin(115200);\n' + 
-                                                            '  bSerial.begin(Serial);\n';
+  Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'bSerial.begin(Serial);\n';
   
   var code='timer = millis();\n' + 
            'while (!bSerial.isDocked()) {\n' +

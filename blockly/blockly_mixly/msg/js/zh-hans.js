@@ -3077,3 +3077,4 @@ Blockly.beatleAIRead="从摄像头中读取方块和箭头数据";
 Blockly.beatleESP32ServoScan="舵机180度扫描";
 Blockly.beatleAItrackTarget="摄像头跟随目标(配合云台舵机)";
 Blockly.beatleESP32MazeSolvergotoTargetCmd="指令";
+Blockly.beatleESP32WaitforStart="等待按下屏幕上START按键";

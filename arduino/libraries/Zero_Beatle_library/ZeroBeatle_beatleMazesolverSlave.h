@@ -308,39 +308,10 @@ void beatleSlaveloop() {
 
     case beatleCMD::SEND_MZSTR_FP2:    //go to FinishLine command
 
-      //if (!MZString_END)
-      { //The last 1 or 2 command character will be added to the command string, then no command character will be recieved
-        if (bSerial.recStack.paramMSB == beatleCMD::GOSTRAIGHT) {
-          cmd_str += "S";
-        }
-        else if (bSerial.recStack.paramMSB == beatleCMD::GOBACK) {
-          cmd_str += "B";
-        }
-        else if (bSerial.recStack.paramMSB == beatleCMD::GORIGHT) {
-          cmd_str += "R";
-        }
-        else if (bSerial.recStack.paramMSB == beatleCMD::GOLEFT) {
-          cmd_str += "L";
-        }
-
-        if (bSerial.recStack.paramLSB == beatleCMD::GOSTRAIGHT) {
-          cmd_str += "S";
-        }
-        else if (bSerial.recStack.paramLSB == beatleCMD::GOBACK) {
-          cmd_str += "B";
-        }
-        else if (bSerial.recStack.paramLSB == beatleCMD::GORIGHT) {
-          cmd_str += "R";
-        }
-        else if (bSerial.recStack.paramLSB == beatleCMD::GOLEFT) {
-          cmd_str += "L";
-        }
-      }
-      MZString_END = true;
-      //Serial.println(cmd_str);
-      strcpy(beatle.maze_path, cmd_str.c_str());
-      beatle.maze_path_length = cmd_str.length();
-      beatle.goToFinishLine();
+     
+      beatle.followSegment();
+      runOnceAlready = false;
+      break;
 
 
     case beatleCMD::SEND_MZSTR_TP2:    //go to target intersection command
