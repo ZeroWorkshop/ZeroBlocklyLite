@@ -2011,7 +2011,7 @@ Blockly.Arduino.beatleESP32MazeSolvergotoFinish = function() {
 
 	Blockly.Arduino.definitions_['include_beatleESP32MazeSolver'] = '#include <BeatleSerial.h>\n';
 	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolver'] = 'BeatleSerial bSerial;\n';
-	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolvergotoFinish'] = 'const char* cmd2FinishStr = ' + command + ';\n';
+	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolvergotoFinish'] = 'const char* cmd2FinishStr = \"\";\n';
 
 	
   Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
@@ -2029,7 +2029,7 @@ Blockly.Arduino.beatleESP32StopFollowline = function() {
 
 	Blockly.Arduino.definitions_['include_beatleESP32MazeSolver'] = '#include <BeatleSerial.h>\n';
 	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolver'] = 'BeatleSerial bSerial;\n';
-	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolvergotoFinish'] = 'const char* cmd2FinishStr = ' + command + ';\n';
+	Blockly.Arduino.definitions_['declare_beatleESP32MazeSolvergotoFinish'] = 'const char* cmd2FinishStr = \"\";\n';
 
 	
   Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
