@@ -1997,7 +1997,7 @@ Blockly.Arduino.beatleESP32MazeSolvergotoTarget = function() {
 
 	
   Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
-	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = '  bSerial.begin(Serial);\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'bSerial.begin(Serial);\n';
   
   var code='bSerial.sendMazeGotoTargetCMD(cmd2TargetStr' + cmdNO + ');\n';
     
@@ -2015,7 +2015,7 @@ Blockly.Arduino.beatleESP32MazeSolvergotoFinish = function() {
 
 	
   Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
-	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = '  bSerial.begin(Serial);\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'bSerial.begin(Serial);\n';
   
   var code='bSerial.sendMazeGotoFinishCMD(cmd2FinishStr);\n';
     
@@ -2033,7 +2033,7 @@ Blockly.Arduino.beatleESP32MazeSolverTargetReached = function() {
 
 	
   Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
-	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = '  bSerial.begin(Serial);\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'bSerial.begin(Serial);\n';
   
   var code='targetReached(' + timeout + ')';
     
@@ -2050,7 +2050,7 @@ Blockly.Arduino.beatleESP32MazeSolverWaitUntillTargetReached = function() {
 
 	
   Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
-	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = '  bSerial.begin(Serial);\n';
+	Blockly.Arduino.setups_['beatle_beatleESP32MazeSolver'] = 'bSerial.begin(Serial);\n';
   
   var code='timer = millis();\n' + 
            'while (!bSerial.isDocked()) {\n' +

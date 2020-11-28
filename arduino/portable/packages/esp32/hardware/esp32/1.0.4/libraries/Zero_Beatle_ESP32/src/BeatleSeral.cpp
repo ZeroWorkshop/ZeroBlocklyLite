@@ -183,6 +183,18 @@ void BeatleSerial::setLED(uint8_t ID, uint8_t value) {
   sendData();
 }
 
+void BeatleSerial::stopFollowLine() {
+  sendStack.commandValue  = beatleCMD::STOPFOLLOWLINE;
+  sendStack.feedbackValue = beatleCMD::NO_FEEDBACK;
+
+  sendStack.paramMSB = 0;
+  sendStack.paramLSB = 0;
+
+
+  findChecksum(&sendStack);
+  sendData();
+}
+
 void BeatleSerial::sendMazeGotoTargetCMD(const char* command_str) {
 	uint8_t i;
 	uint8_t cmdStr_length = strlen(command_str);
@@ -318,7 +330,7 @@ void BeatleSerial::sendMazeGotoFinishCMD(const char* command_str) {
       delay(10);
 		}
 	}
-  
+  while (Serial.available()) Serial.read(); 
 }
 
 

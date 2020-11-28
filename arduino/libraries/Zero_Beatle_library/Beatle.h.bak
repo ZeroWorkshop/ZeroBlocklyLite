@@ -248,6 +248,7 @@ public:
   void followSegment();
   void solveMaze();
   void goToFinishLine();
+  void goToTarget();
   void simplifymaze_path();
   
   boolean IsSensorCalibrated();

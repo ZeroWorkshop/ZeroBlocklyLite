@@ -26,6 +26,7 @@ static void (*reset_this_CPU)(void) = 0x0000;
 String cmd_str = "";
 bool MZString_END = false;
 bool runOnceAlready = true;
+bool followLineFlag = false;
 void beatleSlavesetup() {
   // put your setup code here, to run once:
   runOnceAlready = true;
@@ -308,9 +309,8 @@ void beatleSlaveloop() {
 
     case beatleCMD::SEND_MZSTR_FP2:    //go to FinishLine command
 
-     
-      beatle.followSegment();
-      runOnceAlready = false;
+      //beatle.followSegmentStopIntersection();
+      followLineFlag = true;
       break;
 
 
@@ -365,6 +365,13 @@ void beatleSlaveloop() {
       runOnceAlready = false;
       cmd_str = "";
       break;
+      
+      case beatleCMD::STOPFOLLOWLINE:
+      	beatle.motors.setLeftSpeed(0);
+        beatle.motors.setRightSpeed(0);
+      	
+      	followLineFlag = false;
+      break;
   }
   if (!runOnceAlready)
   {
@@ -377,5 +384,10 @@ void beatleSlaveloop() {
     bSerial.sendData();
     runOnceAlready = true;
   }
+  
+  if (followLineFlag) {
+  	beatle.followSegmentStopIntersection();
+  }
+
   bSerial.recStack.commandValue  = 0x00;
 }

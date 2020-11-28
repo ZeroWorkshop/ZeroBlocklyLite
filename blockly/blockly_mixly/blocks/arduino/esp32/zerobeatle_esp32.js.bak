@@ -1697,8 +1697,7 @@ Blockly.Blocks.beatleESP32MazeSolvergotoFinish = {
 	init: function() {
 		this.appendDummyInput()
 		    .appendField(Blockly.beatleESP32MazeSolvergotoFinish);
-		this.appendValueInput('CMD')
-    .setCheck([String,Number]);
+		
 		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
 
 		
@@ -1715,11 +1714,8 @@ Blockly.Blocks.beatleESP32WaitforStart = {
   
 	init: function() {
 		this.appendDummyInput()
-		    .appendField(Blockly.beatleESP32MazeSolvergotoTarget)
-		    .appendField(Blockly.beatleESP32MazeSolvergotoTargetCmd)
-		  	.appendField(new Blockly.FieldTextInput('1'),'cmdNO');
-		this.appendValueInput('CMD')
-    .setCheck([String,Number]);
+		    .appendField(Blockly.beatleESP32WaitforStart);
+		
 		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
 
 		

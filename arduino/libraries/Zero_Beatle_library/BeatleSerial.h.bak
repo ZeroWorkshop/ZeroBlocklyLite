@@ -37,8 +37,10 @@ namespace beatleCMD
 	const uint8_t WRITE_EEPROM    = 0x41;
 	const uint8_t SET_PRODDATE    = 0x51;
 	
-	const uint8_t SEND_MAZESTR    = 0x91;
-	const uint8_t STOP_MAZESTR    = 0x92;
+	const uint8_t SEND_MZSTR_P1   = 0x91;
+	const uint8_t SEND_MZSTR_FP2  = 0x92;   //second part of the command string for goto finish line
+	const uint8_t SEND_MZSTR_TP2  = 0x93;   //second part of the command string for goto target intersection
+	//const uint8_t STOP_MAZESTR    = 0x92;
   //-------------------------------------------------------------------------------------//
   // Run Wheel Parameter values
   //-------------------------------------------------------------------------------------//
@@ -172,7 +174,8 @@ public:
 	void runWheel(uint8_t direct, uint8_t speed);
 	void playBuzzer();
 	void setLED(uint8_t on_off, uint8_t color);
-	void sendMaseCMDString(const char* command_str);
+	void sendMazeGotoTargetCMD(const char* command_str);
+	void sendMazeGotoFinishCMD(const char* command_str);
 	void setSpeeds(int speedL,int speedR);
 	void setLeftSpeed(uint8_t direct, uint8_t speed);
 	void setRightSpeed(uint8_t direct, uint8_t speed);

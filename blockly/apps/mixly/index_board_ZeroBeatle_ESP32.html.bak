@@ -301,8 +301,6 @@
 	</block>
 	<block type="beatleESP32MazeSolvergotoFinish">
 	</block>
-	<block type="beatleESP32StopFollowline">
-	</block>
 	<block type="beatleESP32MazeSolvergotoTarget">
 		<value name="CMD">
       <block type="text">

@@ -982,6 +982,72 @@ void Beatle::followSegment()
     }//end while
 }
 
+void Beatle::followSegmentStopIntersection()
+{
+  unsigned int position;
+  unsigned int sensors[7];
+  int error;
+  int speedDifference;
+  unsigned long timeA;
+  
+  //while(1)
+  {
+  	
+  	//  led.rainbow_stream(2, &led.firstPixelHue);
+  	  
+  	  //led.theaterChaseRainbow(20, &led.firstPixelHue, &led.firstloop, &led.secondloop);
+      // unsigned int sensors[6];
+
+      // Get the position of the line.  Note that we *must* provide the "sensors"
+      // argument to readLine() here, even though we are not interested in the
+      // individual sensor readings
+      position = LineSensors.readLine(sensors);
+  
+      // Our "error" is how far we are away from the center of the line, which
+      // corresponds to position 2500.
+      error = position - 3000;
+
+      // Get motor speed difference using proportional and derivative PID terms
+      // (the integral term is generally not very useful for line following).
+      // Here we are using a proportional constant of 1/4 and a derivative
+      // constant of 6, which should work decently for many Zumo motor choices.
+      // You probably want to use trial and error to tune these constants for
+      // your particular Zumo and line course.
+      //int speedDifference = _Kp *error  + _Kd * (error - lastError);  //Kp = 1/12 Kd = 6
+      int speedDifference = error * _Kp + _Kd * (error - lastError);
+
+      lastError = error;
+
+      // Get individual motor speeds.  The sign of speedDifference
+      // determines if the robot turns left or right.
+      int m1Speed = MAX_SPEED + speedDifference;
+      int m2Speed = MAX_SPEED - speedDifference;
+
+      // Here we constrain our motor speeds to be between 0 and MAX_SPEED.
+      // Generally speaking, one motor will always be turning at MAX_SPEED
+      // and the other will be at MAX_SPEED-|speedDifference| if that is positive,
+      // else it will be stationary.  For some applications, you might want to
+      // allow the motor speed to go negative so that it can spin in reverse.
+      if (m1Speed < 0)
+        m1Speed = 0;
+      if (m2Speed < 0)
+        m2Speed = 0;
+      if (m1Speed > MAX_SPEED)
+        m1Speed = MAX_SPEED;
+      if (m2Speed > MAX_SPEED)
+        m2Speed = MAX_SPEED;
+
+      motors.setSpeeds(m1Speed, m2Speed);
+      if(!ABOVE_LINE(sensors[0]) && !ABOVE_LINE(sensors[1]) && !ABOVE_LINE(sensors[2]) && !ABOVE_LINE(sensors[3]) && !ABOVE_LINE(sensors[4]) && !ABOVE_LINE(sensors[5])&& !ABOVE_LINE(sensors[6]))
+      {
+      	 return;
+      }
+      else if(ABOVE_LINE(sensors[0])  || ABOVE_LINE(sensors[6]) )
+      {
+      	return;
+      }
+    }//end while
+}
 // The solveMaze() function works by applying a "left hand on the wall" strategy:
 // the robot follows a segment until it reaches an intersection, where it takes the
 // leftmost fork available to it. It records each turn it makes, and as long as the
