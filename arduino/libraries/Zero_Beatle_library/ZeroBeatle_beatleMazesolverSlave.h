@@ -40,7 +40,7 @@ void beatleSlavesetup() {
   }
   LEDStrip_2.strip.show();
 
-  beatle.Setup_MazeSolver();
+  beatle.Setup_MazeSolverSlave();
   while (Serial.available()) Serial.read();
   pinMode(DSL, INPUT);
   pinMode(DSR, INPUT);
@@ -60,8 +60,11 @@ void beatleSlaveloop() {
   uint8_t MZString[MZlength];
   
 
-  while (Serial.available() < beatleCMD::STACK_SIZE);
-
+  while (Serial.available() < beatleCMD::STACK_SIZE) {
+  	if (followLineFlag) {
+  	  beatle.followSegmentStopIntersection();
+    }
+  }
 
 
   while (Serial.available()) {
@@ -385,9 +388,7 @@ void beatleSlaveloop() {
     runOnceAlready = true;
   }
   
-  if (followLineFlag) {
-  	beatle.followSegmentStopIntersection();
-  }
+  
 
   bSerial.recStack.commandValue  = 0x00;
 }

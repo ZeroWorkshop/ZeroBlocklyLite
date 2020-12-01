@@ -246,6 +246,7 @@ public:
 	char selectTurn(unsigned char found_left, unsigned char found_straight,
   unsigned char found_right);
   void followSegment();
+  void followSegmentStopIntersection();
   void solveMaze();
   void goToFinishLine();
   void goToTarget();

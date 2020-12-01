@@ -760,6 +760,24 @@ void Beatle::Setup_MazeSolver()
    
 }
 
+void Beatle::Setup_MazeSolverSlave()
+{
+	 pinMode(DSL,OUTPUT);
+	 pinMode(DSR,OUTPUT);
+	 digitalWrite(DSL,LOW);
+	 digitalWrite(DSR,LOW);
+	 delay(500);
+	 digitalWrite(DSL,HIGH);
+	 digitalWrite(DSR,HIGH);
+   LineSensorCalibration(true,128, 22);
+   SetPID(1.0/6.0,0,6.0);
+   //button.waitForButton();
+   // Play music and wait for it to finish before we start driving.
+   buzzer.play("L16 cdegreg4");
+   while(buzzer.isPlaying());  
+   
+}
+
 // Main function for maze solver
 void Beatle::Loop_MazeSolver()
 {
@@ -1038,6 +1056,7 @@ void Beatle::followSegmentStopIntersection()
         m2Speed = MAX_SPEED;
 
       motors.setSpeeds(m1Speed, m2Speed);
+      
       if(!ABOVE_LINE(sensors[0]) && !ABOVE_LINE(sensors[1]) && !ABOVE_LINE(sensors[2]) && !ABOVE_LINE(sensors[3]) && !ABOVE_LINE(sensors[4]) && !ABOVE_LINE(sensors[5])&& !ABOVE_LINE(sensors[6]))
       {
       	 return;
@@ -1046,6 +1065,7 @@ void Beatle::followSegmentStopIntersection()
       {
       	return;
       }
+      
     }//end while
 }
 // The solveMaze() function works by applying a "left hand on the wall" strategy:

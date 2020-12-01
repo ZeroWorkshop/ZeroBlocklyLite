@@ -8,49 +8,49 @@
     "cacheControl" : {
       "maxAge" : 600,
       "noCache" : false,
-      "mustRevalidate" : false,
-      "noStore" : false
+      "noStore" : false,
+      "mustRevalidate" : false
     },
     "expires" : "2020-11-21T17:08:18.228"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.gz",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\libraries\\library_index.json.gz",
-    "eTag" : "66b4f5595d907d638a25195c433f006f",
-    "md5" : "MD5:66b4f5595d907d638a25195c433f006f",
-    "createdAt" : "2020-11-21T16:58:29.965",
+    "eTag" : "81a09ecb1de2b8a32ac503d816c8e893",
+    "md5" : "MD5:81a09ecb1de2b8a32ac503d816c8e893",
+    "createdAt" : "2020-11-30T17:01:42.354",
     "cacheControl" : {
       "maxAge" : 14400,
       "noCache" : false,
-      "mustRevalidate" : false,
-      "noStore" : false
+      "noStore" : false,
+      "mustRevalidate" : false
     },
-    "expires" : "2020-11-21T20:58:29.965"
+    "expires" : "2020-11-30T21:01:42.354"
+  }, {
+    "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.sig",
+    "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\libraries\\library_index.json.sig",
+    "eTag" : "c3be8cabe86253dd9c48a39f6c982cdf",
+    "md5" : "MD5:c3be8cabe86253dd9c48a39f6c982cdf",
+    "createdAt" : "2020-11-30T17:01:42.937",
+    "cacheControl" : {
+      "maxAge" : 14400,
+      "noCache" : false,
+      "noStore" : false,
+      "mustRevalidate" : false
+    },
+    "expires" : "2020-11-30T21:01:42.937"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json.sig",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\packages\\package_index.json.sig",
     "eTag" : "03a575db7421e607d137d55e42f1ad4d",
     "md5" : "MD5:03a575db7421e607d137d55e42f1ad4d",
-    "createdAt" : "2020-11-21T16:58:21.995",
+    "createdAt" : "2020-11-30T17:01:39.775",
     "cacheControl" : {
       "maxAge" : 3600,
       "noCache" : false,
-      "mustRevalidate" : false,
-      "noStore" : false
+      "noStore" : false,
+      "mustRevalidate" : false
     },
-    "expires" : "2020-11-21T17:58:21.995"
-  }, {
-    "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.sig",
-    "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\libraries\\library_index.json.sig",
-    "eTag" : "95d1f9a8dc7739913a1ae57ca865b132",
-    "md5" : "MD5:95d1f9a8dc7739913a1ae57ca865b132",
-    "createdAt" : "2020-11-21T16:58:30.552",
-    "cacheControl" : {
-      "maxAge" : 14400,
-      "noCache" : false,
-      "mustRevalidate" : false,
-      "noStore" : false
-    },
-    "expires" : "2020-11-21T20:58:30.552"
+    "expires" : "2020-11-30T18:01:39.775"
   }, {
     "remoteURL" : "https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json",
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\raw.githubusercontent.com\\espressif\\arduino-esp32\\gh-pages\\package_esp32_index.json",
@@ -60,8 +60,8 @@
     "cacheControl" : {
       "maxAge" : 300,
       "noCache" : false,
-      "mustRevalidate" : false,
-      "noStore" : false
+      "noStore" : false,
+      "mustRevalidate" : false
     },
     "expires" : "2020-11-16T17:48:27.693"
   }, {
@@ -69,13 +69,13 @@
     "localPath" : "C:\\ZeroBlockly_GitHub\\ZeroBlocklyLite\\arduino\\portable\\cache\\downloads.arduino.cc\\packages\\package_index.json",
     "eTag" : "e714cbb590512bb730b1c90d74a1794f",
     "md5" : "MD5:e714cbb590512bb730b1c90d74a1794f",
-    "createdAt" : "2020-11-21T16:58:21.761",
+    "createdAt" : "2020-11-30T17:01:39.491",
     "cacheControl" : {
       "maxAge" : 3600,
       "noCache" : false,
-      "mustRevalidate" : false,
-      "noStore" : false
+      "noStore" : false,
+      "mustRevalidate" : false
     },
-    "expires" : "2020-11-21T17:58:21.761"
+    "expires" : "2020-11-30T18:01:39.491"
   } ]
 }

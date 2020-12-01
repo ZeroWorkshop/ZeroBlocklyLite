@@ -189,6 +189,7 @@ public:
   void Setup_FollowLine();
 	void Loop_FollowLine();
 	void Setup_MazeSolver();
+	void Setup_MazeSolverSlave();
 	void Loop_MazeSolver();
 	void Setup_BorderDetect();
 	void Loop_BorderDetect();

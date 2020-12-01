@@ -1038,16 +1038,16 @@ void Beatle::followSegmentStopIntersection()
         m2Speed = MAX_SPEED;
 
       motors.setSpeeds(m1Speed, m2Speed);
+      
       if(!ABOVE_LINE(sensors[0]) && !ABOVE_LINE(sensors[1]) && !ABOVE_LINE(sensors[2]) && !ABOVE_LINE(sensors[3]) && !ABOVE_LINE(sensors[4]) && !ABOVE_LINE(sensors[5])&& !ABOVE_LINE(sensors[6]))
       {
-      	 motors.setSpeeds(0, 0);
-         return;
+      	 return;
       }
       else if(ABOVE_LINE(sensors[0])  || ABOVE_LINE(sensors[6]) )
       {
-      	motors.setSpeeds(0, 0);
-        return;
+      	return;
       }
+      
     }//end while
 }
 // The solveMaze() function works by applying a "left hand on the wall" strategy:
