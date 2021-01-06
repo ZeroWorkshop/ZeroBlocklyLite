@@ -984,6 +984,20 @@ Blockly.Blocks.beatleESP32ServoScan = {
 		this.setTooltip('');
 	}
 };
+
+Blockly.Blocks.beatleESP32ServoScanStopAngle = {
+  	init: function() {
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32ServoScanStopAngle);
+			
+
+		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour('#FF168B');
+		this.setTooltip('');
+	}
+};
 Blockly.Blocks.beatleESP32getIRbuttonKey = {
   	init: function() {
 		this.appendDummyInput()
@@ -1697,6 +1711,24 @@ Blockly.Blocks.beatleESP32MazeSolvergotoFinish = {
 	init: function() {
 		this.appendDummyInput()
 		    .appendField(Blockly.beatleESP32MazeSolvergotoFinish);
+		
+		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
+
+		
+		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
+		this.setInputsInline(true);
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour('#FF168B');
+		this.setTooltip('');
+	}
+};
+
+Blockly.Blocks.beatleESP32StopFollowline = {
+  
+	init: function() {
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32StopFollowline);
 		
 		 //   .appendField(new Blockly.FieldTextInput('0xFFFFFF'),'servoP');
 

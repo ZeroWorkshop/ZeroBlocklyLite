@@ -1354,6 +1354,19 @@ Blockly.Arduino.beatleESP32ServoScan = function() {
 	return code;
 };
 
+Blockly.Arduino.beatleESP32ServoScanStopAngle = function() {
+	var angle = Blockly.Arduino.valueToCode(this, 'speedValue', Blockly.Arduino.ORDER_ATOMIC);//this.getFieldValue('speedValue');
+  Blockly.Arduino.definitions_['include_beatleESP32general'] = '#include "beatleESP32_general.h"\n';
+	Blockly.Arduino.definitions_['declare_beatleESP32ServoScan'] = '';
+
+	Blockly.Arduino.setups_['beatle_serial'] = 'Serial.begin(115200);\n';
+
+	Blockly.Arduino.setups_['beatle_beatleESP32ServoScan'] = 'ioexpander.begin();\n' + '  ioexpander.servoWrite(90);\n';
+
+	var code = 'ioexpander.servoWrite(' + angle + ');\n';
+	return code;
+};
+
 Blockly.Arduino.beatleESP32IRSend = function () {
 	var code = '';
 	

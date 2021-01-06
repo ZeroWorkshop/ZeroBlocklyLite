@@ -984,6 +984,21 @@ Blockly.Blocks.beatleESP32ServoScan = {
 		this.setTooltip('');
 	}
 };
+
+Blockly.Blocks.beatleESP32ServoScanStopAngle = {
+  	init: function() {
+		this.appendDummyInput()
+		    .appendField(Blockly.beatleESP32ServoScanStopAngle);
+			
+    this.appendValueInput('speedValue')
+			    .appendField(Blockly.beatleESP32ServoAngle);
+		//.appendField(new Blockly.FieldImage("../../media/ZeroWorkshop/catch.png", 150, 80, ""));
+		this.setPreviousStatement(true, null);
+		this.setNextStatement(true, null);
+		this.setColour('#FF168B');
+		this.setTooltip('');
+	}
+};
 Blockly.Blocks.beatleESP32getIRbuttonKey = {
   	init: function() {
 		this.appendDummyInput()
